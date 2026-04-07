@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+geo_audit_env.egg-info/
+docs/
+scripts/
+tests/
+README_PROGRESS.md
+

@@ -1,0 +1,79 @@
+{
+  "evaluation_summary": {
+    "easy": 1.0,
+    "hard": 1.0,
+    "medium": 1.0
+  },
+  "training_checkpoints": [
+    {
+      "difficulty": "hard",
+      "episode": 250,
+      "epsilon": 0.1416,
+      "final_reward": 0.6667,
+      "total_shaped_reward": 0.9517
+    },
+    {
+      "difficulty": "hard",
+      "episode": 500,
+      "epsilon": 0.0668,
+      "final_reward": 1.0,
+      "total_shaped_reward": 1.185
+    },
+    {
+      "difficulty": "easy",
+      "episode": 750,
+      "epsilon": 0.05,
+      "final_reward": 0.0,
+      "total_shaped_reward": 0.12
+    },
+    {
+      "difficulty": "hard",
+      "episode": 1000,
+      "epsilon": 0.05,
+      "final_reward": 0.6667,
+      "total_shaped_reward": 0.8167
+    },
+    {
+      "difficulty": "hard",
+      "episode": 1250,
+      "epsilon": 0.05,
+      "final_reward": 0.0,
+      "total_shaped_reward": 0.05
+    },
+    {
+      "difficulty": "hard",
+      "episode": 1500,
+      "epsilon": 0.05,
+      "final_reward": 1.0,
+      "total_shaped_reward": 1.325
+    },
+    {
+      "difficulty": "hard",
+      "episode": 1750,
+      "epsilon": 0.05,
+      "final_reward": 0.6667,
+      "total_shaped_reward": 0.9517
+    },
+    {
+      "difficulty": "hard",
+      "episode": 2000,
+      "epsilon": 0.05,
+      "final_reward": 1.0,
+      "total_shaped_reward": 1.325
+    },
+    {
+      "difficulty": "hard",
+      "episode": 2250,
+      "epsilon": 0.05,
+      "final_reward": 1.0,
+      "total_shaped_reward": 1.05
+    },
+    {
+      "difficulty": "hard",
+      "episode": 2500,
+      "epsilon": 0.05,
+      "final_reward": 1.0,
+      "total_shaped_reward": 1.325
+    }
+  ]
+}

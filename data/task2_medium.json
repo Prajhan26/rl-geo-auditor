@@ -1,0 +1,170 @@
+[
+  {
+    "page_id": "medium_001",
+    "url": "https://example.com/guides/ethereum-staking",
+    "target_query": "how to stake ethereum",
+    "title_tag": "Ethereum Staking Guide | Example",
+    "meta_description": "Learn about Ethereum staking and validator rewards.",
+    "h1": "Ethereum Staking Guide",
+    "first_paragraph": "Ethereum staking is becoming more popular with investors interested in long-term rewards, but many guides delay the practical answer.",
+    "word_count": 1200,
+    "headers": [
+      "H2: What is Staking",
+      "H2: Benefits",
+      "H2: Risks",
+      "H2: How to Stake"
+    ],
+    "schema_types": [
+      "Article"
+    ],
+    "has_author": true,
+    "has_date": false,
+    "has_sources": true,
+    "source_count": 2,
+    "issues": [
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "missing_howto_schema",
+        "severity": "high"
+      },
+      {
+        "type": "no_date",
+        "severity": "medium"
+      }
+    ]
+  },
+  {
+    "page_id": "medium_002",
+    "url": "https://example.com/rewards/eth-staking",
+    "target_query": "ethereum staking rewards",
+    "title_tag": "ETH Staking Explained: Rewards and Risks",
+    "meta_description": "Everything you need to know about Ethereum staking rewards.",
+    "h1": "ETH Staking Explained",
+    "first_paragraph": "Welcome to our latest crypto deep dive. Before we cover rewards, let us introduce our platform and why readers love our newsletter.",
+    "word_count": 2000,
+    "headers": [
+      "H2: Introduction",
+      "H2: What Is Staking",
+      "H2: Current Rewards",
+      "H2: How to Start",
+      "H2: FAQ"
+    ],
+    "schema_types": [
+      "Article",
+      "FAQPage"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      {
+        "type": "buried_answer",
+        "severity": "high"
+      },
+      {
+        "type": "missing_howto_schema",
+        "severity": "high"
+      },
+      {
+        "type": "no_sources",
+        "severity": "low"
+      }
+    ]
+  },
+  {
+    "page_id": "medium_003",
+    "url": "https://example.com/blog/staking-faq",
+    "target_query": "how does ethereum staking work",
+    "title_tag": "How Ethereum Staking Works | Example",
+    "meta_description": "A practical guide to how Ethereum staking works for beginners.",
+    "h1": "How Ethereum Staking Works",
+    "first_paragraph": "Ethereum staking lets you lock ETH to help secure the network and earn rewards, but beginners should understand validator requirements and risks first.",
+    "word_count": 900,
+    "headers": [
+      "H2: Basics",
+      "H2: Validator Requirements",
+      "H2: Risks",
+      "H2: FAQ"
+    ],
+    "schema_types": [
+      "Article"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 1,
+    "issues": [
+      {
+        "type": "missing_faq_schema",
+        "severity": "high"
+      }
+    ]
+  },
+  {
+    "page_id": "medium_004",
+    "url": "https://example.com/solo-validator-guide",
+    "target_query": "how to solo stake ethereum",
+    "title_tag": "How to Solo Stake Ethereum | Example",
+    "meta_description": "A step-by-step guide to solo staking Ethereum at home.",
+    "h1": "How to Solo Stake Ethereum",
+    "first_paragraph": "To solo stake Ethereum, you need 32 ETH, validator hardware, and a clear setup path for keys, clients, and monitoring.",
+    "word_count": 1400,
+    "headers": [
+      "H2: Requirements",
+      "H2: Step by Step",
+      "H2: Monitoring",
+      "H2: Risks"
+    ],
+    "schema_types": [
+      "Article",
+      "HowTo"
+    ],
+    "has_author": true,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      {
+        "type": "no_date",
+        "severity": "medium"
+      },
+      {
+        "type": "no_sources",
+        "severity": "low"
+      }
+    ]
+  },
+  {
+    "page_id": "medium_005",
+    "url": "https://example.com/liquid-staking-explainer",
+    "target_query": "what is liquid staking",
+    "title_tag": "Liquid Staking Explained | Example",
+    "meta_description": "Understand liquid staking tokens and how they work.",
+    "h1": "Liquid Staking Explained",
+    "first_paragraph": "Liquid staking lets you stake assets while still receiving a tradable token that represents the staked position.",
+    "word_count": 1100,
+    "headers": [
+      "H2: What Is Liquid Staking",
+      "H2: Benefits",
+      "H2: Risks",
+      "H2: FAQ"
+    ],
+    "schema_types": [
+      "Article"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 2,
+    "issues": [
+      {
+        "type": "missing_faq_schema",
+        "severity": "high"
+      }
+    ]
+  }
+]

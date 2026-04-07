@@ -1,0 +1,4 @@
+name: geo-audit-env
+description: GEO webpage audit environment for reinforcement learning experiments
+app: uvicorn server.app:app --host 0.0.0.0 --port 8000
+entrypoint: server.app:app

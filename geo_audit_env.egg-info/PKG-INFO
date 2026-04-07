@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: geo-audit-env
+Version: 0.1.0
+Summary: A GEO auditing environment for hackathon experiments
+Requires-Python: >=3.11
+Requires-Dist: fastapi>=0.115.0
+Requires-Dist: uvicorn>=0.32.0

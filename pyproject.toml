@@ -1,0 +1,20 @@
+[project]
+name = "geo-audit-env"
+version = "0.1.0"
+description = "A GEO auditing environment for hackathon experiments"
+requires-python = ">=3.11"
+dependencies = [
+  "openenv-core>=0.2.0",
+  "fastapi>=0.115.0",
+  "uvicorn>=0.32.0"
+]
+
+[project.scripts]
+server = "server.app:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["server"]

@@ -1,0 +1,190 @@
+[
+  {
+    "page_id": "easy_001",
+    "url": "https://example.com/ethereum-staking-basics",
+    "target_query": "how to stake ethereum",
+    "title_tag": "Crypto Blog",
+    "meta_description": "",
+    "h1": "Welcome to Our Blog",
+    "first_paragraph": "We are a team of crypto enthusiasts who love blockchain technology and discuss market trends for curious readers.",
+    "word_count": 280,
+    "headers": [],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      {
+        "type": "missing_meta_description",
+        "severity": "critical"
+      },
+      {
+        "type": "no_direct_answer",
+        "severity": "critical"
+      },
+      {
+        "type": "thin_content",
+        "severity": "medium"
+      },
+      {
+        "type": "no_headers",
+        "severity": "high"
+      }
+    ]
+  },
+  {
+    "page_id": "easy_002",
+    "url": "https://example.com/old-eth-page",
+    "target_query": "what is ethereum staking",
+    "title_tag": "",
+    "meta_description": "Welcome to our exchange.",
+    "h1": "Ethereum",
+    "first_paragraph": "Ethereum is a blockchain used by many people for different purposes across the crypto ecosystem.",
+    "word_count": 150,
+    "headers": [
+      "H2: About"
+    ],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      {
+        "type": "missing_title_tag",
+        "severity": "critical"
+      },
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "no_direct_answer",
+        "severity": "critical"
+      },
+      {
+        "type": "thin_content",
+        "severity": "medium"
+      },
+      {
+        "type": "missing_article_schema",
+        "severity": "high"
+      }
+    ]
+  },
+  {
+    "page_id": "easy_003",
+    "url": "https://example.com/validator-guide",
+    "target_query": "how to run an ethereum validator",
+    "title_tag": "Validator Setup",
+    "meta_description": "",
+    "h1": "Start Here",
+    "first_paragraph": "Our company helps people explore blockchain infrastructure and stay updated with the latest news in crypto.",
+    "word_count": 260,
+    "headers": [],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      {
+        "type": "missing_meta_description",
+        "severity": "critical"
+      },
+      {
+        "type": "weak_title_tag",
+        "severity": "medium"
+      },
+      {
+        "type": "no_direct_answer",
+        "severity": "critical"
+      },
+      {
+        "type": "no_headers",
+        "severity": "high"
+      },
+      {
+        "type": "thin_content",
+        "severity": "medium"
+      }
+    ]
+  },
+  {
+    "page_id": "easy_004",
+    "url": "https://example.com/eth-faq-page",
+    "target_query": "ethereum staking faq",
+    "title_tag": "Ethereum FAQ",
+    "meta_description": "",
+    "h1": "Questions About Ethereum",
+    "first_paragraph": "This page collects common Ethereum questions for readers exploring the ecosystem.",
+    "word_count": 220,
+    "headers": [
+      "H2: FAQ"
+    ],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      {
+        "type": "missing_meta_description",
+        "severity": "critical"
+      },
+      {
+        "type": "missing_faq_schema",
+        "severity": "high"
+      },
+      {
+        "type": "thin_content",
+        "severity": "medium"
+      },
+      {
+        "type": "no_sources",
+        "severity": "low"
+      }
+    ]
+  },
+  {
+    "page_id": "easy_005",
+    "url": "https://example.com/staking-overview",
+    "target_query": "ethereum staking overview",
+    "title_tag": "Overview",
+    "meta_description": "Learn about our company and crypto mission.",
+    "h1": "Ethereum Staking Overview",
+    "first_paragraph": "Welcome to our company blog where we talk about crypto innovation and important trends in blockchain.",
+    "word_count": 340,
+    "headers": [
+      "H2: Intro"
+    ],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      {
+        "type": "weak_title_tag",
+        "severity": "medium"
+      },
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "no_direct_answer",
+        "severity": "critical"
+      },
+      {
+        "type": "no_author",
+        "severity": "medium"
+      },
+      {
+        "type": "no_date",
+        "severity": "medium"
+      }
+    ]
+  }
+]

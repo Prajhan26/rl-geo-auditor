@@ -1,0 +1,159 @@
+[
+  {
+    "page_id": "hard_001",
+    "url": "https://example.com/client/ethereum-staking-guide",
+    "target_query": "best way to stake ethereum",
+    "title_tag": "Complete Ethereum Staking Guide | Example",
+    "meta_description": "Learn how to stake Ethereum with our guide.",
+    "h1": "Complete Ethereum Staking Guide",
+    "first_paragraph": "Staking Ethereum is one of the main ways to earn yield from ETH, but the best approach depends on custody, validator setup, and risk tolerance.",
+    "word_count": 1800,
+    "headers": [
+      "H2: Overview",
+      "H2: Requirements",
+      "H2: Step by Step",
+      "H2: Rewards",
+      "H2: FAQ"
+    ],
+    "schema_types": [
+      "Article",
+      "HowTo"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      {
+        "type": "missing_faq_schema",
+        "severity": "high"
+      },
+      {
+        "type": "no_sources",
+        "severity": "low"
+      }
+    ]
+  },
+  {
+    "page_id": "hard_002",
+    "url": "https://example.com/client/staking-comparison",
+    "target_query": "best ethereum staking platform",
+    "title_tag": "Best Ethereum Staking Platform Comparison",
+    "meta_description": "Compare major Ethereum staking platforms and custody models.",
+    "h1": "Best Ethereum Staking Platform Comparison",
+    "first_paragraph": "The best Ethereum staking platform depends on whether you prioritize custody, yield, liquidity, or validator control.",
+    "word_count": 1600,
+    "headers": [
+      "H2: Custodial Platforms",
+      "H2: Liquid Staking",
+      "H2: Solo Staking",
+      "H2: FAQ"
+    ],
+    "schema_types": [
+      "Article"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      {
+        "type": "missing_faq_schema",
+        "severity": "high"
+      },
+      {
+        "type": "no_sources",
+        "severity": "low"
+      }
+    ]
+  },
+  {
+    "page_id": "hard_003",
+    "url": "https://example.com/client/how-to-stake-safely",
+    "target_query": "how to stake ethereum safely",
+    "title_tag": "How to Stake Ethereum Safely | Example",
+    "meta_description": "Learn how to stake Ethereum safely with a risk-aware checklist.",
+    "h1": "How to Stake Ethereum Safely",
+    "first_paragraph": "To stake Ethereum safely, compare validator options, understand slashing risk, and use primary documentation before committing funds.",
+    "word_count": 1500,
+    "headers": [
+      "H2: Risk Checklist",
+      "H2: Step by Step",
+      "H2: FAQ",
+      "H2: References"
+    ],
+    "schema_types": [
+      "Article",
+      "HowTo",
+      "FAQPage"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 5,
+    "issues": []
+  },
+  {
+    "page_id": "hard_004",
+    "url": "https://example.com/client/lido-vs-solo-staking",
+    "target_query": "lido vs solo staking ethereum",
+    "title_tag": "Lido vs Solo Staking Ethereum | Example",
+    "meta_description": "Compare Lido and solo staking for Ethereum holders.",
+    "h1": "Lido vs Solo Staking Ethereum",
+    "first_paragraph": "Lido is simpler, but solo staking offers direct validator control, so the right choice depends on capital, skill, and custody preferences.",
+    "word_count": 1700,
+    "headers": [
+      "H2: Custody Tradeoffs",
+      "H2: Yield Tradeoffs",
+      "H2: Risks",
+      "H2: FAQ"
+    ],
+    "schema_types": [
+      "Article"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      {
+        "type": "missing_faq_schema",
+        "severity": "high"
+      },
+      {
+        "type": "no_sources",
+        "severity": "low"
+      }
+    ]
+  },
+  {
+    "page_id": "hard_005",
+    "url": "https://example.com/client/staking-tax-guide",
+    "target_query": "ethereum staking taxes guide",
+    "title_tag": "Ethereum Staking Taxes Guide | Example",
+    "meta_description": "Understand how staking rewards may be taxed in different scenarios.",
+    "h1": "Ethereum Staking Taxes Guide",
+    "first_paragraph": "Ethereum staking taxes depend on jurisdiction, reward timing, and whether tokens are sold, so readers need references and caveats.",
+    "word_count": 1900,
+    "headers": [
+      "H2: When Rewards Are Recognized",
+      "H2: Selling Rewards",
+      "H2: FAQ",
+      "H2: References"
+    ],
+    "schema_types": [
+      "Article",
+      "FAQPage"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 1,
+    "issues": [
+      {
+        "type": "no_sources",
+        "severity": "low"
+      }
+    ]
+  }
+]
