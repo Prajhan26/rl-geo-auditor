@@ -1,0 +1,14 @@
+{
+  "finalized_count": 49,
+  "replacement_count": 11,
+  "by_status": {
+    "approved_clean": 22,
+    "approved_with_corrections": 27,
+    "replace_candidate": 11
+  },
+  "difficulties": {
+    "easy_finalized": 15,
+    "medium_finalized": 17,
+    "hard_finalized": 17
+  }
+}

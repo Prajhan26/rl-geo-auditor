@@ -1,0 +1,268 @@
+[
+  {
+    "page_id": "real_easy_004",
+    "url": "https://ethereum.org/en/what-is-ethereum/",
+    "final_status": "approved_clean",
+    "final_issues": [],
+    "review_notes": [
+      "Removed missing_howto_schema.",
+      "This is an explainer page, not a how-to page."
+    ]
+  },
+  {
+    "page_id": "real_easy_005",
+    "url": "https://ethereum.org/staking/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Removed no_direct_answer and missing_howto_schema.",
+      "This page answers the topic and is broad/navigational rather than a strict how-to."
+    ]
+  },
+  {
+    "page_id": "real_easy_006",
+    "url": "https://ethereum.org/staking/pools/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "missing_faq_schema",
+        "severity": "high"
+      },
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Meta description is serviceable but generic.",
+      "FAQ section is visible.",
+      "Visible author attribution is not obvious."
+    ]
+  },
+  {
+    "page_id": "real_easy_016",
+    "url": "https://ethereum.org/en/defi/",
+    "final_status": "approved_clean",
+    "final_issues": [],
+    "review_notes": [
+      "Removed weak_meta_description and no_direct_answer.",
+      "The page functions as a broad topical explainer."
+    ]
+  },
+  {
+    "page_id": "real_easy_017",
+    "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Removed no_direct_answer and missing_article_schema.",
+      "This is documentation, not an article page."
+    ]
+  },
+  {
+    "page_id": "real_medium_006",
+    "url": "https://ethereum.org/staking/withdrawals/",
+    "final_status": "approved_clean",
+    "final_issues": [],
+    "review_notes": [
+      "No changes needed."
+    ]
+  },
+  {
+    "page_id": "real_medium_008",
+    "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Removed no_direct_answer and missing_article_schema.",
+      "This is documentation, not an article page."
+    ]
+  },
+  {
+    "page_id": "real_medium_009",
+    "url": "https://docs.lido.fi/contracts/lido/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Kept weak_meta_description because the extracted meta is too thin.",
+      "Removed no_direct_answer and missing_article_schema."
+    ]
+  },
+  {
+    "page_id": "real_medium_012",
+    "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Removed no_direct_answer and missing_article_schema."
+    ]
+  },
+  {
+    "page_id": "real_medium_013",
+    "url": "https://docs.lido.fi/contracts/lido/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Kept weak_meta_description because the extracted meta is too thin.",
+      "Removed no_direct_answer and missing_article_schema."
+    ]
+  },
+  {
+    "page_id": "real_medium_017",
+    "url": "https://ethereum.org/en/defi/",
+    "final_status": "approved_clean",
+    "final_issues": [],
+    "review_notes": [
+      "Removed weak_meta_description and no_direct_answer."
+    ]
+  },
+  {
+    "page_id": "real_hard_001",
+    "url": "https://www.blocknative.com/blog/ethereum-liquid-staking-guide",
+    "final_status": "approved_clean",
+    "final_issues": [],
+    "review_notes": [
+      "Removed missing_article_schema.",
+      "Treat as a strong article unless manual schema inspection proves otherwise."
+    ]
+  },
+  {
+    "page_id": "real_hard_002",
+    "url": "https://ethereum.org/staking/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Removed no_direct_answer and missing_howto_schema.",
+      "This page answers the topic and is broad/navigational."
+    ]
+  },
+  {
+    "page_id": "real_hard_003",
+    "url": "https://ethereum.org/staking/solo/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "missing_howto_schema",
+        "severity": "high"
+      },
+      {
+        "type": "missing_faq_schema",
+        "severity": "high"
+      },
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Added missing_faq_schema and no_author based on visible page structure."
+    ]
+  },
+  {
+    "page_id": "real_hard_004",
+    "url": "https://ethereum.org/staking/pools/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "missing_faq_schema",
+        "severity": "high"
+      },
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Added no_author to match the visible page.",
+      "Kept weak_meta_description and missing_faq_schema."
+    ]
+  },
+  {
+    "page_id": "real_hard_007",
+    "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Removed weak_meta_description, no_direct_answer, and missing_article_schema."
+    ]
+  },
+  {
+    "page_id": "real_hard_012",
+    "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Removed no_direct_answer and missing_article_schema."
+    ]
+  },
+  {
+    "page_id": "real_hard_017",
+    "url": "https://ethereum.org/en/defi/",
+    "final_status": "approved_clean",
+    "final_issues": [],
+    "review_notes": [
+      "Removed weak_meta_description and no_direct_answer."
+    ]
+  }
+]

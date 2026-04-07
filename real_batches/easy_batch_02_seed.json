@@ -1,0 +1,62 @@
+[
+  {
+    "page_id": "real_easy_011",
+    "difficulty": "easy",
+    "url": "https://docs.lido.fi/",
+    "target_query": "how does lido staking work"
+  },
+  {
+    "page_id": "real_easy_012",
+    "difficulty": "easy",
+    "url": "https://docs.lido.fi/contracts/lido/",
+    "target_query": "what is the lido contract"
+  },
+  {
+    "page_id": "real_easy_013",
+    "difficulty": "easy",
+    "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/",
+    "target_query": "what are ethereum nodes and clients"
+  },
+  {
+    "page_id": "real_easy_014",
+    "difficulty": "easy",
+    "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/",
+    "target_query": "what is proof of stake"
+  },
+  {
+    "page_id": "real_easy_015",
+    "difficulty": "easy",
+    "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/",
+    "target_query": "what is proof of work"
+  },
+  {
+    "page_id": "real_easy_016",
+    "difficulty": "easy",
+    "url": "https://ethereum.org/en/defi/",
+    "target_query": "what is defi"
+  },
+  {
+    "page_id": "real_easy_017",
+    "difficulty": "easy",
+    "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/",
+    "target_query": "lido tokens integration guide"
+  },
+  {
+    "page_id": "real_easy_018",
+    "difficulty": "easy",
+    "url": "https://www.gemini.com/cryptopedia/ethereum-vs-bitcoin-blockchain",
+    "target_query": "ethereum vs bitcoin"
+  },
+  {
+    "page_id": "real_easy_019",
+    "difficulty": "easy",
+    "url": "https://www.gemini.com/cryptopedia/proof-of-stake-vs-proof-of-work",
+    "target_query": "proof of stake vs proof of work"
+  },
+  {
+    "page_id": "real_easy_020",
+    "difficulty": "easy",
+    "url": "https://www.stakingrewards.com/assets/eth/",
+    "target_query": "ethereum staking asset overview"
+  }
+]

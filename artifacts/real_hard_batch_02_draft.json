@@ -1,0 +1,502 @@
+[
+  {
+    "page_id": "real_hard_011",
+    "difficulty": "hard",
+    "url": "https://docs.lido.fi/",
+    "target_query": "is lido a good ethereum staking option",
+    "title_tag": "Introduction | Lido Docs",
+    "meta_description": "This documentation is intended to introduce the general user to the project, as well as to serve as a guide for anyone who may be developing software using Lido.",
+    "h1": "Introduction",
+    "first_paragraph": "This documentation is intended to introduce the general user to the project, as well as to serve as a guide for anyone who may be developing software using Lido.",
+    "word_count": 1127,
+    "headers": [
+      "H2: What is Lido\u200b",
+      "H2: Liquid staking\u200b",
+      "H3: Problem statement\u200b",
+      "H3: Solution\u200b",
+      "H3: Comparison with other staking options\u200b",
+      "H2: Lido on Ethereum APR\u200b",
+      "H3: Protocol APR\u200b",
+      "H3: Consensus Layer\u200b",
+      "H3: Execution Layer\u200b",
+      "H3: Rewards socialization model\u200b",
+      "H3: Protocol fee\u200b",
+      "H3: More about APR calculation\u200b"
+    ],
+    "schema_types": [
+      "BreadcrumbList",
+      "ListItem"
+    ],
+    "has_author": false,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      {
+        "type": "weak_title_tag",
+        "severity": "medium"
+      },
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "no_author",
+        "severity": "medium"
+      },
+      {
+        "type": "no_sources",
+        "severity": "low"
+      },
+      {
+        "type": "no_direct_answer",
+        "severity": "critical"
+      },
+      {
+        "type": "missing_article_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_012",
+    "difficulty": "hard",
+    "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/",
+    "target_query": "how should teams integrate lido staking tokens",
+    "title_tag": "Lido tokens integration guide | Lido Docs",
+    "meta_description": "This document is intended for developers looking to integrate Lido's stETH or wstETH tokens into their dApps or services, with a focus on money markets, DEXes and blockchain bridges.",
+    "h1": "Lido tokens integration guide",
+    "first_paragraph": "This document is intended for developers looking to integrate Lido's stETH or wstETH tokens into their dApps or services, with a focus on money markets, DEXes and blockchain bridges.",
+    "word_count": 3776,
+    "headers": [
+      "H2: Lido\u200b",
+      "H2: Lido tokens\u200b",
+      "H3: stTokens: stETH and wstETH\u200b",
+      "H3: LDO\u200b",
+      "H3: unstETH\u200b",
+      "H2: stETH vs. wstETH\u200b",
+      "H2: stETH\u200b",
+      "H3: What is stETH\u200b",
+      "H3: Note on ERC-20 compliance\u200b",
+      "H3: Accounting oracle\u200b",
+      "H3: stETH internals: share mechanics\u200b",
+      "H3: Bookkeeping shares\u200b"
+    ],
+    "schema_types": [
+      "BreadcrumbList",
+      "ListItem"
+    ],
+    "has_author": false,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 8,
+    "issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      },
+      {
+        "type": "no_direct_answer",
+        "severity": "critical"
+      },
+      {
+        "type": "missing_article_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_013",
+    "difficulty": "hard",
+    "url": "https://docs.lido.fi/contracts/lido/",
+    "target_query": "how does the lido protocol contract work",
+    "title_tag": "Lido | Lido Docs",
+    "meta_description": "- Source code",
+    "h1": "Lido",
+    "first_paragraph": "Liquid staking pool and a related ERC-20 rebasing token (stETH)",
+    "word_count": 1694,
+    "headers": [
+      "H2: What is Lido?\u200b",
+      "H2: Submit\u200b",
+      "H2: Deposit\u200b",
+      "H2: Redeem\u200b",
+      "H2: Rebase\u200b",
+      "H3: External shares (stVaults)\u200b",
+      "H2: Oracle report\u200b",
+      "H2: Standards\u200b",
+      "H2: Staking-related Methods\u200b",
+      "H3: fallback\u200b",
+      "H3: submit()\u200b",
+      "H3: getBufferedEther()\u200b"
+    ],
+    "schema_types": [
+      "BreadcrumbList",
+      "ListItem"
+    ],
+    "has_author": false,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 8,
+    "issues": [
+      {
+        "type": "weak_title_tag",
+        "severity": "medium"
+      },
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "no_author",
+        "severity": "medium"
+      },
+      {
+        "type": "no_direct_answer",
+        "severity": "critical"
+      },
+      {
+        "type": "missing_article_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_014",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/",
+    "target_query": "proof of stake on ethereum",
+    "title_tag": "Proof-of-stake (PoS) | ethereum.org",
+    "meta_description": "An explanation of the proof-of-stake consensus protocol and its role in Ethereum.",
+    "h1": "Proof-of-stake (PoS)",
+    "first_paragraph": "Proof-of-stake (PoS) underlies Ethereum's consensus mechanism. Ethereum switched on its proof-of-stake mechanism in 2022 because it is more secure, less energy-intensive, and better for implementing new scaling solutions compared to the previous proof-of-work architecture.",
+    "word_count": 1271,
+    "headers": [
+      "H2: Prerequisites",
+      "H2: What is proof-of-stake (PoS)?",
+      "H2: Validators",
+      "H2: How a Transaction Gets Executed in Ethereum PoS",
+      "H2: Finality",
+      "H2: Crypto-economic security",
+      "H2: Fork choice",
+      "H2: Proof-of-stake and security",
+      "H2: Pros and cons",
+      "H3: Comparison to proof-of-work",
+      "H2: Further reading",
+      "H2: Related topics"
+    ],
+    "schema_types": [
+      "Article",
+      "BreadcrumbList",
+      "ListItem",
+      "Organization",
+      "Person",
+      "Thing",
+      "WebPage",
+      "WebSite"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 8,
+    "issues": [],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_015",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/",
+    "target_query": "best ethereum node and client setup",
+    "title_tag": "Nodes and clients | ethereum.org",
+    "meta_description": "An overview of Ethereum nodes and client software, plus how to set up a node and why you should do it.",
+    "h1": "Nodes and clients",
+    "first_paragraph": "Ethereum is a distributed network of computers (known as nodes) running software that can verify blocks and transaction data. The software must be run on your computer to turn it into an Ethereum node. There are two separate pieces of software (known as 'clients') required to form a node.",
+    "word_count": 2757,
+    "headers": [
+      "H2: Prerequisites",
+      "H2: What are nodes and clients?",
+      "H3: Client diversity",
+      "H3: Tracking nodes in the network",
+      "H2: Node types",
+      "H3: Full node",
+      "H3: Archive node",
+      "H3: Light node",
+      "H2: Why should I run an Ethereum node?",
+      "H3: Benefits to you",
+      "H3: Network benefits",
+      "H2: Running your own node"
+    ],
+    "schema_types": [
+      "Article",
+      "BreadcrumbList",
+      "ListItem",
+      "Organization",
+      "Person",
+      "Thing",
+      "WebPage",
+      "WebSite"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 8,
+    "issues": [],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_016",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/",
+    "target_query": "proof of work vs ethereum proof of stake",
+    "title_tag": "Proof-of-work (PoW) | ethereum.org",
+    "meta_description": "An explanation of the proof-of-work consensus protocol and its role in Ethereum.",
+    "h1": "Proof-of-work (PoW)",
+    "first_paragraph": "The Ethereum network began by using a consensus mechanism that involved Proof-of-work (PoW). This allowed the nodes of the Ethereum network to agree on the state of all information recorded on the Ethereum blockchain and prevented certain kinds of economic attacks. However, Ethereum switched off proof-of-work in 2022 and started using proof-of-stake instead.",
+    "word_count": 956,
+    "headers": [
+      "H2: Prerequisites",
+      "H2: What is Proof-of-work (PoW)?",
+      "H2: Proof-of-work and mining",
+      "H2: How did Ethereum's proof-of-work work?",
+      "H3: The work in proof-of-work",
+      "H3: Proof-of-work and security",
+      "H3: Proof-of-work economics",
+      "H2: Finality",
+      "H2: Proof-of-work energy-usage",
+      "H2: Pros and cons",
+      "H2: Compared to proof-of-stake",
+      "H2: More of a visual learner?"
+    ],
+    "schema_types": [
+      "Article",
+      "BreadcrumbList",
+      "ListItem",
+      "Organization",
+      "Person",
+      "Thing",
+      "WebPage",
+      "WebSite"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 8,
+    "issues": [],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_017",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/en/defi/",
+    "target_query": "is defi on ethereum worth using",
+    "title_tag": "What is DeFi? | Benefits and Use of Decentralised Finance | ethereum.org",
+    "meta_description": "An overview of DeFi on Ethereum",
+    "h1": "Decentralized finance (DeFi)",
+    "first_paragraph": "Uses of Ethereum are always developing and evolving. Add any info you think will make things clearer or more up to date. Edit page (opens in a new tab)",
+    "word_count": 2279,
+    "headers": [
+      "H2: What's DeFi?",
+      "H2: DeFi vs traditional finance",
+      "H3: A comparison",
+      "H2: It started with Bitcoin...",
+      "H2: Programmable money",
+      "H2: What can you do with DeFi?",
+      "H3: Send money around the globe quickly",
+      "H3: Access stable currencies",
+      "H3: Borrowing",
+      "H3: Start saving with crypto",
+      "H3: Exchange tokens",
+      "H3: Advanced trading"
+    ],
+    "schema_types": [
+      "Article",
+      "BreadcrumbList",
+      "ListItem",
+      "Organization",
+      "Person",
+      "Thing",
+      "WebPage",
+      "WebSite"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 8,
+    "issues": [
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "no_direct_answer",
+        "severity": "critical"
+      }
+    ],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_018",
+    "difficulty": "hard",
+    "url": "https://www.gemini.com/cryptopedia/ethereum-vs-bitcoin-blockchain",
+    "target_query": "ethereum vs bitcoin for long term utility",
+    "title_tag": "Gemini Cryptopedia: Explore Bitcoin & Crypto Basics | Gemini",
+    "meta_description": "Looking to learn more about bitcoin & other cryptocurrencies? Discover how bitcoin & other coins work here on Gemini's Cryptopedia education learning center.",
+    "h1": "Unlock the future of money on Gemini",
+    "first_paragraph": "So you\u2019ve heard of Bitcoin \u2014 but where to begin? From tokens and blockchains to decentralized finance and NFTs, the world of crypto is vast and growing by the minute. But while it might sound complicated, it doesn\u2019t have to be. If you\u2019re searching for a crypto crash course, look no further than Cryptopedia\u2019s guide to crypto 101.",
+    "word_count": 656,
+    "headers": [
+      "H3: Cryptopedia. Your trusted source for all things crypto.",
+      "H3: Cryptopedia.",
+      "H3: New To Crypto?",
+      "H3: Begin With Bitcoin",
+      "H3: The ABCs of NFTs",
+      "H3: A Deep Dive Into DeFi",
+      "H3: Learn From Our Experts",
+      "H3: Our Mission",
+      "H2: Get the latest from Cryptopedia"
+    ],
+    "schema_types": [],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 1,
+    "issues": [
+      {
+        "type": "weak_title_tag",
+        "severity": "medium"
+      },
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "no_direct_answer",
+        "severity": "critical"
+      },
+      {
+        "type": "missing_article_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_019",
+    "difficulty": "hard",
+    "url": "https://www.gemini.com/cryptopedia/proof-of-stake-vs-proof-of-work",
+    "target_query": "proof of stake vs proof of work for ethereum investors",
+    "title_tag": "Gemini Cryptopedia: Explore Bitcoin & Crypto Basics | Gemini",
+    "meta_description": "Looking to learn more about bitcoin & other cryptocurrencies? Discover how bitcoin & other coins work here on Gemini's Cryptopedia education learning center.",
+    "h1": "Unlock the future of money on Gemini",
+    "first_paragraph": "So you\u2019ve heard of Bitcoin \u2014 but where to begin? From tokens and blockchains to decentralized finance and NFTs, the world of crypto is vast and growing by the minute. But while it might sound complicated, it doesn\u2019t have to be. If you\u2019re searching for a crypto crash course, look no further than Cryptopedia\u2019s guide to crypto 101.",
+    "word_count": 656,
+    "headers": [
+      "H3: Cryptopedia. Your trusted source for all things crypto.",
+      "H3: Cryptopedia.",
+      "H3: New To Crypto?",
+      "H3: Begin With Bitcoin",
+      "H3: The ABCs of NFTs",
+      "H3: A Deep Dive Into DeFi",
+      "H3: Learn From Our Experts",
+      "H3: Our Mission",
+      "H2: Get the latest from Cryptopedia"
+    ],
+    "schema_types": [],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 1,
+    "issues": [
+      {
+        "type": "weak_title_tag",
+        "severity": "medium"
+      },
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "no_direct_answer",
+        "severity": "critical"
+      },
+      {
+        "type": "missing_article_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_020",
+    "difficulty": "hard",
+    "url": "https://www.stakingrewards.com/assets/eth/",
+    "target_query": "best ethereum staking asset overview",
+    "title_tag": "Top Eth Ecosystem Tokens | Staking Rewards",
+    "meta_description": "Explore all opportunities to stake Eth ecosystem assets. View Eth assets side by side and compare reward rates, staking ratio & more.",
+    "h1": "Discover Assets",
+    "first_paragraph": "Join 12,000 institutional allocators worldwide. No spam, unsubscribe anytime.",
+    "word_count": 40,
+    "headers": [
+      "H2: Institutional-Grade Research Delivered to Your Inbox",
+      "H3: Earn Risk-Adjusted Rewards with Digital Assets"
+    ],
+    "schema_types": [],
+    "has_author": true,
+    "has_date": false,
+    "has_sources": true,
+    "source_count": 4,
+    "issues": [
+      {
+        "type": "thin_content",
+        "severity": "medium"
+      },
+      {
+        "type": "no_direct_answer",
+        "severity": "critical"
+      }
+    ],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  }
+]

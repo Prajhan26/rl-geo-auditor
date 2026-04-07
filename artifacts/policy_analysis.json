@@ -254,6 +254,742 @@
         "weak_title_tag"
       ],
       "url": "https://example.com/staking-overview"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "no_direct_answer",
+            "thin_content",
+            "weak_meta_description",
+            "weak_title_tag"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "no_direct_answer",
+          "thin_content",
+          "weak_meta_description",
+          "weak_title_tag"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "no_direct_answer",
+            "thin_content",
+            "weak_meta_description",
+            "weak_title_tag"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "no_direct_answer",
+          "thin_content",
+          "weak_meta_description",
+          "weak_title_tag"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "easy_006",
+      "truth": [
+        "missing_article_schema",
+        "no_direct_answer",
+        "thin_content",
+        "weak_meta_description",
+        "weak_title_tag"
+      ],
+      "url": "https://example.com/stake-eth-intro"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_meta_description",
+            "missing_title_tag",
+            "no_direct_answer",
+            "no_headers",
+            "thin_content"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_meta_description",
+          "missing_title_tag",
+          "no_direct_answer",
+          "no_headers",
+          "thin_content"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_meta_description",
+            "missing_title_tag",
+            "no_direct_answer",
+            "no_headers",
+            "thin_content"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_meta_description",
+          "missing_title_tag",
+          "no_direct_answer",
+          "no_headers",
+          "thin_content"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "easy_007",
+      "truth": [
+        "missing_meta_description",
+        "missing_title_tag",
+        "no_direct_answer",
+        "no_headers",
+        "thin_content"
+      ],
+      "url": "https://example.com/validator-blog-post"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "missing_meta_description",
+            "no_sources",
+            "thin_content"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "missing_meta_description",
+          "no_sources",
+          "thin_content"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "missing_meta_description",
+            "no_sources",
+            "thin_content"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "missing_meta_description",
+          "no_sources",
+          "thin_content"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "easy_008",
+      "truth": [
+        "missing_faq_schema",
+        "missing_meta_description",
+        "no_sources",
+        "thin_content"
+      ],
+      "url": "https://example.com/validator-faq"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "no_direct_answer",
+            "thin_content",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": [
+            "weak_title_tag"
+          ]
+        },
+        "flagged": [
+          "missing_article_schema",
+          "no_direct_answer",
+          "thin_content",
+          "weak_meta_description"
+        ],
+        "reward": 0.8889
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "no_direct_answer",
+            "thin_content",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": [
+            "weak_title_tag"
+          ]
+        },
+        "flagged": [
+          "missing_article_schema",
+          "no_direct_answer",
+          "thin_content",
+          "weak_meta_description"
+        ],
+        "reward": 0.8889
+      },
+      "page_id": "easy_009",
+      "truth": [
+        "missing_article_schema",
+        "no_direct_answer",
+        "thin_content",
+        "weak_meta_description",
+        "weak_title_tag"
+      ],
+      "url": "https://example.com/validator-requirements"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_meta_description",
+            "no_headers",
+            "thin_content"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_meta_description",
+          "no_headers",
+          "thin_content"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_meta_description",
+            "no_headers",
+            "thin_content"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_meta_description",
+          "no_headers",
+          "thin_content"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "easy_010",
+      "truth": [
+        "missing_meta_description",
+        "no_headers",
+        "thin_content"
+      ],
+      "url": "https://example.com/solo-staking-basics"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "no_direct_answer",
+            "thin_content",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "no_direct_answer",
+          "thin_content",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "no_direct_answer",
+            "thin_content",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "no_direct_answer",
+          "thin_content",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "easy_011",
+      "truth": [
+        "missing_article_schema",
+        "no_direct_answer",
+        "thin_content",
+        "weak_meta_description"
+      ],
+      "url": "https://example.com/staking-risks-short"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "thin_content"
+          ],
+          "extra": [
+            "weak_meta_description"
+          ],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "thin_content",
+          "weak_meta_description"
+        ],
+        "reward": 0.7
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "thin_content"
+          ],
+          "extra": [
+            "weak_meta_description"
+          ],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "thin_content",
+          "weak_meta_description"
+        ],
+        "reward": 0.7
+      },
+      "page_id": "easy_012",
+      "truth": [
+        "missing_article_schema",
+        "thin_content"
+      ],
+      "url": "https://example.com/unstake-eth-quick-guide"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "missing_meta_description",
+            "no_sources",
+            "thin_content",
+            "weak_title_tag"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "missing_meta_description",
+          "no_sources",
+          "thin_content",
+          "weak_title_tag"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "missing_meta_description",
+            "no_sources",
+            "thin_content",
+            "weak_title_tag"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "missing_meta_description",
+          "no_sources",
+          "thin_content",
+          "weak_title_tag"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "easy_013",
+      "truth": [
+        "missing_faq_schema",
+        "missing_meta_description",
+        "no_sources",
+        "thin_content",
+        "weak_title_tag"
+      ],
+      "url": "https://example.com/staking-questions"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "no_author",
+            "no_date",
+            "no_direct_answer",
+            "weak_meta_description",
+            "weak_title_tag"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "no_author",
+          "no_date",
+          "no_direct_answer",
+          "weak_meta_description",
+          "weak_title_tag"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "no_author",
+            "no_date",
+            "no_direct_answer",
+            "weak_meta_description",
+            "weak_title_tag"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "no_author",
+          "no_date",
+          "no_direct_answer",
+          "weak_meta_description",
+          "weak_title_tag"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "easy_014",
+      "truth": [
+        "missing_article_schema",
+        "no_author",
+        "no_date",
+        "no_direct_answer",
+        "weak_meta_description",
+        "weak_title_tag"
+      ],
+      "url": "https://example.com/choose-staking-pool"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "missing_meta_description",
+            "thin_content"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "missing_meta_description",
+          "thin_content"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "missing_meta_description",
+            "thin_content"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "missing_meta_description",
+          "thin_content"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "easy_015",
+      "truth": [
+        "missing_article_schema",
+        "missing_meta_description",
+        "thin_content"
+      ],
+      "url": "https://example.com/validator-checklist"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources",
+            "thin_content",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources",
+          "thin_content",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources",
+            "thin_content",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources",
+          "thin_content",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "easy_016",
+      "truth": [
+        "missing_faq_schema",
+        "no_sources",
+        "thin_content",
+        "weak_meta_description"
+      ],
+      "url": "https://example.com/liquid-staking-faq-short"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "no_headers",
+            "thin_content",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "no_headers",
+          "thin_content",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "no_headers",
+            "thin_content",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "no_headers",
+          "thin_content",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "easy_017",
+      "truth": [
+        "no_headers",
+        "thin_content",
+        "weak_meta_description"
+      ],
+      "url": "https://example.com/validator-uptime"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "missing_meta_description",
+            "no_direct_answer",
+            "thin_content",
+            "weak_title_tag"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "missing_meta_description",
+          "no_direct_answer",
+          "thin_content",
+          "weak_title_tag"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "missing_meta_description",
+            "no_direct_answer",
+            "thin_content",
+            "weak_title_tag"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "missing_meta_description",
+          "no_direct_answer",
+          "thin_content",
+          "weak_title_tag"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "easy_018",
+      "truth": [
+        "missing_article_schema",
+        "missing_meta_description",
+        "no_direct_answer",
+        "thin_content",
+        "weak_title_tag"
+      ],
+      "url": "https://example.com/staking-rewards-short"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "no_author",
+            "no_date",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "no_author",
+          "no_date",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "no_author",
+            "no_date",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "no_author",
+          "no_date",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "easy_019",
+      "truth": [
+        "missing_article_schema",
+        "no_author",
+        "no_date",
+        "weak_meta_description"
+      ],
+      "url": "https://example.com/slashing-explained"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "missing_meta_description",
+            "no_sources",
+            "thin_content"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "missing_meta_description",
+          "no_sources",
+          "thin_content"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "missing_meta_description",
+            "no_sources",
+            "thin_content"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "missing_meta_description",
+          "no_sources",
+          "thin_content"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "easy_020",
+      "truth": [
+        "missing_faq_schema",
+        "missing_meta_description",
+        "no_sources",
+        "thin_content"
+      ],
+      "url": "https://example.com/staking-safety-faq"
     }
   ],
   "hard": [
@@ -426,6 +1162,521 @@
         "no_sources"
       ],
       "url": "https://example.com/client/staking-tax-guide"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "hard_006",
+      "truth": [
+        "missing_faq_schema",
+        "no_sources"
+      ],
+      "url": "https://example.com/client/best-validator-client"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [],
+        "reward": 1.0
+      },
+      "page_id": "hard_007",
+      "truth": [],
+      "url": "https://example.com/client/diversify-staking-risk"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "hard_008",
+      "truth": [
+        "missing_faq_schema",
+        "no_sources"
+      ],
+      "url": "https://example.com/client/lido-vs-rocket-pool"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "hard_009",
+      "truth": [
+        "no_sources"
+      ],
+      "url": "https://example.com/client/staking-legal-risks"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "hard_010",
+      "truth": [
+        "missing_faq_schema",
+        "no_sources"
+      ],
+      "url": "https://example.com/client/migrate-validator-clients"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "hard_011",
+      "truth": [
+        "missing_faq_schema",
+        "no_sources",
+        "weak_meta_description"
+      ],
+      "url": "https://example.com/client/restaking-strategy"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "buried_answer",
+            "missing_faq_schema",
+            "missing_howto_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "buried_answer",
+          "missing_faq_schema",
+          "missing_howto_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "buried_answer",
+            "missing_faq_schema",
+            "missing_howto_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "buried_answer",
+          "missing_faq_schema",
+          "missing_howto_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "hard_012",
+      "truth": [
+        "buried_answer",
+        "missing_faq_schema",
+        "missing_howto_schema",
+        "no_sources"
+      ],
+      "url": "https://example.com/client/evaluate-staking-platforms"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [],
+        "reward": 1.0
+      },
+      "page_id": "hard_013",
+      "truth": [],
+      "url": "https://example.com/client/institutional-custody-guide"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "hard_014",
+      "truth": [
+        "missing_faq_schema",
+        "no_sources"
+      ],
+      "url": "https://example.com/client/solo-staking-vs-dvt"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [],
+        "reward": 1.0
+      },
+      "page_id": "hard_015",
+      "truth": [],
+      "url": "https://example.com/client/recover-validator-downtime"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "hard_016",
+      "truth": [
+        "no_sources"
+      ],
+      "url": "https://example.com/client/staking-yield-comparison"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "hard_017",
+      "truth": [
+        "missing_faq_schema",
+        "no_sources"
+      ],
+      "url": "https://example.com/client/institutional-staking-options"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "missing_howto_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "missing_howto_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "missing_howto_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "missing_howto_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "hard_018",
+      "truth": [
+        "missing_faq_schema",
+        "missing_howto_schema",
+        "no_sources"
+      ],
+      "url": "https://example.com/client/hedge-slashing-risk"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "hard_019",
+      "truth": [
+        "no_sources"
+      ],
+      "url": "https://example.com/client/smart-contract-risk-guide"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [],
+        "reward": 1.0
+      },
+      "page_id": "hard_020",
+      "truth": [],
+      "url": "https://example.com/client/audit-staking-tax-assumptions"
     }
   ],
   "medium": [
@@ -618,6 +1869,576 @@
         "missing_faq_schema"
       ],
       "url": "https://example.com/liquid-staking-explainer"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_howto_schema"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_howto_schema"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_howto_schema"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_howto_schema"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "medium_006",
+      "truth": [
+        "missing_howto_schema"
+      ],
+      "url": "https://example.com/validator-node-guide"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "medium_007",
+      "truth": [
+        "missing_faq_schema"
+      ],
+      "url": "https://example.com/staking-faq-complete"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "buried_answer",
+            "missing_howto_schema",
+            "no_sources",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "buried_answer",
+          "missing_howto_schema",
+          "no_sources",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "buried_answer",
+            "missing_howto_schema",
+            "no_sources",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "buried_answer",
+          "missing_howto_schema",
+          "no_sources",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "medium_008",
+      "truth": [
+        "buried_answer",
+        "missing_howto_schema",
+        "no_sources",
+        "weak_meta_description"
+      ],
+      "url": "https://example.com/compare-staking-providers"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_date"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_date"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_date"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_date"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "medium_009",
+      "truth": [
+        "missing_faq_schema",
+        "no_date"
+      ],
+      "url": "https://example.com/restaking-explained"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_article_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_article_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "medium_010",
+      "truth": [
+        "missing_article_schema",
+        "no_sources"
+      ],
+      "url": "https://example.com/choose-ethereum-client"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "buried_answer",
+            "missing_faq_schema",
+            "no_sources",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "buried_answer",
+          "missing_faq_schema",
+          "no_sources",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "buried_answer",
+            "missing_faq_schema",
+            "no_sources",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "buried_answer",
+          "missing_faq_schema",
+          "no_sources",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "medium_011",
+      "truth": [
+        "buried_answer",
+        "missing_faq_schema",
+        "no_sources",
+        "weak_meta_description"
+      ],
+      "url": "https://example.com/validator-rewards-guide"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [],
+        "reward": 1.0
+      },
+      "page_id": "medium_012",
+      "truth": [],
+      "url": "https://example.com/rotate-validator-keys"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "medium_013",
+      "truth": [
+        "missing_faq_schema",
+        "no_sources"
+      ],
+      "url": "https://example.com/liquid-staking-risks-faq"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_howto_schema",
+            "no_date",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_howto_schema",
+          "no_date",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_howto_schema",
+            "no_date",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_howto_schema",
+          "no_date",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "medium_014",
+      "truth": [
+        "missing_howto_schema",
+        "no_date",
+        "no_sources"
+      ],
+      "url": "https://example.com/read-validator-logs"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "buried_answer"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "buried_answer"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "buried_answer"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "buried_answer"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "medium_015",
+      "truth": [
+        "buried_answer"
+      ],
+      "url": "https://example.com/best-solo-staking-setup"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "medium_016",
+      "truth": [
+        "missing_faq_schema",
+        "no_sources"
+      ],
+      "url": "https://example.com/mev-staking-explainer"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_howto_schema"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_howto_schema"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_howto_schema"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_howto_schema"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "medium_017",
+      "truth": [
+        "missing_howto_schema"
+      ],
+      "url": "https://example.com/hardware-wallet-staking"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_date",
+            "no_sources",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_date",
+          "no_sources",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_date",
+            "no_sources",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_date",
+          "no_sources",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "medium_018",
+      "truth": [
+        "missing_faq_schema",
+        "no_date",
+        "no_sources",
+        "weak_meta_description"
+      ],
+      "url": "https://example.com/staking-pool-fees"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "no_sources"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "no_sources"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "medium_019",
+      "truth": [
+        "no_sources"
+      ],
+      "url": "https://example.com/exit-validator-safely"
+    },
+    {
+      "heuristic": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_author",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_author",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "learned": {
+        "comparison": {
+          "correct": [
+            "missing_faq_schema",
+            "no_author",
+            "weak_meta_description"
+          ],
+          "extra": [],
+          "missed": []
+        },
+        "flagged": [
+          "missing_faq_schema",
+          "no_author",
+          "weak_meta_description"
+        ],
+        "reward": 1.0
+      },
+      "page_id": "medium_020",
+      "truth": [
+        "missing_faq_schema",
+        "no_author",
+        "weak_meta_description"
+      ],
+      "url": "https://example.com/staking-myths-faq"
     }
   ]
 }

@@ -1,0 +1,62 @@
+[
+  {
+    "page_id": "real_easy_001",
+    "difficulty": "easy",
+    "url": "https://stake.lido.fi/",
+    "target_query": "stake ethereum with lido"
+  },
+  {
+    "page_id": "real_easy_002",
+    "difficulty": "easy",
+    "url": "https://lido.fi/ethereum-staking",
+    "target_query": "what is ethereum liquid staking"
+  },
+  {
+    "page_id": "real_easy_003",
+    "difficulty": "easy",
+    "url": "https://docs.lido.fi/",
+    "target_query": "how does lido staking work"
+  },
+  {
+    "page_id": "real_easy_004",
+    "difficulty": "easy",
+    "url": "https://ethereum.org/en/what-is-ethereum/",
+    "target_query": "what is ethereum"
+  },
+  {
+    "page_id": "real_easy_005",
+    "difficulty": "easy",
+    "url": "https://ethereum.org/staking/",
+    "target_query": "ethereum staking guide"
+  },
+  {
+    "page_id": "real_easy_006",
+    "difficulty": "easy",
+    "url": "https://ethereum.org/staking/pools/",
+    "target_query": "what is pooled ethereum staking"
+  },
+  {
+    "page_id": "real_easy_007",
+    "difficulty": "easy",
+    "url": "https://ethereum.org/staking/withdrawals/",
+    "target_query": "how do ethereum staking withdrawals work"
+  },
+  {
+    "page_id": "real_easy_008",
+    "difficulty": "easy",
+    "url": "https://www.stakingrewards.com/earn/ethereum-2-0/",
+    "target_query": "ethereum staking rewards"
+  },
+  {
+    "page_id": "real_easy_009",
+    "difficulty": "easy",
+    "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/",
+    "target_query": "what is proof of stake"
+  },
+  {
+    "page_id": "real_easy_010",
+    "difficulty": "easy",
+    "url": "https://www.gemini.com/cryptopedia/ethereum-staking-explained",
+    "target_query": "ethereum staking explained"
+  }
+]

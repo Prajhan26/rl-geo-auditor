@@ -1,0 +1,62 @@
+[
+  {
+    "page_id": "real_hard_011",
+    "difficulty": "hard",
+    "url": "https://docs.lido.fi/",
+    "target_query": "is lido a good ethereum staking option"
+  },
+  {
+    "page_id": "real_hard_012",
+    "difficulty": "hard",
+    "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/",
+    "target_query": "how should teams integrate lido staking tokens"
+  },
+  {
+    "page_id": "real_hard_013",
+    "difficulty": "hard",
+    "url": "https://docs.lido.fi/contracts/lido/",
+    "target_query": "how does the lido protocol contract work"
+  },
+  {
+    "page_id": "real_hard_014",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/",
+    "target_query": "proof of stake on ethereum"
+  },
+  {
+    "page_id": "real_hard_015",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/",
+    "target_query": "best ethereum node and client setup"
+  },
+  {
+    "page_id": "real_hard_016",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/",
+    "target_query": "proof of work vs ethereum proof of stake"
+  },
+  {
+    "page_id": "real_hard_017",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/en/defi/",
+    "target_query": "is defi on ethereum worth using"
+  },
+  {
+    "page_id": "real_hard_018",
+    "difficulty": "hard",
+    "url": "https://www.gemini.com/cryptopedia/ethereum-vs-bitcoin-blockchain",
+    "target_query": "ethereum vs bitcoin for long term utility"
+  },
+  {
+    "page_id": "real_hard_019",
+    "difficulty": "hard",
+    "url": "https://www.gemini.com/cryptopedia/proof-of-stake-vs-proof-of-work",
+    "target_query": "proof of stake vs proof of work for ethereum investors"
+  },
+  {
+    "page_id": "real_hard_020",
+    "difficulty": "hard",
+    "url": "https://www.stakingrewards.com/assets/eth/",
+    "target_query": "best ethereum staking asset overview"
+  }
+]

@@ -15,22 +15,10 @@
     "has_sources": false,
     "source_count": 0,
     "issues": [
-      {
-        "type": "missing_meta_description",
-        "severity": "critical"
-      },
-      {
-        "type": "no_direct_answer",
-        "severity": "critical"
-      },
-      {
-        "type": "thin_content",
-        "severity": "medium"
-      },
-      {
-        "type": "no_headers",
-        "severity": "high"
-      }
+      { "type": "missing_meta_description", "severity": "critical" },
+      { "type": "no_direct_answer", "severity": "critical" },
+      { "type": "thin_content", "severity": "medium" },
+      { "type": "no_headers", "severity": "high" }
     ]
   },
   {
@@ -42,35 +30,18 @@
     "h1": "Ethereum",
     "first_paragraph": "Ethereum is a blockchain used by many people for different purposes across the crypto ecosystem.",
     "word_count": 150,
-    "headers": [
-      "H2: About"
-    ],
+    "headers": ["H2: About"],
     "schema_types": [],
     "has_author": false,
     "has_date": false,
     "has_sources": false,
     "source_count": 0,
     "issues": [
-      {
-        "type": "missing_title_tag",
-        "severity": "critical"
-      },
-      {
-        "type": "weak_meta_description",
-        "severity": "medium"
-      },
-      {
-        "type": "no_direct_answer",
-        "severity": "critical"
-      },
-      {
-        "type": "thin_content",
-        "severity": "medium"
-      },
-      {
-        "type": "missing_article_schema",
-        "severity": "high"
-      }
+      { "type": "missing_title_tag", "severity": "critical" },
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "no_direct_answer", "severity": "critical" },
+      { "type": "thin_content", "severity": "medium" },
+      { "type": "missing_article_schema", "severity": "high" }
     ]
   },
   {
@@ -89,26 +60,11 @@
     "has_sources": false,
     "source_count": 0,
     "issues": [
-      {
-        "type": "missing_meta_description",
-        "severity": "critical"
-      },
-      {
-        "type": "weak_title_tag",
-        "severity": "medium"
-      },
-      {
-        "type": "no_direct_answer",
-        "severity": "critical"
-      },
-      {
-        "type": "no_headers",
-        "severity": "high"
-      },
-      {
-        "type": "thin_content",
-        "severity": "medium"
-      }
+      { "type": "missing_meta_description", "severity": "critical" },
+      { "type": "weak_title_tag", "severity": "medium" },
+      { "type": "no_direct_answer", "severity": "critical" },
+      { "type": "no_headers", "severity": "high" },
+      { "type": "thin_content", "severity": "medium" }
     ]
   },
   {
@@ -120,31 +76,17 @@
     "h1": "Questions About Ethereum",
     "first_paragraph": "This page collects common Ethereum questions for readers exploring the ecosystem.",
     "word_count": 220,
-    "headers": [
-      "H2: FAQ"
-    ],
+    "headers": ["H2: FAQ"],
     "schema_types": [],
     "has_author": false,
     "has_date": false,
     "has_sources": false,
     "source_count": 0,
     "issues": [
-      {
-        "type": "missing_meta_description",
-        "severity": "critical"
-      },
-      {
-        "type": "missing_faq_schema",
-        "severity": "high"
-      },
-      {
-        "type": "thin_content",
-        "severity": "medium"
-      },
-      {
-        "type": "no_sources",
-        "severity": "low"
-      }
+      { "type": "missing_meta_description", "severity": "critical" },
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "thin_content", "severity": "medium" },
+      { "type": "no_sources", "severity": "low" }
     ]
   },
   {
@@ -156,35 +98,350 @@
     "h1": "Ethereum Staking Overview",
     "first_paragraph": "Welcome to our company blog where we talk about crypto innovation and important trends in blockchain.",
     "word_count": 340,
-    "headers": [
-      "H2: Intro"
-    ],
+    "headers": ["H2: Intro"],
     "schema_types": [],
     "has_author": false,
     "has_date": false,
     "has_sources": false,
     "source_count": 0,
     "issues": [
-      {
-        "type": "weak_title_tag",
-        "severity": "medium"
-      },
-      {
-        "type": "weak_meta_description",
-        "severity": "medium"
-      },
-      {
-        "type": "no_direct_answer",
-        "severity": "critical"
-      },
-      {
-        "type": "no_author",
-        "severity": "medium"
-      },
-      {
-        "type": "no_date",
-        "severity": "medium"
-      }
+      { "type": "weak_title_tag", "severity": "medium" },
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "no_direct_answer", "severity": "critical" },
+      { "type": "no_author", "severity": "medium" },
+      { "type": "no_date", "severity": "medium" }
+    ]
+  },
+  {
+    "page_id": "easy_006",
+    "url": "https://example.com/stake-eth-intro",
+    "target_query": "ethereum staking guide",
+    "title_tag": "Stake ETH",
+    "meta_description": "Quick intro to staking.",
+    "h1": "Stake ETH",
+    "first_paragraph": "This article introduces our crypto resources and community updates for new readers.",
+    "word_count": 240,
+    "headers": ["H2: Basics"],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "weak_title_tag", "severity": "medium" },
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "no_direct_answer", "severity": "critical" },
+      { "type": "thin_content", "severity": "medium" },
+      { "type": "missing_article_schema", "severity": "high" }
+    ]
+  },
+  {
+    "page_id": "easy_007",
+    "url": "https://example.com/validator-blog-post",
+    "target_query": "what is an ethereum validator",
+    "title_tag": "",
+    "meta_description": "",
+    "h1": "Validator Notes",
+    "first_paragraph": "We publish short crypto notes and market summaries for readers following blockchain trends.",
+    "word_count": 180,
+    "headers": [],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_title_tag", "severity": "critical" },
+      { "type": "missing_meta_description", "severity": "critical" },
+      { "type": "no_direct_answer", "severity": "critical" },
+      { "type": "no_headers", "severity": "high" },
+      { "type": "thin_content", "severity": "medium" }
+    ]
+  },
+  {
+    "page_id": "easy_008",
+    "url": "https://example.com/validator-faq",
+    "target_query": "ethereum validator faq",
+    "title_tag": "Validator FAQ",
+    "meta_description": "",
+    "h1": "Validator Questions",
+    "first_paragraph": "This page gathers quick validator questions for readers exploring Ethereum infrastructure.",
+    "word_count": 260,
+    "headers": ["H2: FAQ"],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_meta_description", "severity": "critical" },
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "thin_content", "severity": "medium" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "easy_009",
+    "url": "https://example.com/validator-requirements",
+    "target_query": "ethereum validator requirements",
+    "title_tag": "Requirements",
+    "meta_description": "Learn about validators.",
+    "h1": "Validator Requirements",
+    "first_paragraph": "Our blog shares general crypto updates and short notes for curious blockchain readers.",
+    "word_count": 280,
+    "headers": ["H2: Overview"],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "weak_title_tag", "severity": "medium" },
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "no_direct_answer", "severity": "critical" },
+      { "type": "thin_content", "severity": "medium" },
+      { "type": "missing_article_schema", "severity": "high" }
+    ]
+  },
+  {
+    "page_id": "easy_010",
+    "url": "https://example.com/solo-staking-basics",
+    "target_query": "what is solo staking",
+    "title_tag": "What Is Solo Staking?",
+    "meta_description": "",
+    "h1": "What Is Solo Staking?",
+    "first_paragraph": "Solo staking means running your own validator and staking 32 ETH directly without using a third-party pool.",
+    "word_count": 260,
+    "headers": [],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_meta_description", "severity": "critical" },
+      { "type": "no_headers", "severity": "high" },
+      { "type": "thin_content", "severity": "medium" }
+    ]
+  },
+  {
+    "page_id": "easy_011",
+    "url": "https://example.com/staking-risks-short",
+    "target_query": "ethereum staking risks",
+    "title_tag": "Risks of Staking Ethereum",
+    "meta_description": "Welcome to our crypto portal.",
+    "h1": "Staking Risks",
+    "first_paragraph": "Our company shares blockchain market updates and ecosystem commentary for readers.",
+    "word_count": 230,
+    "headers": ["H2: Basics"],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "no_direct_answer", "severity": "critical" },
+      { "type": "thin_content", "severity": "medium" },
+      { "type": "missing_article_schema", "severity": "high" }
+    ]
+  },
+  {
+    "page_id": "easy_012",
+    "url": "https://example.com/unstake-eth-quick-guide",
+    "target_query": "how to unstake ethereum",
+    "title_tag": "How to Unstake Ethereum",
+    "meta_description": "A step-by-step guide to unstaking ETH.",
+    "h1": "How to Unstake Ethereum",
+    "first_paragraph": "To unstake Ethereum, you usually exit the validator or redeem the liquid staking token depending on your setup.",
+    "word_count": 260,
+    "headers": ["H2: Step 1", "H2: Step 2"],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "thin_content", "severity": "medium" },
+      { "type": "missing_article_schema", "severity": "high" }
+    ]
+  },
+  {
+    "page_id": "easy_013",
+    "url": "https://example.com/staking-questions",
+    "target_query": "ethereum staking faq",
+    "title_tag": "Questions",
+    "meta_description": "",
+    "h1": "Staking Questions",
+    "first_paragraph": "This page collects quick questions for readers interested in Ethereum staking topics.",
+    "word_count": 180,
+    "headers": ["H2: FAQ", "H2: Common Questions"],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "weak_title_tag", "severity": "medium" },
+      { "type": "missing_meta_description", "severity": "critical" },
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "thin_content", "severity": "medium" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "easy_014",
+    "url": "https://example.com/choose-staking-pool",
+    "target_query": "how to choose a staking pool",
+    "title_tag": "Pool Guide",
+    "meta_description": "Welcome to our resource hub.",
+    "h1": "How to Choose a Staking Pool",
+    "first_paragraph": "Our company publishes crypto explainers and tutorials for curious readers.",
+    "word_count": 320,
+    "headers": ["H2: Criteria"],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "weak_title_tag", "severity": "medium" },
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "no_direct_answer", "severity": "critical" },
+      { "type": "no_author", "severity": "medium" },
+      { "type": "no_date", "severity": "medium" },
+      { "type": "missing_article_schema", "severity": "high" }
+    ]
+  },
+  {
+    "page_id": "easy_015",
+    "url": "https://example.com/validator-checklist",
+    "target_query": "ethereum validator checklist",
+    "title_tag": "Validator Checklist",
+    "meta_description": "",
+    "h1": "Validator Checklist",
+    "first_paragraph": "An Ethereum validator checklist covers hardware, client setup, key safety, and ongoing monitoring before launch.",
+    "word_count": 290,
+    "headers": ["H2: Checklist"],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_meta_description", "severity": "critical" },
+      { "type": "thin_content", "severity": "medium" },
+      { "type": "missing_article_schema", "severity": "high" }
+    ]
+  },
+  {
+    "page_id": "easy_016",
+    "url": "https://example.com/liquid-staking-faq-short",
+    "target_query": "liquid staking faq",
+    "title_tag": "Liquid Staking FAQ",
+    "meta_description": "Short FAQ on liquid staking.",
+    "h1": "Liquid Staking FAQ",
+    "first_paragraph": "This FAQ summarizes common liquid staking questions for people exploring tokenized staking positions.",
+    "word_count": 240,
+    "headers": ["H2: FAQ"],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "thin_content", "severity": "medium" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "easy_017",
+    "url": "https://example.com/validator-uptime",
+    "target_query": "what is validator uptime",
+    "title_tag": "Validator Uptime",
+    "meta_description": "Learn about uptime.",
+    "h1": "Validator Uptime",
+    "first_paragraph": "Validator uptime is the percentage of time a validator stays online and attesting correctly.",
+    "word_count": 210,
+    "headers": [],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "no_headers", "severity": "high" },
+      { "type": "thin_content", "severity": "medium" }
+    ]
+  },
+  {
+    "page_id": "easy_018",
+    "url": "https://example.com/staking-rewards-short",
+    "target_query": "how to earn staking rewards",
+    "title_tag": "Rewards",
+    "meta_description": "",
+    "h1": "Staking Rewards",
+    "first_paragraph": "Our site covers crypto news, market commentary, and ecosystem updates for readers.",
+    "word_count": 250,
+    "headers": ["H2: Intro"],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "weak_title_tag", "severity": "medium" },
+      { "type": "missing_meta_description", "severity": "critical" },
+      { "type": "no_direct_answer", "severity": "critical" },
+      { "type": "thin_content", "severity": "medium" },
+      { "type": "missing_article_schema", "severity": "high" }
+    ]
+  },
+  {
+    "page_id": "easy_019",
+    "url": "https://example.com/slashing-explained",
+    "target_query": "ethereum slashing explained",
+    "title_tag": "Slashing Explained",
+    "meta_description": "Learn about slashing.",
+    "h1": "Slashing Explained",
+    "first_paragraph": "Ethereum slashing happens when a validator violates protocol rules and receives a financial penalty.",
+    "word_count": 330,
+    "headers": ["H2: Risks"],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "no_author", "severity": "medium" },
+      { "type": "no_date", "severity": "medium" },
+      { "type": "missing_article_schema", "severity": "high" }
+    ]
+  },
+  {
+    "page_id": "easy_020",
+    "url": "https://example.com/staking-safety-faq",
+    "target_query": "stake eth safely faq",
+    "title_tag": "Staking Safety FAQ",
+    "meta_description": "",
+    "h1": "Staking Safety FAQ",
+    "first_paragraph": "This FAQ groups practical safety questions for readers learning how to protect staked ETH.",
+    "word_count": 230,
+    "headers": ["H2: FAQ"],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_meta_description", "severity": "critical" },
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "thin_content", "severity": "medium" },
+      { "type": "no_sources", "severity": "low" }
     ]
   }
 ]

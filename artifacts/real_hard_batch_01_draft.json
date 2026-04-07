@@ -1,0 +1,493 @@
+[
+  {
+    "page_id": "real_hard_001",
+    "difficulty": "hard",
+    "url": "https://www.blocknative.com/blog/ethereum-liquid-staking-guide",
+    "target_query": "best ethereum liquid staking options",
+    "title_tag": "Ethereum Liquid Staking Guide: Lido, Rocket Pool, & More",
+    "meta_description": "A detailed guide to how liquid staking works on Ethereum and a breakdown of the main liquid staking operators currently in the space.",
+    "h1": "A Guide to Ethereum Liquid Staking",
+    "first_paragraph": "With the Shanghai upgrade for Ethereum set to take place in April, the ability to withdraw staked ETH will also become available. As the upgrade approaches, interest in liquid staking protocols has risen, with many community members wanting to know how the industry will adapt.",
+    "word_count": 6252,
+    "headers": [
+      "H2: The Complexity of Staking",
+      "H2: How Liquid Staking Makes Staking Accessible",
+      "H3: The Benefits of Liquid Staking",
+      "H3: The Drawbacks of Liquid Staking",
+      "H2: Liquid Staking Options for Stakers",
+      "H3: Lido",
+      "H3: Rocket Pool",
+      "H3: Coinbase",
+      "H3: Frax",
+      "H3: StakeWise",
+      "H3: Other Liquid Staking Players",
+      "H2: Liquid Staking Options for Node Operators"
+    ],
+    "schema_types": [],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 8,
+    "issues": [
+      {
+        "type": "missing_article_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_002",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/staking/",
+    "target_query": "best way to stake ethereum",
+    "title_tag": "Ethereum staking: How does it work?",
+    "meta_description": "An overview of Ethereum staking: the risks, rewards, requirements, and where to do it.",
+    "h1": "How to stake your ETH",
+    "first_paragraph": "Any user with any amount of ETH can help secure the network and earn rewards in the process.",
+    "word_count": 875,
+    "headers": [
+      "H2: Earn rewards while securing Ethereum",
+      "H2: What is staking?",
+      "H2: Why stake your ETH?",
+      "H3: Earn rewards",
+      "H3: Better security",
+      "H3: More sustainable",
+      "H2: How to stake your ETH",
+      "H2: Home staking",
+      "H2: Staking as a service",
+      "H2: Pooled staking",
+      "H2: Centralized exchanges",
+      "H2: Comparison of staking options"
+    ],
+    "schema_types": [
+      "Answer",
+      "Article",
+      "BreadcrumbList",
+      "FAQPage",
+      "ListItem",
+      "Organization",
+      "Question",
+      "Thing",
+      "WebPage",
+      "WebSite"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 4,
+    "issues": [
+      {
+        "type": "no_direct_answer",
+        "severity": "critical"
+      },
+      {
+        "type": "missing_howto_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_003",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/staking/solo/",
+    "target_query": "how to run an ethereum validator at home",
+    "title_tag": "Home stake your ETH | ethereum.org",
+    "meta_description": "An overview of how to get started home staking your ETH",
+    "h1": "Home stake your ETH",
+    "first_paragraph": "Home staking is the act of running an Ethereum node connected to the internet and depositing 32 ETH to activate a validator, giving you the ability to participate directly in network consensus.",
+    "word_count": 1046,
+    "headers": [
+      "H2: What is home staking?",
+      "H2: Why stake from home?",
+      "H3: Earn fresh ETH",
+      "H3: Full control",
+      "H3: Network security",
+      "H2: Considerations before home staking",
+      "H3: Required reading",
+      "H3: Comfortable with computers",
+      "H3: Secure key management",
+      "H3: Maintenance",
+      "H3: Reliable uptime",
+      "H3: Slashing risk"
+    ],
+    "schema_types": [
+      "Article",
+      "BreadcrumbList",
+      "ListItem",
+      "Organization",
+      "Person",
+      "Thing",
+      "WebPage",
+      "WebSite"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 5,
+    "issues": [
+      {
+        "type": "missing_howto_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_004",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/staking/pools/",
+    "target_query": "best pooled ethereum staking option",
+    "title_tag": "Pooled staking | ethereum.org",
+    "meta_description": "Learn about staking pools",
+    "h1": "Pooled staking",
+    "first_paragraph": "Staking pools are a collaborative approach to allow many with smaller amounts of ETH to obtain the 32 ETH required to activate a set of validator keys. Pooling functionality is not natively supported within the protocol, so solutions were built out separately to address this need.",
+    "word_count": 834,
+    "headers": [
+      "H2: What are staking pools?",
+      "H2: Why stake with a pool?",
+      "H3: Low barrier to entry",
+      "H3: Stake today",
+      "H3: Staking tokens",
+      "H2: Comparison with other options",
+      "H3: Home staking",
+      "H3: Staking as a service (SaaS)",
+      "H2: What to consider",
+      "H3: Open source",
+      "H2: Explore staking pools",
+      "H2: Frequently asked questions"
+    ],
+    "schema_types": [
+      "Article",
+      "BreadcrumbList",
+      "ListItem",
+      "Organization",
+      "Person",
+      "Thing",
+      "WebPage",
+      "WebSite"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 4,
+    "issues": [
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "missing_faq_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_005",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/staking/withdrawals/",
+    "target_query": "how do ethereum validator withdrawals work",
+    "title_tag": "Staking withdrawals | ethereum.org",
+    "meta_description": "Page summarizing what staking push withdrawals are, how they work, and what stakers need to do to get their rewards",
+    "h1": "Staking withdrawals",
+    "first_paragraph": "Staking withdrawals refer to transfers of ETH from a validator account on Ethereum's consensus layer (the Beacon Chain), to the execution layer where it can be transacted with.",
+    "word_count": 1120,
+    "headers": [
+      "H2: Staking rewards",
+      "H3: How did we get here?",
+      "H3: How do I prepare?",
+      "H3: Current stakers",
+      "H3: Important notices",
+      "H2: Exiting staking entirely",
+      "H2: When were staking withdrawals enabled?",
+      "H2: How do withdrawal payments work?",
+      "H3: More of a visual learner?",
+      "H3: Validator \"sweeping\"",
+      "H3: Gas free",
+      "H3: How frequently will I get my staking rewards?"
+    ],
+    "schema_types": [
+      "Article",
+      "BreadcrumbList",
+      "ListItem",
+      "Organization",
+      "Person",
+      "Thing",
+      "WebPage",
+      "WebSite"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 5,
+    "issues": [],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_006",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/en/what-is-ethereum/",
+    "target_query": "is ethereum a good long term platform",
+    "title_tag": "What is Ethereum? (A Complete Guide) | ethereum.org",
+    "meta_description": "A full overview of what Ethereum is, how it works, what it does and how to start using or building on it. Explained in simple terms.",
+    "h1": "What is Ethereum?",
+    "first_paragraph": "Ethereum is a decentralized blockchain network and software development platform, powered by the cryptocurrency ether (ETH).",
+    "word_count": 2216,
+    "headers": [
+      "H2: What is the Ethereum network?",
+      "H3: Censorship resistant",
+      "H3: Highly secure",
+      "H3: Durable and reliable",
+      "H3: Ethereum extensions (Layer 2)",
+      "H2: What is ether (ETH)?",
+      "H2: How does Ethereum work?",
+      "H2: What is Ethereum used for?",
+      "H3: Consumers",
+      "H3: Businesses & developers",
+      "H3: Governments",
+      "H2: How to start using Ethereum"
+    ],
+    "schema_types": [
+      "Answer",
+      "Article",
+      "BreadcrumbList",
+      "FAQPage",
+      "ListItem",
+      "Organization",
+      "Person",
+      "Question",
+      "Thing",
+      "WebPage",
+      "WebSite"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 6,
+    "issues": [
+      {
+        "type": "weak_title_tag",
+        "severity": "medium"
+      },
+      {
+        "type": "missing_howto_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_007",
+    "difficulty": "hard",
+    "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/",
+    "target_query": "lido staking integration guide",
+    "title_tag": "Lido tokens integration guide | Lido Docs",
+    "meta_description": "This document is intended for developers looking to integrate Lido's stETH or wstETH tokens into their dApps or services, with a focus on money markets, DEXes and blockchain bridges.",
+    "h1": "Lido tokens integration guide",
+    "first_paragraph": "This document is intended for developers looking to integrate Lido's stETH or wstETH tokens into their dApps or services, with a focus on money markets, DEXes and blockchain bridges.",
+    "word_count": 3776,
+    "headers": [
+      "H2: Lido\u200b",
+      "H2: Lido tokens\u200b",
+      "H3: stTokens: stETH and wstETH\u200b",
+      "H3: LDO\u200b",
+      "H3: unstETH\u200b",
+      "H2: stETH vs. wstETH\u200b",
+      "H2: stETH\u200b",
+      "H3: What is stETH\u200b",
+      "H3: Note on ERC-20 compliance\u200b",
+      "H3: Accounting oracle\u200b",
+      "H3: stETH internals: share mechanics\u200b",
+      "H3: Bookkeeping shares\u200b"
+    ],
+    "schema_types": [
+      "BreadcrumbList",
+      "ListItem"
+    ],
+    "has_author": false,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 8,
+    "issues": [
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "no_author",
+        "severity": "medium"
+      },
+      {
+        "type": "no_direct_answer",
+        "severity": "critical"
+      },
+      {
+        "type": "missing_article_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_008",
+    "difficulty": "hard",
+    "url": "https://stake.lido.fi/",
+    "target_query": "stake ethereum with lido",
+    "title_tag": "Stake with Lido | Lido",
+    "meta_description": "Liquid staking with Lido. Stake Ether with Lido to get daily rewards while keeping full control of your staked tokens. Start receiving rewards in just a few clicks.",
+    "h1": "Stake Ether",
+    "first_paragraph": "Lido is the name of a family of open-source peer-to-system software tools deployed and functioning on the Ethereum blockchain network. The software enables users to mint transferable utility tokens, which receive rewards linked to the related validation activities of writing data to the blockchain, while the tokens can be used in other on-chain activities.",
+    "word_count": 715,
+    "headers": [
+      "H2: FAQ"
+    ],
+    "schema_types": [],
+    "has_author": false,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      },
+      {
+        "type": "no_date",
+        "severity": "medium"
+      },
+      {
+        "type": "no_sources",
+        "severity": "low"
+      },
+      {
+        "type": "missing_faq_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_009",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/",
+    "target_query": "proof of stake vs other ethereum consensus options",
+    "title_tag": "Proof-of-stake (PoS) | ethereum.org",
+    "meta_description": "An explanation of the proof-of-stake consensus protocol and its role in Ethereum.",
+    "h1": "Proof-of-stake (PoS)",
+    "first_paragraph": "Proof-of-stake (PoS) underlies Ethereum's consensus mechanism. Ethereum switched on its proof-of-stake mechanism in 2022 because it is more secure, less energy-intensive, and better for implementing new scaling solutions compared to the previous proof-of-work architecture.",
+    "word_count": 1271,
+    "headers": [
+      "H2: Prerequisites",
+      "H2: What is proof-of-stake (PoS)?",
+      "H2: Validators",
+      "H2: How a Transaction Gets Executed in Ethereum PoS",
+      "H2: Finality",
+      "H2: Crypto-economic security",
+      "H2: Fork choice",
+      "H2: Proof-of-stake and security",
+      "H2: Pros and cons",
+      "H3: Comparison to proof-of-work",
+      "H2: Further reading",
+      "H2: Related topics"
+    ],
+    "schema_types": [
+      "Article",
+      "BreadcrumbList",
+      "ListItem",
+      "Organization",
+      "Person",
+      "Thing",
+      "WebPage",
+      "WebSite"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 8,
+    "issues": [],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  },
+  {
+    "page_id": "real_hard_010",
+    "difficulty": "hard",
+    "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/",
+    "target_query": "ethereum node and client choices",
+    "title_tag": "Nodes and clients | ethereum.org",
+    "meta_description": "An overview of Ethereum nodes and client software, plus how to set up a node and why you should do it.",
+    "h1": "Nodes and clients",
+    "first_paragraph": "Ethereum is a distributed network of computers (known as nodes) running software that can verify blocks and transaction data. The software must be run on your computer to turn it into an Ethereum node. There are two separate pieces of software (known as 'clients') required to form a node.",
+    "word_count": 2757,
+    "headers": [
+      "H2: Prerequisites",
+      "H2: What are nodes and clients?",
+      "H3: Client diversity",
+      "H3: Tracking nodes in the network",
+      "H2: Node types",
+      "H3: Full node",
+      "H3: Archive node",
+      "H3: Light node",
+      "H2: Why should I run an Ethereum node?",
+      "H3: Benefits to you",
+      "H3: Network benefits",
+      "H2: Running your own node"
+    ],
+    "schema_types": [
+      "Article",
+      "BreadcrumbList",
+      "ListItem",
+      "Organization",
+      "Person",
+      "Thing",
+      "WebPage",
+      "WebSite"
+    ],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 8,
+    "issues": [],
+    "review_notes": [
+      "Draft generated automatically from live HTML.",
+      "Review author/date/source detection manually.",
+      "Review schema-based issue labels manually."
+    ]
+  }
+]

@@ -8,30 +8,15 @@
     "h1": "Complete Ethereum Staking Guide",
     "first_paragraph": "Staking Ethereum is one of the main ways to earn yield from ETH, but the best approach depends on custody, validator setup, and risk tolerance.",
     "word_count": 1800,
-    "headers": [
-      "H2: Overview",
-      "H2: Requirements",
-      "H2: Step by Step",
-      "H2: Rewards",
-      "H2: FAQ"
-    ],
-    "schema_types": [
-      "Article",
-      "HowTo"
-    ],
+    "headers": ["H2: Overview", "H2: Requirements", "H2: Step by Step", "H2: Rewards", "H2: FAQ"],
+    "schema_types": ["Article", "HowTo"],
     "has_author": true,
     "has_date": true,
     "has_sources": false,
     "source_count": 0,
     "issues": [
-      {
-        "type": "missing_faq_schema",
-        "severity": "high"
-      },
-      {
-        "type": "no_sources",
-        "severity": "low"
-      }
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
     ]
   },
   {
@@ -43,28 +28,15 @@
     "h1": "Best Ethereum Staking Platform Comparison",
     "first_paragraph": "The best Ethereum staking platform depends on whether you prioritize custody, yield, liquidity, or validator control.",
     "word_count": 1600,
-    "headers": [
-      "H2: Custodial Platforms",
-      "H2: Liquid Staking",
-      "H2: Solo Staking",
-      "H2: FAQ"
-    ],
-    "schema_types": [
-      "Article"
-    ],
+    "headers": ["H2: Custodial Platforms", "H2: Liquid Staking", "H2: Solo Staking", "H2: FAQ"],
+    "schema_types": ["Article"],
     "has_author": true,
     "has_date": true,
     "has_sources": false,
     "source_count": 0,
     "issues": [
-      {
-        "type": "missing_faq_schema",
-        "severity": "high"
-      },
-      {
-        "type": "no_sources",
-        "severity": "low"
-      }
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
     ]
   },
   {
@@ -76,17 +48,8 @@
     "h1": "How to Stake Ethereum Safely",
     "first_paragraph": "To stake Ethereum safely, compare validator options, understand slashing risk, and use primary documentation before committing funds.",
     "word_count": 1500,
-    "headers": [
-      "H2: Risk Checklist",
-      "H2: Step by Step",
-      "H2: FAQ",
-      "H2: References"
-    ],
-    "schema_types": [
-      "Article",
-      "HowTo",
-      "FAQPage"
-    ],
+    "headers": ["H2: Risk Checklist", "H2: Step by Step", "H2: FAQ", "H2: References"],
+    "schema_types": ["Article", "HowTo", "FAQPage"],
     "has_author": true,
     "has_date": true,
     "has_sources": true,
@@ -102,28 +65,15 @@
     "h1": "Lido vs Solo Staking Ethereum",
     "first_paragraph": "Lido is simpler, but solo staking offers direct validator control, so the right choice depends on capital, skill, and custody preferences.",
     "word_count": 1700,
-    "headers": [
-      "H2: Custody Tradeoffs",
-      "H2: Yield Tradeoffs",
-      "H2: Risks",
-      "H2: FAQ"
-    ],
-    "schema_types": [
-      "Article"
-    ],
+    "headers": ["H2: Custody Tradeoffs", "H2: Yield Tradeoffs", "H2: Risks", "H2: FAQ"],
+    "schema_types": ["Article"],
     "has_author": true,
     "has_date": true,
     "has_sources": false,
     "source_count": 0,
     "issues": [
-      {
-        "type": "missing_faq_schema",
-        "severity": "high"
-      },
-      {
-        "type": "no_sources",
-        "severity": "low"
-      }
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
     ]
   },
   {
@@ -135,25 +85,303 @@
     "h1": "Ethereum Staking Taxes Guide",
     "first_paragraph": "Ethereum staking taxes depend on jurisdiction, reward timing, and whether tokens are sold, so readers need references and caveats.",
     "word_count": 1900,
-    "headers": [
-      "H2: When Rewards Are Recognized",
-      "H2: Selling Rewards",
-      "H2: FAQ",
-      "H2: References"
-    ],
-    "schema_types": [
-      "Article",
-      "FAQPage"
-    ],
+    "headers": ["H2: When Rewards Are Recognized", "H2: Selling Rewards", "H2: FAQ", "H2: References"],
+    "schema_types": ["Article", "FAQPage"],
     "has_author": true,
     "has_date": true,
     "has_sources": true,
     "source_count": 1,
     "issues": [
-      {
-        "type": "no_sources",
-        "severity": "low"
-      }
+      { "type": "no_sources", "severity": "low" }
     ]
+  },
+  {
+    "page_id": "hard_006",
+    "url": "https://example.com/client/best-validator-client",
+    "target_query": "best ethereum validator client",
+    "title_tag": "Best Ethereum Validator Client | Example",
+    "meta_description": "Compare major validator clients for Ethereum operations.",
+    "h1": "Best Ethereum Validator Client",
+    "first_paragraph": "The best Ethereum validator client depends on hardware, ecosystem support, maintenance habits, and operational goals.",
+    "word_count": 1800,
+    "headers": ["H2: Performance", "H2: Ecosystem Support", "H2: Tradeoffs", "H2: FAQ"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "hard_007",
+    "url": "https://example.com/client/diversify-staking-risk",
+    "target_query": "how to diversify staking risk",
+    "title_tag": "How to Diversify Staking Risk | Example",
+    "meta_description": "A practical guide to reducing concentration and custody risk in staking.",
+    "h1": "How to Diversify Staking Risk",
+    "first_paragraph": "To diversify staking risk, spread exposure across providers, client stacks, and custody models while documenting the tradeoffs.",
+    "word_count": 1750,
+    "headers": ["H2: Step by Step", "H2: Custody Tradeoffs", "H2: FAQ", "H2: References"],
+    "schema_types": ["Article", "HowTo", "FAQPage"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 4,
+    "issues": []
+  },
+  {
+    "page_id": "hard_008",
+    "url": "https://example.com/client/lido-vs-rocket-pool",
+    "target_query": "lido vs rocket pool staking",
+    "title_tag": "Lido vs Rocket Pool Staking | Example",
+    "meta_description": "Compare Lido and Rocket Pool across liquidity, custody, and risk.",
+    "h1": "Lido vs Rocket Pool Staking",
+    "first_paragraph": "Lido and Rocket Pool serve different staking priorities, so the best choice depends on liquidity, custody, and validator exposure.",
+    "word_count": 1650,
+    "headers": ["H2: Liquidity", "H2: Custody", "H2: Risks", "H2: FAQ"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "hard_009",
+    "url": "https://example.com/client/staking-legal-risks",
+    "target_query": "ethereum staking legal risks",
+    "title_tag": "Ethereum Staking Legal Risks | Example",
+    "meta_description": "Review legal and compliance considerations around staking programs.",
+    "h1": "Ethereum Staking Legal Risks",
+    "first_paragraph": "Ethereum staking legal risks depend on jurisdiction, custody structure, disclosures, and how rewards are marketed to users.",
+    "word_count": 1800,
+    "headers": ["H2: Jurisdiction", "H2: Custody", "H2: FAQ", "H2: References"],
+    "schema_types": ["Article", "FAQPage"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 1,
+    "issues": [
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "hard_010",
+    "url": "https://example.com/client/migrate-validator-clients",
+    "target_query": "how to migrate validator clients",
+    "title_tag": "How to Migrate Validator Clients | Example",
+    "meta_description": "Plan a validator client migration with operational safeguards.",
+    "h1": "How to Migrate Validator Clients",
+    "first_paragraph": "To migrate validator clients, document the current stack, stage a rollback plan, and validate new client performance before cutover.",
+    "word_count": 1700,
+    "headers": ["H2: Preparation", "H2: Step by Step", "H2: FAQ", "H2: Verification"],
+    "schema_types": ["Article", "HowTo"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "hard_011",
+    "url": "https://example.com/client/restaking-strategy",
+    "target_query": "best restaking strategy ethereum",
+    "title_tag": "Best Restaking Strategy | Example",
+    "meta_description": "Learn about restaking.",
+    "h1": "Best Restaking Strategy",
+    "first_paragraph": "The best restaking strategy depends on validator exposure, liquidity needs, and how much operational complexity you can absorb.",
+    "word_count": 1600,
+    "headers": ["H2: Strategy Tradeoffs", "H2: Risks", "H2: FAQ"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "hard_012",
+    "url": "https://example.com/client/evaluate-staking-platforms",
+    "target_query": "how to evaluate staking platforms",
+    "title_tag": "How to Evaluate Staking Platforms | Example",
+    "meta_description": "Evaluate staking platforms using custody, risk, and transparency criteria.",
+    "h1": "How to Evaluate Staking Platforms",
+    "first_paragraph": "Welcome to our platform review series. Before we compare providers, let us introduce our company approach to custody and risk.",
+    "word_count": 1750,
+    "headers": ["H2: How to Compare", "H2: Custody", "H2: Risk", "H2: FAQ"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "buried_answer", "severity": "high" },
+      { "type": "missing_howto_schema", "severity": "high" },
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "hard_013",
+    "url": "https://example.com/client/institutional-custody-guide",
+    "target_query": "institutional staking custody guide",
+    "title_tag": "Institutional Staking Custody Guide | Example",
+    "meta_description": "A guide to custody models for institutional staking teams.",
+    "h1": "Institutional Staking Custody Guide",
+    "first_paragraph": "Institutional staking custody decisions should balance signer control, workflow approvals, reporting, and operational resilience.",
+    "word_count": 1850,
+    "headers": ["H2: Custody Models", "H2: Governance", "H2: FAQ", "H2: References"],
+    "schema_types": ["Article", "FAQPage"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 3,
+    "issues": []
+  },
+  {
+    "page_id": "hard_014",
+    "url": "https://example.com/client/solo-staking-vs-dvt",
+    "target_query": "solo staking vs dvt",
+    "title_tag": "Solo Staking vs DVT | Example",
+    "meta_description": "Compare solo staking and distributed validator technology.",
+    "h1": "Solo Staking vs DVT",
+    "first_paragraph": "Solo staking and DVT have different tradeoffs in redundancy, trust assumptions, and operational complexity.",
+    "word_count": 1650,
+    "headers": ["H2: Reliability", "H2: Trust Assumptions", "H2: FAQ"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "hard_015",
+    "url": "https://example.com/client/recover-validator-downtime",
+    "target_query": "how to recover validator downtime",
+    "title_tag": "How to Recover Validator Downtime | Example",
+    "meta_description": "A recovery guide for validator downtime and missed duties.",
+    "h1": "How to Recover Validator Downtime",
+    "first_paragraph": "To recover validator downtime, identify the root cause, restore client health, and verify attestation recovery before resuming normal operation.",
+    "word_count": 1700,
+    "headers": ["H2: Diagnosis", "H2: Step by Step", "H2: FAQ", "H2: References"],
+    "schema_types": ["Article", "HowTo", "FAQPage"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 2,
+    "issues": []
+  },
+  {
+    "page_id": "hard_016",
+    "url": "https://example.com/client/staking-yield-comparison",
+    "target_query": "ethereum staking yield comparison",
+    "title_tag": "Ethereum Staking Yield Comparison | Example",
+    "meta_description": "Compare Ethereum staking yield assumptions across setups.",
+    "h1": "Ethereum Staking Yield Comparison",
+    "first_paragraph": "Ethereum staking yield comparison depends on fee drag, custody, validator uptime, and how rewards are distributed.",
+    "word_count": 1700,
+    "headers": ["H2: Yield Models", "H2: Assumptions", "H2: FAQ"],
+    "schema_types": ["Article", "FAQPage"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "hard_017",
+    "url": "https://example.com/client/institutional-staking-options",
+    "target_query": "best way to stake ethereum for institutions",
+    "title_tag": "Best Way to Stake Ethereum for Institutions | Example",
+    "meta_description": "Review staking choices for institutional ETH holders.",
+    "h1": "Best Way to Stake Ethereum for Institutions",
+    "first_paragraph": "The best way for institutions to stake Ethereum depends on custody, compliance, reporting, and liquidity needs.",
+    "word_count": 1850,
+    "headers": ["H2: Custody", "H2: Compliance", "H2: Tradeoffs", "H2: FAQ"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "hard_018",
+    "url": "https://example.com/client/hedge-slashing-risk",
+    "target_query": "how to hedge staking slashing risk",
+    "title_tag": "How to Hedge Staking Slashing Risk | Example",
+    "meta_description": "Reduce staking slashing risk through operational controls and diversification.",
+    "h1": "How to Hedge Staking Slashing Risk",
+    "first_paragraph": "To hedge staking slashing risk, diversify operators, standardize operational controls, and track client health continuously.",
+    "word_count": 1750,
+    "headers": ["H2: Step by Step", "H2: Controls", "H2: FAQ", "H2: Monitoring"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_howto_schema", "severity": "high" },
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "hard_019",
+    "url": "https://example.com/client/smart-contract-risk-guide",
+    "target_query": "liquid staking smart contract risk guide",
+    "title_tag": "Liquid Staking Smart Contract Risk Guide | Example",
+    "meta_description": "Review smart contract risks in liquid staking systems.",
+    "h1": "Liquid Staking Smart Contract Risk Guide",
+    "first_paragraph": "Liquid staking smart contract risk includes upgrade trust, oracle assumptions, validator decentralization, and redemption mechanics.",
+    "word_count": 1700,
+    "headers": ["H2: Attack Surface", "H2: Mitigations", "H2: FAQ", "H2: References"],
+    "schema_types": ["Article", "FAQPage"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 1,
+    "issues": [
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "hard_020",
+    "url": "https://example.com/client/audit-staking-tax-assumptions",
+    "target_query": "how to audit staking tax assumptions",
+    "title_tag": "How to Audit Staking Tax Assumptions | Example",
+    "meta_description": "Check staking tax assumptions using primary sources and scenario reviews.",
+    "h1": "How to Audit Staking Tax Assumptions",
+    "first_paragraph": "To audit staking tax assumptions, compare jurisdiction guidance, document treatment differences, and preserve source-backed caveats.",
+    "word_count": 1800,
+    "headers": ["H2: Step by Step", "H2: Jurisdiction Review", "H2: References"],
+    "schema_types": ["Article", "HowTo"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 5,
+    "issues": []
   }
 ]

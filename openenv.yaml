@@ -2,3 +2,13 @@ name: geo-audit-env
 description: GEO webpage audit environment for reinforcement learning experiments
 app: uvicorn server.app:app --host 0.0.0.0 --port 8000
 entrypoint: server.app:app
+tasks:
+  - id: easy
+    label: Easy GEO audit pages
+    dataset: data/task1_easy.json
+  - id: medium
+    label: Medium GEO audit pages
+    dataset: data/task2_medium.json
+  - id: hard
+    label: Hard GEO audit pages
+    dataset: data/task3_hard.json

@@ -1,0 +1,62 @@
+[
+  {
+    "page_id": "real_medium_011",
+    "difficulty": "medium",
+    "url": "https://docs.lido.fi/",
+    "target_query": "how does lido staking work"
+  },
+  {
+    "page_id": "real_medium_012",
+    "difficulty": "medium",
+    "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/",
+    "target_query": "lido tokens integration guide"
+  },
+  {
+    "page_id": "real_medium_013",
+    "difficulty": "medium",
+    "url": "https://docs.lido.fi/contracts/lido/",
+    "target_query": "lido contract docs"
+  },
+  {
+    "page_id": "real_medium_014",
+    "difficulty": "medium",
+    "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/",
+    "target_query": "what is proof of stake"
+  },
+  {
+    "page_id": "real_medium_015",
+    "difficulty": "medium",
+    "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/",
+    "target_query": "what are ethereum nodes and clients"
+  },
+  {
+    "page_id": "real_medium_016",
+    "difficulty": "medium",
+    "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/",
+    "target_query": "what is proof of work"
+  },
+  {
+    "page_id": "real_medium_017",
+    "difficulty": "medium",
+    "url": "https://ethereum.org/en/defi/",
+    "target_query": "what is defi on ethereum"
+  },
+  {
+    "page_id": "real_medium_018",
+    "difficulty": "medium",
+    "url": "https://www.gemini.com/cryptopedia/ethereum-vs-bitcoin-blockchain",
+    "target_query": "ethereum vs bitcoin"
+  },
+  {
+    "page_id": "real_medium_019",
+    "difficulty": "medium",
+    "url": "https://www.gemini.com/cryptopedia/proof-of-stake-vs-proof-of-work",
+    "target_query": "proof of stake vs proof of work"
+  },
+  {
+    "page_id": "real_medium_020",
+    "difficulty": "medium",
+    "url": "https://www.stakingrewards.com/assets/eth/",
+    "target_query": "ethereum staking asset overview"
+  }
+]

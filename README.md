@@ -47,6 +47,7 @@ inference.py         Heuristic baseline policy
 train_q_policy.py    Learned Q-policy training loop
 compare_policies.py  Heuristic vs learned evaluation
 analyze_policies.py  Per-page error analysis
+final_real_evaluation.py  Final real-benchmark evaluation
 openenv.yaml         Environment metadata
 Dockerfile           Container setup
 ```
@@ -104,6 +105,12 @@ python3 compare_policies.py
 
 ```bash
 python3 analyze_policies.py
+```
+
+### Evaluate the frozen real benchmark
+
+```bash
+python3 final_real_evaluation.py
 ```
 
 ### Run the local smoke test
@@ -197,7 +204,7 @@ Run:
 
 Current status: passing.
 
-## Current Benchmark
+## Synthetic Benchmark
 
 Latest full-dataset comparison:
 
@@ -212,6 +219,48 @@ See:
 - `artifacts/policy_analysis.json`
 - `artifacts/training_report.json`
 
+## Real Dataset Freeze
+
+The synthetic benchmark is complete, and the real-page collection pipeline has
+now been frozen into:
+
+- `artifacts/real_dataset_finalized_49.json`
+- `artifacts/real_dataset_replacements_11.json`
+- `artifacts/real_dataset_tracker_google_sheets.csv`
+- `artifacts/real_dataset_final_summary.json`
+
+Current real-page status:
+
+- finalized rows: `49`
+- replacement backlog: `11`
+- easy finalized: `15`
+- medium finalized: `17`
+- hard finalized: `17`
+
+## Frozen Real Benchmark
+
+The frozen real-page evaluation now writes:
+
+- `artifacts/final_real_evaluation_report.json`
+
+Current real-benchmark averages:
+
+- heuristic overall: `0.571`
+- learned overall: `0.460`
+
+By difficulty:
+
+- heuristic easy: `0.558`
+- heuristic medium: `0.625`
+- heuristic hard: `0.528`
+- learned easy: `0.427`
+- learned medium: `0.514`
+- learned hard: `0.435`
+
+This lower score is expected and useful. It shows the real benchmark is much
+harder than the synthetic one, which makes it a better proof set for the
+hackathon story.
+
 ## Current Status
 
 - Environment working locally
@@ -222,12 +271,13 @@ See:
 - OpenEnv validation passing
 - Dockerfile present
 - Reporting artifacts generated
+- Hugging Face Space deployed and responding
+- Real-page dataset drafting pipeline complete
+- Finalized real benchmark frozen at `49` reviewed pages
+- Final real-benchmark evaluator added
 
 ## Next Steps
 
-- Expand the dataset from the current 15 pages to the full 60-page target
-- Update `openenv.yaml` if the submission format requires explicit task definitions
-- Verify Docker build end to end
-- Deploy the API to Hugging Face Spaces
-- Verify live `/reset` and `/step` responses on the deployed Space
-=======
+- Replace the remaining `11` weak real-page candidates if a fuller benchmark is needed
+- Improve heuristic or learned policy performance on the frozen real benchmark
+- Verify Docker build end to end on a machine with Docker installed

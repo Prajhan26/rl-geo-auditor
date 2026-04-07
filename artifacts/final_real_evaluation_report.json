@@ -1,0 +1,1205 @@
+{
+  "dataset": {
+    "difficulty_counts": {
+      "easy": 15,
+      "hard": 17,
+      "medium": 17
+    },
+    "pages_evaluated": 49,
+    "source": "artifacts/real_dataset_finalized_49.json"
+  },
+  "heuristic_policy": {
+    "page_results": [
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "no_date",
+          "no_sources"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "no_date",
+          "no_sources"
+        ],
+        "page_id": "real_easy_001",
+        "reward": 1.0,
+        "url": "https://stake.lido.fi/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "no_headers",
+          "weak_meta_description",
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_headers",
+          "weak_meta_description",
+          "weak_title_tag"
+        ],
+        "page_id": "real_easy_002",
+        "reward": 1.0,
+        "url": "https://lido.fi/ethereum-staking"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "missing_article_schema",
+          "no_author",
+          "no_direct_answer",
+          "no_sources",
+          "weak_meta_description",
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_easy_003",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "missing_howto_schema"
+        ],
+        "ground_truth_issue_types": [],
+        "page_id": "real_easy_004",
+        "reward": 0.0,
+        "url": "https://ethereum.org/en/what-is-ethereum/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "missing_howto_schema",
+          "no_direct_answer"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_easy_005",
+        "reward": 0.0,
+        "url": "https://ethereum.org/staking/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "missing_faq_schema",
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "weak_meta_description"
+        ],
+        "page_id": "real_easy_006",
+        "reward": 0.8,
+        "url": "https://ethereum.org/staking/pools/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_easy_007",
+        "reward": 1.0,
+        "url": "https://ethereum.org/staking/withdrawals/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_easy_009",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "missing_article_schema",
+          "no_author",
+          "no_direct_answer",
+          "no_sources",
+          "weak_meta_description",
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_easy_011",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "missing_article_schema",
+          "no_author",
+          "no_direct_answer",
+          "weak_meta_description",
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_author",
+          "weak_meta_description"
+        ],
+        "page_id": "real_easy_012",
+        "reward": 0.27142857142857146,
+        "url": "https://docs.lido.fi/contracts/lido/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_easy_013",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_easy_014",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_easy_015",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "no_direct_answer",
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [],
+        "page_id": "real_easy_016",
+        "reward": 0.0,
+        "url": "https://ethereum.org/en/defi/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "missing_article_schema",
+          "no_author",
+          "no_direct_answer"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_easy_017",
+        "reward": 0.3,
+        "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "missing_article_schema"
+        ],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_001",
+        "reward": 0.0,
+        "url": "https://www.blocknative.com/blog/ethereum-liquid-staking-guide"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "missing_howto_schema",
+          "no_direct_answer"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_hard_002",
+        "reward": 0.0,
+        "url": "https://ethereum.org/staking/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "missing_howto_schema"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "missing_howto_schema",
+          "no_author"
+        ],
+        "page_id": "real_hard_003",
+        "reward": 0.5,
+        "url": "https://ethereum.org/staking/solo/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "missing_faq_schema",
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "weak_meta_description"
+        ],
+        "page_id": "real_hard_004",
+        "reward": 0.8,
+        "url": "https://ethereum.org/staking/pools/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_005",
+        "reward": 1.0,
+        "url": "https://ethereum.org/staking/withdrawals/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "missing_howto_schema",
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_006",
+        "reward": 0.0,
+        "url": "https://ethereum.org/en/what-is-ethereum/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "missing_article_schema",
+          "no_author",
+          "no_direct_answer",
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_hard_007",
+        "reward": 0.09999999999999998,
+        "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "no_date",
+          "no_sources"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "no_date",
+          "no_sources"
+        ],
+        "page_id": "real_hard_008",
+        "reward": 1.0,
+        "url": "https://stake.lido.fi/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_009",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_010",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "missing_article_schema",
+          "no_author",
+          "no_direct_answer",
+          "no_sources",
+          "weak_meta_description",
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_hard_011",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "missing_article_schema",
+          "no_author",
+          "no_direct_answer"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_hard_012",
+        "reward": 0.3,
+        "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "missing_article_schema",
+          "no_author",
+          "no_direct_answer",
+          "weak_meta_description",
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_author",
+          "weak_meta_description"
+        ],
+        "page_id": "real_hard_013",
+        "reward": 0.27142857142857146,
+        "url": "https://docs.lido.fi/contracts/lido/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_014",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_015",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_016",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "no_direct_answer",
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_017",
+        "reward": 0.0,
+        "url": "https://ethereum.org/en/defi/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "missing_howto_schema",
+          "no_author"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "missing_howto_schema",
+          "no_author"
+        ],
+        "page_id": "real_medium_001",
+        "reward": 0.8,
+        "url": "https://ethereum.org/staking/solo/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "weak_meta_description"
+        ],
+        "page_id": "real_medium_002",
+        "reward": 1.0,
+        "url": "https://ethereum.org/staking/pools/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "no_headers",
+          "thin_content",
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_headers",
+          "thin_content",
+          "weak_title_tag"
+        ],
+        "page_id": "real_medium_003",
+        "reward": 1.0,
+        "url": "https://lido.fi/faq"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "missing_article_schema"
+        ],
+        "ground_truth_issue_types": [],
+        "page_id": "real_medium_004",
+        "reward": 0.0,
+        "url": "https://www.blocknative.com/blog/ethereum-liquid-staking-guide"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "missing_howto_schema",
+          "no_author",
+          "no_direct_answer"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_medium_005",
+        "reward": 0.3,
+        "url": "https://ethereum.org/staking/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_medium_006",
+        "reward": 1.0,
+        "url": "https://ethereum.org/staking/withdrawals/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "no_date",
+          "no_sources"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "no_date",
+          "no_sources"
+        ],
+        "page_id": "real_medium_007",
+        "reward": 1.0,
+        "url": "https://stake.lido.fi/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "missing_article_schema",
+          "no_author",
+          "no_direct_answer"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_medium_008",
+        "reward": 0.3,
+        "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "missing_article_schema",
+          "no_author",
+          "no_direct_answer",
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [
+          "no_author",
+          "weak_meta_description"
+        ],
+        "page_id": "real_medium_009",
+        "reward": 0.4666666666666666,
+        "url": "https://docs.lido.fi/contracts/lido/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_medium_010",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "missing_article_schema",
+          "no_author",
+          "no_direct_answer",
+          "no_sources",
+          "weak_meta_description",
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_medium_011",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "missing_article_schema",
+          "no_author",
+          "no_direct_answer"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_medium_012",
+        "reward": 0.3,
+        "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "missing_article_schema",
+          "no_author",
+          "no_direct_answer",
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [
+          "no_author",
+          "weak_meta_description"
+        ],
+        "page_id": "real_medium_013",
+        "reward": 0.4666666666666666,
+        "url": "https://docs.lido.fi/contracts/lido/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_medium_014",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_medium_015",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_medium_016",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "no_direct_answer",
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [],
+        "page_id": "real_medium_017",
+        "reward": 0.0,
+        "url": "https://ethereum.org/en/defi/"
+      }
+    ],
+    "summary": {
+      "average_reward_by_difficulty": {
+        "easy": 0.558,
+        "hard": 0.528,
+        "medium": 0.625
+      },
+      "average_reward_overall": 0.571,
+      "pages_evaluated": 49,
+      "top_flagged_issue_types": {
+        "missing_article_schema": 15,
+        "missing_faq_schema": 6,
+        "missing_howto_schema": 7,
+        "no_author": 19,
+        "no_date": 3,
+        "no_direct_answer": 19,
+        "no_headers": 2,
+        "no_sources": 7,
+        "weak_meta_description": 16,
+        "weak_title_tag": 9
+      }
+    }
+  },
+  "learned_policy": {
+    "page_results": [
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "missing_faq_schema"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "no_date",
+          "no_sources"
+        ],
+        "page_id": "real_easy_001",
+        "reward": 0.4,
+        "url": "https://stake.lido.fi/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_headers",
+          "weak_meta_description",
+          "weak_title_tag"
+        ],
+        "page_id": "real_easy_002",
+        "reward": 0.5,
+        "url": "https://lido.fi/ethereum-staking"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_easy_003",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "missing_howto_schema"
+        ],
+        "ground_truth_issue_types": [],
+        "page_id": "real_easy_004",
+        "reward": 0.0,
+        "url": "https://ethereum.org/en/what-is-ethereum/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "no_direct_answer"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_easy_005",
+        "reward": 0.0,
+        "url": "https://ethereum.org/staking/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "weak_meta_description"
+        ],
+        "page_id": "real_easy_006",
+        "reward": 0.5,
+        "url": "https://ethereum.org/staking/pools/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_easy_007",
+        "reward": 1.0,
+        "url": "https://ethereum.org/staking/withdrawals/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_easy_009",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_easy_011",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_author",
+          "weak_meta_description"
+        ],
+        "page_id": "real_easy_012",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/contracts/lido/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_easy_013",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_easy_014",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_easy_015",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [],
+        "page_id": "real_easy_016",
+        "reward": 0.0,
+        "url": "https://ethereum.org/en/defi/"
+      },
+      {
+        "difficulty": "easy",
+        "flagged_issue_types": [
+          "no_direct_answer"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_easy_017",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "missing_article_schema"
+        ],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_001",
+        "reward": 0.0,
+        "url": "https://www.blocknative.com/blog/ethereum-liquid-staking-guide"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "no_direct_answer"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_hard_002",
+        "reward": 0.0,
+        "url": "https://ethereum.org/staking/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "missing_howto_schema"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "missing_howto_schema",
+          "no_author"
+        ],
+        "page_id": "real_hard_003",
+        "reward": 0.5,
+        "url": "https://ethereum.org/staking/solo/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "weak_meta_description"
+        ],
+        "page_id": "real_hard_004",
+        "reward": 0.5,
+        "url": "https://ethereum.org/staking/pools/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_005",
+        "reward": 1.0,
+        "url": "https://ethereum.org/staking/withdrawals/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_006",
+        "reward": 0.0,
+        "url": "https://ethereum.org/en/what-is-ethereum/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_hard_007",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "missing_faq_schema"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "no_date",
+          "no_sources"
+        ],
+        "page_id": "real_hard_008",
+        "reward": 0.4,
+        "url": "https://stake.lido.fi/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_009",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_010",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_hard_011",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "no_direct_answer"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_hard_012",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_author",
+          "weak_meta_description"
+        ],
+        "page_id": "real_hard_013",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/contracts/lido/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_014",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_015",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_016",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/"
+      },
+      {
+        "difficulty": "hard",
+        "flagged_issue_types": [
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [],
+        "page_id": "real_hard_017",
+        "reward": 0.0,
+        "url": "https://ethereum.org/en/defi/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "missing_howto_schema"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "missing_howto_schema",
+          "no_author"
+        ],
+        "page_id": "real_medium_001",
+        "reward": 0.5,
+        "url": "https://ethereum.org/staking/solo/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "weak_meta_description"
+        ],
+        "page_id": "real_medium_002",
+        "reward": 1.0,
+        "url": "https://ethereum.org/staking/pools/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_headers",
+          "thin_content",
+          "weak_title_tag"
+        ],
+        "page_id": "real_medium_003",
+        "reward": 0.5,
+        "url": "https://lido.fi/faq"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "missing_article_schema"
+        ],
+        "ground_truth_issue_types": [],
+        "page_id": "real_medium_004",
+        "reward": 0.0,
+        "url": "https://www.blocknative.com/blog/ethereum-liquid-staking-guide"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "no_direct_answer"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_medium_005",
+        "reward": 0.0,
+        "url": "https://ethereum.org/staking/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_medium_006",
+        "reward": 1.0,
+        "url": "https://ethereum.org/staking/withdrawals/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "missing_faq_schema"
+        ],
+        "ground_truth_issue_types": [
+          "missing_faq_schema",
+          "no_author",
+          "no_date",
+          "no_sources"
+        ],
+        "page_id": "real_medium_007",
+        "reward": 0.4,
+        "url": "https://stake.lido.fi/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "no_direct_answer"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_medium_008",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [
+          "no_author",
+          "weak_meta_description"
+        ],
+        "page_id": "real_medium_009",
+        "reward": 0.6666666666666666,
+        "url": "https://docs.lido.fi/contracts/lido/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_medium_010",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "weak_title_tag"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_medium_011",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "no_direct_answer"
+        ],
+        "ground_truth_issue_types": [
+          "no_author"
+        ],
+        "page_id": "real_medium_012",
+        "reward": 0.0,
+        "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [
+          "no_author",
+          "weak_meta_description"
+        ],
+        "page_id": "real_medium_013",
+        "reward": 0.6666666666666666,
+        "url": "https://docs.lido.fi/contracts/lido/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_medium_014",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_medium_015",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [],
+        "ground_truth_issue_types": [],
+        "page_id": "real_medium_016",
+        "reward": 1.0,
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/"
+      },
+      {
+        "difficulty": "medium",
+        "flagged_issue_types": [
+          "weak_meta_description"
+        ],
+        "ground_truth_issue_types": [],
+        "page_id": "real_medium_017",
+        "reward": 0.0,
+        "url": "https://ethereum.org/en/defi/"
+      }
+    ],
+    "summary": {
+      "average_reward_by_difficulty": {
+        "easy": 0.427,
+        "hard": 0.435,
+        "medium": 0.514
+      },
+      "average_reward_overall": 0.46,
+      "pages_evaluated": 49,
+      "top_flagged_issue_types": {
+        "missing_article_schema": 2,
+        "missing_faq_schema": 4,
+        "missing_howto_schema": 3,
+        "no_author": 1,
+        "no_direct_answer": 7,
+        "weak_meta_description": 9,
+        "weak_title_tag": 9
+      }
+    }
+  }
+}

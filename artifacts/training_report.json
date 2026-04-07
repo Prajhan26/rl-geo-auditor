@@ -9,71 +9,71 @@
       "difficulty": "hard",
       "episode": 250,
       "epsilon": 0.1416,
-      "final_reward": 0.6667,
-      "total_shaped_reward": 0.9517
+      "final_reward": 1.0,
+      "total_shaped_reward": 1.05
     },
     {
       "difficulty": "hard",
       "episode": 500,
       "epsilon": 0.0668,
-      "final_reward": 1.0,
-      "total_shaped_reward": 1.185
+      "final_reward": 0.0,
+      "total_shaped_reward": 0.165
     },
     {
       "difficulty": "easy",
       "episode": 750,
       "epsilon": 0.05,
-      "final_reward": 0.0,
-      "total_shaped_reward": 0.12
+      "final_reward": 1.0,
+      "total_shaped_reward": 1.36
     },
     {
       "difficulty": "hard",
       "episode": 1000,
       "epsilon": 0.05,
-      "final_reward": 0.6667,
-      "total_shaped_reward": 0.8167
+      "final_reward": 1.0,
+      "total_shaped_reward": 1.445
     },
     {
       "difficulty": "hard",
       "episode": 1250,
       "epsilon": 0.05,
-      "final_reward": 0.0,
-      "total_shaped_reward": 0.05
+      "final_reward": 1.0,
+      "total_shaped_reward": 1.05
     },
     {
-      "difficulty": "hard",
+      "difficulty": "medium",
       "episode": 1500,
       "epsilon": 0.05,
       "final_reward": 1.0,
-      "total_shaped_reward": 1.325
+      "total_shaped_reward": 1.22
     },
     {
-      "difficulty": "hard",
+      "difficulty": "medium",
       "episode": 1750,
       "epsilon": 0.05,
-      "final_reward": 0.6667,
-      "total_shaped_reward": 0.9517
+      "final_reward": 1.0,
+      "total_shaped_reward": 1.16
     },
     {
-      "difficulty": "hard",
+      "difficulty": "medium",
       "episode": 2000,
       "epsilon": 0.05,
       "final_reward": 1.0,
-      "total_shaped_reward": 1.325
+      "total_shaped_reward": 1.16
     },
     {
       "difficulty": "hard",
       "episode": 2250,
       "epsilon": 0.05,
       "final_reward": 1.0,
-      "total_shaped_reward": 1.05
+      "total_shaped_reward": 1.355
     },
     {
-      "difficulty": "hard",
+      "difficulty": "easy",
       "episode": 2500,
       "epsilon": 0.05,
-      "final_reward": 1.0,
-      "total_shaped_reward": 1.325
+      "final_reward": 0.75,
+      "total_shaped_reward": 1.01
     }
   ]
 }

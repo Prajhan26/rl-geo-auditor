@@ -1,0 +1,334 @@
+[
+  {
+    "page_id": "real_easy_001",
+    "url": "https://stake.lido.fi/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      },
+      {
+        "type": "no_date",
+        "severity": "medium"
+      },
+      {
+        "type": "no_sources",
+        "severity": "low"
+      },
+      {
+        "type": "missing_faq_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Keep as a sparse product-like staking page.",
+      "Visible FAQ section exists; author/date/source signals are weak."
+    ]
+  },
+  {
+    "page_id": "real_easy_002",
+    "url": "https://lido.fi/ethereum-staking",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "weak_title_tag",
+        "severity": "medium"
+      },
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "no_headers",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Keep as an obvious weaker page for the easy set.",
+      "Parser consistently finds poor visible structure."
+    ]
+  },
+  {
+    "page_id": "real_easy_003",
+    "url": "https://docs.lido.fi/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Documentation page, not an article.",
+      "Removed weak title/meta, no_direct_answer, no_sources, and missing_article_schema."
+    ]
+  },
+  {
+    "page_id": "real_easy_008",
+    "url": "https://www.stakingrewards.com/earn/ethereum-2-0/",
+    "final_status": "replace_candidate",
+    "final_issues": [],
+    "review_notes": [
+      "Too little useful content extracted to trust this row.",
+      "Replace with a more parser-friendly real page."
+    ]
+  },
+  {
+    "page_id": "real_easy_010",
+    "url": "https://www.gemini.com/cryptopedia/ethereum-staking-explained",
+    "final_status": "replace_candidate",
+    "final_issues": [],
+    "review_notes": [
+      "The extracted title/H1 clearly point to a generic hub, not the intended article.",
+      "Replace with a cleaner candidate."
+    ]
+  },
+  {
+    "page_id": "real_easy_011",
+    "url": "https://docs.lido.fi/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Documentation page; keep only no_author."
+    ]
+  },
+  {
+    "page_id": "real_easy_012",
+    "url": "https://docs.lido.fi/contracts/lido/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Meta is effectively just '- Source code', so weak_meta_description stays.",
+      "Removed weak_title_tag, no_direct_answer, and missing_article_schema."
+    ]
+  },
+  {
+    "page_id": "real_easy_018",
+    "url": "https://www.gemini.com/cryptopedia/ethereum-vs-bitcoin-blockchain",
+    "final_status": "replace_candidate",
+    "final_issues": [],
+    "review_notes": [
+      "The fetched content looks like a generic Cryptopedia hub, not the intended article.",
+      "Replace with a cleaner candidate."
+    ]
+  },
+  {
+    "page_id": "real_easy_019",
+    "url": "https://www.gemini.com/cryptopedia/proof-of-stake-vs-proof-of-work",
+    "final_status": "replace_candidate",
+    "final_issues": [],
+    "review_notes": [
+      "The fetched content looks like a generic Cryptopedia hub, not the intended article.",
+      "Replace with a cleaner candidate."
+    ]
+  },
+  {
+    "page_id": "real_easy_020",
+    "url": "https://www.stakingrewards.com/assets/eth/",
+    "final_status": "replace_candidate",
+    "final_issues": [],
+    "review_notes": [
+      "Too little useful page content extracted to trust the row.",
+      "Replace with a more parser-friendly real page."
+    ]
+  },
+  {
+    "page_id": "real_medium_003",
+    "url": "https://lido.fi/ethereum-staking",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "weak_title_tag",
+        "severity": "medium"
+      },
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "no_headers",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Keep as a medium-difficulty page with obvious structure problems."
+    ]
+  },
+  {
+    "page_id": "real_medium_007",
+    "url": "https://stake.lido.fi/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      },
+      {
+        "type": "no_date",
+        "severity": "medium"
+      },
+      {
+        "type": "no_sources",
+        "severity": "low"
+      },
+      {
+        "type": "missing_faq_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Sparse but usable page; keep the trust/schema issues."
+    ]
+  },
+  {
+    "page_id": "real_medium_011",
+    "url": "https://docs.lido.fi/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Documentation page; keep only no_author."
+    ]
+  },
+  {
+    "page_id": "real_medium_018",
+    "url": "https://www.gemini.com/cryptopedia/ethereum-vs-bitcoin-blockchain",
+    "final_status": "replace_candidate",
+    "final_issues": [],
+    "review_notes": [
+      "Fetched content points to a generic hub instead of the intended article."
+    ]
+  },
+  {
+    "page_id": "real_medium_019",
+    "url": "https://www.gemini.com/cryptopedia/proof-of-stake-vs-proof-of-work",
+    "final_status": "replace_candidate",
+    "final_issues": [],
+    "review_notes": [
+      "Fetched content points to a generic hub instead of the intended article."
+    ]
+  },
+  {
+    "page_id": "real_medium_020",
+    "url": "https://www.stakingrewards.com/assets/eth/",
+    "final_status": "replace_candidate",
+    "final_issues": [],
+    "review_notes": [
+      "Too little useful page content extracted to trust this row."
+    ]
+  },
+  {
+    "page_id": "real_hard_006",
+    "url": "https://ethereum.org/en/what-is-ethereum/",
+    "final_status": "approved_clean",
+    "final_issues": [],
+    "review_notes": [
+      "Removed weak_title_tag and missing_howto_schema.",
+      "This is a strong explainer, not a how-to page."
+    ]
+  },
+  {
+    "page_id": "real_hard_008",
+    "url": "https://stake.lido.fi/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      },
+      {
+        "type": "no_date",
+        "severity": "medium"
+      },
+      {
+        "type": "no_sources",
+        "severity": "low"
+      },
+      {
+        "type": "missing_faq_schema",
+        "severity": "high"
+      }
+    ],
+    "review_notes": [
+      "Sparse but usable hard-set page for trust/schema analysis."
+    ]
+  },
+  {
+    "page_id": "real_hard_011",
+    "url": "https://docs.lido.fi/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Documentation page; keep only no_author."
+    ]
+  },
+  {
+    "page_id": "real_hard_013",
+    "url": "https://docs.lido.fi/contracts/lido/",
+    "final_status": "approved_with_corrections",
+    "final_issues": [
+      {
+        "type": "weak_meta_description",
+        "severity": "medium"
+      },
+      {
+        "type": "no_author",
+        "severity": "medium"
+      }
+    ],
+    "review_notes": [
+      "Removed weak_title_tag, no_direct_answer, and missing_article_schema."
+    ]
+  },
+  {
+    "page_id": "real_hard_018",
+    "url": "https://www.gemini.com/cryptopedia/ethereum-vs-bitcoin-blockchain",
+    "final_status": "replace_candidate",
+    "final_issues": [],
+    "review_notes": [
+      "Fetched content points to a generic hub instead of the intended article."
+    ]
+  },
+  {
+    "page_id": "real_hard_019",
+    "url": "https://www.gemini.com/cryptopedia/proof-of-stake-vs-proof-of-work",
+    "final_status": "replace_candidate",
+    "final_issues": [],
+    "review_notes": [
+      "Fetched content points to a generic hub instead of the intended article."
+    ]
+  },
+  {
+    "page_id": "real_hard_020",
+    "url": "https://www.stakingrewards.com/assets/eth/",
+    "final_status": "replace_candidate",
+    "final_issues": [],
+    "review_notes": [
+      "Too little useful page content extracted to trust this row."
+    ]
+  }
+]

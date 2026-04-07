@@ -1,0 +1,101 @@
+[
+  {
+    "page_id": "real_easy_008",
+    "difficulty": "easy",
+    "batch": "01",
+    "url": "https://www.stakingrewards.com/earn/ethereum-2-0/",
+    "current_status": "replace_candidate",
+    "next_action": "replace_url",
+    "notes": "Insufficient useful content extracted; replace with a cleaner page."
+  },
+  {
+    "page_id": "real_easy_010",
+    "difficulty": "easy",
+    "batch": "01",
+    "url": "https://www.gemini.com/cryptopedia/ethereum-staking-explained",
+    "current_status": "replace_candidate",
+    "next_action": "replace_url",
+    "notes": "Fetched content looks like a generic hub instead of the intended article."
+  },
+  {
+    "page_id": "real_easy_018",
+    "difficulty": "easy",
+    "batch": "02",
+    "url": "https://www.gemini.com/cryptopedia/ethereum-vs-bitcoin-blockchain",
+    "current_status": "replace_candidate",
+    "next_action": "replace_url",
+    "notes": "Fetched content looks like a generic hub instead of the intended article."
+  },
+  {
+    "page_id": "real_easy_019",
+    "difficulty": "easy",
+    "batch": "02",
+    "url": "https://www.gemini.com/cryptopedia/proof-of-stake-vs-proof-of-work",
+    "current_status": "replace_candidate",
+    "next_action": "replace_url",
+    "notes": "Fetched content looks like a generic hub instead of the intended article."
+  },
+  {
+    "page_id": "real_easy_020",
+    "difficulty": "easy",
+    "batch": "02",
+    "url": "https://www.stakingrewards.com/assets/eth/",
+    "current_status": "replace_candidate",
+    "next_action": "replace_url",
+    "notes": "Insufficient useful content extracted; replace with a cleaner page."
+  },
+  {
+    "page_id": "real_hard_018",
+    "difficulty": "hard",
+    "batch": "02",
+    "url": "https://www.gemini.com/cryptopedia/ethereum-vs-bitcoin-blockchain",
+    "current_status": "replace_candidate",
+    "next_action": "replace_url",
+    "notes": "Fetched content looks like a generic hub instead of the intended article."
+  },
+  {
+    "page_id": "real_hard_019",
+    "difficulty": "hard",
+    "batch": "02",
+    "url": "https://www.gemini.com/cryptopedia/proof-of-stake-vs-proof-of-work",
+    "current_status": "replace_candidate",
+    "next_action": "replace_url",
+    "notes": "Fetched content looks like a generic hub instead of the intended article."
+  },
+  {
+    "page_id": "real_hard_020",
+    "difficulty": "hard",
+    "batch": "02",
+    "url": "https://www.stakingrewards.com/assets/eth/",
+    "current_status": "replace_candidate",
+    "next_action": "replace_url",
+    "notes": "Insufficient useful content extracted; replace with a cleaner page."
+  },
+  {
+    "page_id": "real_medium_018",
+    "difficulty": "medium",
+    "batch": "02",
+    "url": "https://www.gemini.com/cryptopedia/ethereum-vs-bitcoin-blockchain",
+    "current_status": "replace_candidate",
+    "next_action": "replace_url",
+    "notes": "Fetched content looks like a generic hub instead of the intended article."
+  },
+  {
+    "page_id": "real_medium_019",
+    "difficulty": "medium",
+    "batch": "02",
+    "url": "https://www.gemini.com/cryptopedia/proof-of-stake-vs-proof-of-work",
+    "current_status": "replace_candidate",
+    "next_action": "replace_url",
+    "notes": "Fetched content looks like a generic hub instead of the intended article."
+  },
+  {
+    "page_id": "real_medium_020",
+    "difficulty": "medium",
+    "batch": "02",
+    "url": "https://www.stakingrewards.com/assets/eth/",
+    "current_status": "replace_candidate",
+    "next_action": "replace_url",
+    "notes": "Insufficient useful content extracted; replace with a cleaner page."
+  }
+]

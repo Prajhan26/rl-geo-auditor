@@ -1,0 +1,62 @@
+[
+  {
+    "page_id": "real_medium_001",
+    "difficulty": "medium",
+    "url": "https://ethereum.org/staking/solo/",
+    "target_query": "how to stake ethereum from home"
+  },
+  {
+    "page_id": "real_medium_002",
+    "difficulty": "medium",
+    "url": "https://ethereum.org/staking/pools/",
+    "target_query": "what is pooled ethereum staking"
+  },
+  {
+    "page_id": "real_medium_003",
+    "difficulty": "medium",
+    "url": "https://lido.fi/ethereum-staking",
+    "target_query": "what is ethereum liquid staking"
+  },
+  {
+    "page_id": "real_medium_004",
+    "difficulty": "medium",
+    "url": "https://www.blocknative.com/blog/ethereum-liquid-staking-guide",
+    "target_query": "ethereum liquid staking guide"
+  },
+  {
+    "page_id": "real_medium_005",
+    "difficulty": "medium",
+    "url": "https://ethereum.org/staking/",
+    "target_query": "ethereum staking guide"
+  },
+  {
+    "page_id": "real_medium_006",
+    "difficulty": "medium",
+    "url": "https://ethereum.org/staking/withdrawals/",
+    "target_query": "how do ethereum staking withdrawals work"
+  },
+  {
+    "page_id": "real_medium_007",
+    "difficulty": "medium",
+    "url": "https://stake.lido.fi/",
+    "target_query": "stake ethereum with lido"
+  },
+  {
+    "page_id": "real_medium_008",
+    "difficulty": "medium",
+    "url": "https://docs.lido.fi/guides/lido-tokens-integration-guide/",
+    "target_query": "lido tokens integration guide"
+  },
+  {
+    "page_id": "real_medium_009",
+    "difficulty": "medium",
+    "url": "https://docs.lido.fi/contracts/lido/",
+    "target_query": "lido contract docs"
+  },
+  {
+    "page_id": "real_medium_010",
+    "difficulty": "medium",
+    "url": "https://ethereum.org/en/developers/docs/nodes-and-clients/",
+    "target_query": "what are ethereum nodes and clients"
+  }
+]

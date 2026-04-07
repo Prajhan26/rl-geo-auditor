@@ -280,6 +280,70 @@ This gives:
 * per-page miss analysis
 * reusable training artifacts
 
+### 12. Real Dataset Collection Pipeline
+
+Built a real-page drafting and review workflow so the project is no longer
+limited to synthetic benchmark rows.
+
+Added:
+
+* `draft_real_batch.py`
+* `real_batches/*.json`
+* `docs/REAL_DATASET_COLLECTION.md`
+* `docs/REAL_MEDIUM_BATCH_01.md`
+* `artifacts/real_dataset_tracker_google_sheets.csv`
+
+This pipeline now:
+
+* fetches live pages in batches
+* extracts title, meta description, H1, paragraph, headers, word count, and schema hints
+* drafts benchmark rows automatically
+* supports human review and correction
+
+### 13. Final Real Dataset Freeze
+
+The real-page benchmark has now been frozen into:
+
+* `artifacts/real_dataset_finalized_49.json`
+* `artifacts/real_dataset_replacements_11.json`
+* `artifacts/real_dataset_final_summary.json`
+
+Current frozen real dataset status:
+
+* finalized rows: `49`
+* replacement backlog: `11`
+* easy finalized: `15`
+* medium finalized: `17`
+* hard finalized: `17`
+
+### 14. Final Real-Benchmark Evaluator
+
+Added:
+
+* `final_real_evaluation.py`
+* `artifacts/final_real_evaluation_report.json`
+
+This gives a clean final scoring pass over the frozen `49` reviewed real pages.
+
+Current real-benchmark results:
+
+* heuristic overall: `0.571`
+* learned overall: `0.460`
+
+By difficulty:
+
+* heuristic easy: `0.558`
+* heuristic medium: `0.625`
+* heuristic hard: `0.528`
+* learned easy: `0.427`
+* learned medium: `0.514`
+* learned hard: `0.435`
+
+Important takeaway:
+
+* the real benchmark is much harder than the synthetic benchmark
+* this is good because it makes the evaluation more believable
+
 ---
 
 ## What I Learned So Far
@@ -325,18 +389,20 @@ Completed:
 * Docker and packaging setup
 * OpenEnv validation
 * policy reporting and comparison
+* Hugging Face deployment
+* real-page drafting pipeline
+* frozen real benchmark with `49` finalized rows
+* final real-benchmark evaluator
 
 In progress:
 
-* expanding task realism beyond the current benchmark
 * final hackathon explanation / demo polish
 
 Not built yet:
 
-* larger real-world dataset
-* hosted deployment / public demo target
+* optional cleanup of the remaining `11` replacement candidates
 
-Current benchmark status on the existing dataset:
+Current synthetic benchmark status on the existing dataset:
 
 * heuristic policy: `1.000` average
 * learned policy: `1.000` average
@@ -348,6 +414,15 @@ Latest full comparison report:
 Latest per-page analysis:
 
 * `artifacts/policy_analysis.json`
+
+Current frozen real benchmark status:
+
+* heuristic policy: `0.571` average
+* learned policy: `0.460` average
+
+Latest real-benchmark report:
+
+* `artifacts/final_real_evaluation_report.json`
 
 ---
 
@@ -389,6 +464,12 @@ Analyze page-by-page misses:
 python3 analyze_policies.py
 ```
 
+Run the frozen real benchmark:
+
+```bash
+python3 final_real_evaluation.py
+```
+
 Build Docker image:
 
 ```bash
@@ -407,9 +488,9 @@ Run OpenEnv validation:
 
 ### Immediate Next Build
 
-1. Expand the dataset beyond the current small benchmark
-2. Add more “good” and mixed-quality pages to test generalization
-3. Decide whether to deploy a hosted demo endpoint
+1. Optionally replace the remaining 11 weak real pages
+2. Improve policy quality on the frozen real dataset if stronger real-page scores are needed
+3. Verify Docker build on a machine with Docker installed
 4. Polish the hackathon explanation and submission story
 
 ### Hackathon Goal
@@ -437,4 +518,8 @@ Be able to clearly explain:
 * learned Q-policy implemented
 * reporting and analysis added
 * current dataset benchmark reaches `1.000` average
-* next phase is larger-scale realism and final submission polish
+* Hugging Face Space deployed successfully
+* real-page drafting pipeline completed
+* frozen real benchmark now includes `49` finalized reviewed pages
+* final real-benchmark evaluator added with realistic live-page metrics
+* only `11` replacement candidates remain as optional cleanup

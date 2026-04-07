@@ -5,10 +5,10 @@
     "medium": 1.0
   },
   "learned_full_dataset_average": {
-    "easy": 1.0,
+    "easy": 0.9794444444444445,
     "hard": 1.0,
     "medium": 1.0,
-    "overall": 1.0
+    "overall": 0.9931481481481481
   },
   "learned_random_eval": {
     "easy": 1.0,

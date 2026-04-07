@@ -8,32 +8,16 @@
     "h1": "Ethereum Staking Guide",
     "first_paragraph": "Ethereum staking is becoming more popular with investors interested in long-term rewards, but many guides delay the practical answer.",
     "word_count": 1200,
-    "headers": [
-      "H2: What is Staking",
-      "H2: Benefits",
-      "H2: Risks",
-      "H2: How to Stake"
-    ],
-    "schema_types": [
-      "Article"
-    ],
+    "headers": ["H2: What is Staking", "H2: Benefits", "H2: Risks", "H2: How to Stake"],
+    "schema_types": ["Article"],
     "has_author": true,
     "has_date": false,
     "has_sources": true,
     "source_count": 2,
     "issues": [
-      {
-        "type": "weak_meta_description",
-        "severity": "medium"
-      },
-      {
-        "type": "missing_howto_schema",
-        "severity": "high"
-      },
-      {
-        "type": "no_date",
-        "severity": "medium"
-      }
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "missing_howto_schema", "severity": "high" },
+      { "type": "no_date", "severity": "medium" }
     ]
   },
   {
@@ -45,34 +29,16 @@
     "h1": "ETH Staking Explained",
     "first_paragraph": "Welcome to our latest crypto deep dive. Before we cover rewards, let us introduce our platform and why readers love our newsletter.",
     "word_count": 2000,
-    "headers": [
-      "H2: Introduction",
-      "H2: What Is Staking",
-      "H2: Current Rewards",
-      "H2: How to Start",
-      "H2: FAQ"
-    ],
-    "schema_types": [
-      "Article",
-      "FAQPage"
-    ],
+    "headers": ["H2: Introduction", "H2: What Is Staking", "H2: Current Rewards", "H2: How to Start", "H2: FAQ"],
+    "schema_types": ["Article", "FAQPage"],
     "has_author": true,
     "has_date": true,
     "has_sources": false,
     "source_count": 0,
     "issues": [
-      {
-        "type": "buried_answer",
-        "severity": "high"
-      },
-      {
-        "type": "missing_howto_schema",
-        "severity": "high"
-      },
-      {
-        "type": "no_sources",
-        "severity": "low"
-      }
+      { "type": "buried_answer", "severity": "high" },
+      { "type": "missing_howto_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
     ]
   },
   {
@@ -84,24 +50,14 @@
     "h1": "How Ethereum Staking Works",
     "first_paragraph": "Ethereum staking lets you lock ETH to help secure the network and earn rewards, but beginners should understand validator requirements and risks first.",
     "word_count": 900,
-    "headers": [
-      "H2: Basics",
-      "H2: Validator Requirements",
-      "H2: Risks",
-      "H2: FAQ"
-    ],
-    "schema_types": [
-      "Article"
-    ],
+    "headers": ["H2: Basics", "H2: Validator Requirements", "H2: Risks", "H2: FAQ"],
+    "schema_types": ["Article"],
     "has_author": true,
     "has_date": true,
     "has_sources": true,
     "source_count": 1,
     "issues": [
-      {
-        "type": "missing_faq_schema",
-        "severity": "high"
-      }
+      { "type": "missing_faq_schema", "severity": "high" }
     ]
   },
   {
@@ -113,29 +69,15 @@
     "h1": "How to Solo Stake Ethereum",
     "first_paragraph": "To solo stake Ethereum, you need 32 ETH, validator hardware, and a clear setup path for keys, clients, and monitoring.",
     "word_count": 1400,
-    "headers": [
-      "H2: Requirements",
-      "H2: Step by Step",
-      "H2: Monitoring",
-      "H2: Risks"
-    ],
-    "schema_types": [
-      "Article",
-      "HowTo"
-    ],
+    "headers": ["H2: Requirements", "H2: Step by Step", "H2: Monitoring", "H2: Risks"],
+    "schema_types": ["Article", "HowTo"],
     "has_author": true,
     "has_date": false,
     "has_sources": false,
     "source_count": 0,
     "issues": [
-      {
-        "type": "no_date",
-        "severity": "medium"
-      },
-      {
-        "type": "no_sources",
-        "severity": "low"
-      }
+      { "type": "no_date", "severity": "medium" },
+      { "type": "no_sources", "severity": "low" }
     ]
   },
   {
@@ -147,24 +89,314 @@
     "h1": "Liquid Staking Explained",
     "first_paragraph": "Liquid staking lets you stake assets while still receiving a tradable token that represents the staked position.",
     "word_count": 1100,
-    "headers": [
-      "H2: What Is Liquid Staking",
-      "H2: Benefits",
-      "H2: Risks",
-      "H2: FAQ"
-    ],
-    "schema_types": [
-      "Article"
-    ],
+    "headers": ["H2: What Is Liquid Staking", "H2: Benefits", "H2: Risks", "H2: FAQ"],
+    "schema_types": ["Article"],
     "has_author": true,
     "has_date": true,
     "has_sources": true,
     "source_count": 2,
     "issues": [
-      {
-        "type": "missing_faq_schema",
-        "severity": "high"
-      }
+      { "type": "missing_faq_schema", "severity": "high" }
+    ]
+  },
+  {
+    "page_id": "medium_006",
+    "url": "https://example.com/validator-node-guide",
+    "target_query": "how to run a validator node",
+    "title_tag": "How to Run a Validator Node | Example",
+    "meta_description": "A practical guide to running a validator node on Ethereum.",
+    "h1": "How to Run a Validator Node",
+    "first_paragraph": "To run a validator node, you need compatible hardware, execution and consensus clients, and a secure key setup.",
+    "word_count": 1300,
+    "headers": ["H2: Hardware", "H2: Clients", "H2: Step by Step", "H2: Monitoring"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 2,
+    "issues": [
+      { "type": "missing_howto_schema", "severity": "high" }
+    ]
+  },
+  {
+    "page_id": "medium_007",
+    "url": "https://example.com/staking-faq-complete",
+    "target_query": "ethereum staking faq",
+    "title_tag": "Ethereum Staking FAQ | Example",
+    "meta_description": "Answers to common Ethereum staking questions.",
+    "h1": "Ethereum Staking FAQ",
+    "first_paragraph": "This FAQ answers common Ethereum staking questions about setup, rewards, risk, and custody.",
+    "word_count": 900,
+    "headers": ["H2: FAQ", "H2: Rewards", "H2: Risks"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 1,
+    "issues": [
+      { "type": "missing_faq_schema", "severity": "high" }
+    ]
+  },
+  {
+    "page_id": "medium_008",
+    "url": "https://example.com/compare-staking-providers",
+    "target_query": "how to compare staking providers",
+    "title_tag": "How to Compare Staking Providers | Example",
+    "meta_description": "Learn about staking providers.",
+    "h1": "How to Compare Staking Providers",
+    "first_paragraph": "Welcome to our platform comparison newsletter. Before we compare providers, let us introduce our company and research style.",
+    "word_count": 1000,
+    "headers": ["H2: Platform Types", "H2: How to Compare", "H2: Risks"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "buried_answer", "severity": "high" },
+      { "type": "missing_howto_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "medium_009",
+    "url": "https://example.com/restaking-explained",
+    "target_query": "what is restaking",
+    "title_tag": "Restaking Explained | Example",
+    "meta_description": "An introduction to restaking and shared security.",
+    "h1": "Restaking Explained",
+    "first_paragraph": "Restaking is the practice of reusing staked assets or staking guarantees to secure additional services.",
+    "word_count": 950,
+    "headers": ["H2: Basics", "H2: Risks", "H2: FAQ"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": false,
+    "has_sources": true,
+    "source_count": 2,
+    "issues": [
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_date", "severity": "medium" }
+    ]
+  },
+  {
+    "page_id": "medium_010",
+    "url": "https://example.com/choose-ethereum-client",
+    "target_query": "how to choose an ethereum client",
+    "title_tag": "How to Choose an Ethereum Client | Example",
+    "meta_description": "Choose an Ethereum client based on performance and ecosystem support.",
+    "h1": "How to Choose an Ethereum Client",
+    "first_paragraph": "To choose an Ethereum client, compare performance, ecosystem support, documentation quality, and operating requirements.",
+    "word_count": 1100,
+    "headers": ["H2: Criteria", "H2: Step by Step", "H2: Tradeoffs"],
+    "schema_types": ["HowTo"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_article_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "medium_011",
+    "url": "https://example.com/validator-rewards-guide",
+    "target_query": "ethereum validator rewards guide",
+    "title_tag": "Validator Rewards Guide | Example",
+    "meta_description": "Welcome to our crypto portal.",
+    "h1": "Validator Rewards Guide",
+    "first_paragraph": "Welcome to our company newsletter. Before we discuss rewards, we want to introduce our platform research team.",
+    "word_count": 1300,
+    "headers": ["H2: Current Rewards", "H2: Variability", "H2: FAQ"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "buried_answer", "severity": "high" },
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "medium_012",
+    "url": "https://example.com/rotate-validator-keys",
+    "target_query": "how to rotate validator keys",
+    "title_tag": "How to Rotate Validator Keys | Example",
+    "meta_description": "A step-by-step guide to rotating validator keys safely.",
+    "h1": "How to Rotate Validator Keys",
+    "first_paragraph": "To rotate validator keys safely, prepare a maintenance window, back up credentials, and validate the new key material before use.",
+    "word_count": 1250,
+    "headers": ["H2: Preparation", "H2: Step by Step", "H2: Verification"],
+    "schema_types": ["Article", "HowTo"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 3,
+    "issues": []
+  },
+  {
+    "page_id": "medium_013",
+    "url": "https://example.com/liquid-staking-risks-faq",
+    "target_query": "liquid staking risks faq",
+    "title_tag": "Liquid Staking Risks FAQ | Example",
+    "meta_description": "Answers to common liquid staking risk questions.",
+    "h1": "Liquid Staking Risks FAQ",
+    "first_paragraph": "This FAQ covers common liquid staking risk questions about depegging, smart contracts, and liquidity.",
+    "word_count": 850,
+    "headers": ["H2: FAQ", "H2: Risks", "H2: Tradeoffs"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "medium_014",
+    "url": "https://example.com/read-validator-logs",
+    "target_query": "how to read validator logs",
+    "title_tag": "How to Read Validator Logs | Example",
+    "meta_description": "Read validator logs to catch sync and attestation issues.",
+    "h1": "How to Read Validator Logs",
+    "first_paragraph": "To read validator logs, identify common warning patterns, track missed attestations, and compare messages across clients.",
+    "word_count": 1000,
+    "headers": ["H2: Common Warnings", "H2: Step by Step", "H2: Debugging"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_howto_schema", "severity": "high" },
+      { "type": "no_date", "severity": "medium" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "medium_015",
+    "url": "https://example.com/best-solo-staking-setup",
+    "target_query": "best solo staking setup",
+    "title_tag": "Best Solo Staking Setup | Example",
+    "meta_description": "Compare solo staking setup choices for home validators.",
+    "h1": "Best Solo Staking Setup",
+    "first_paragraph": "Welcome to our staking platform overview for teams comparing operational setups.",
+    "word_count": 900,
+    "headers": ["H2: Custody", "H2: Cost", "H2: Reliability"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 2,
+    "issues": [
+      { "type": "buried_answer", "severity": "high" }
+    ]
+  },
+  {
+    "page_id": "medium_016",
+    "url": "https://example.com/mev-staking-explainer",
+    "target_query": "what is mev on ethereum staking",
+    "title_tag": "MEV and Ethereum Staking | Example",
+    "meta_description": "Understand MEV in the context of Ethereum staking.",
+    "h1": "MEV and Ethereum Staking",
+    "first_paragraph": "MEV in Ethereum staking refers to extractable value opportunities that can affect block production, relay choices, and validator incentives.",
+    "word_count": 950,
+    "headers": ["H2: Basics", "H2: Risks", "H2: FAQ"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "medium_017",
+    "url": "https://example.com/hardware-wallet-staking",
+    "target_query": "how to stake ethereum with a hardware wallet",
+    "title_tag": "How to Stake Ethereum With a Hardware Wallet | Example",
+    "meta_description": "Stake Ethereum with a hardware wallet while keeping signing keys secure.",
+    "h1": "How to Stake Ethereum With a Hardware Wallet",
+    "first_paragraph": "To stake Ethereum with a hardware wallet, secure the signing path, confirm device support, and validate recovery procedures before setup.",
+    "word_count": 1250,
+    "headers": ["H2: Device Support", "H2: Step by Step", "H2: Recovery"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 1,
+    "issues": [
+      { "type": "missing_howto_schema", "severity": "high" }
+    ]
+  },
+  {
+    "page_id": "medium_018",
+    "url": "https://example.com/staking-pool-fees",
+    "target_query": "staking pool fees explained",
+    "title_tag": "Staking Pool Fees Explained | Example",
+    "meta_description": "Learn about pool fees.",
+    "h1": "Staking Pool Fees Explained",
+    "first_paragraph": "Staking pool fees reduce net yield and can vary based on custody, automation, and performance services.",
+    "word_count": 1050,
+    "headers": ["H2: Fee Models", "H2: Tradeoffs", "H2: FAQ"],
+    "schema_types": ["Article"],
+    "has_author": true,
+    "has_date": false,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_date", "severity": "medium" },
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "medium_019",
+    "url": "https://example.com/exit-validator-safely",
+    "target_query": "how to exit a validator safely",
+    "title_tag": "How to Exit a Validator Safely | Example",
+    "meta_description": "A guide to exiting an Ethereum validator while preserving key material and logs.",
+    "h1": "How to Exit a Validator Safely",
+    "first_paragraph": "To exit a validator safely, coordinate the exit transaction, preserve validator logs, and confirm withdrawal credentials.",
+    "word_count": 1300,
+    "headers": ["H2: Preparation", "H2: Step by Step", "H2: Verification"],
+    "schema_types": ["Article", "HowTo"],
+    "has_author": true,
+    "has_date": true,
+    "has_sources": false,
+    "source_count": 0,
+    "issues": [
+      { "type": "no_sources", "severity": "low" }
+    ]
+  },
+  {
+    "page_id": "medium_020",
+    "url": "https://example.com/staking-myths-faq",
+    "target_query": "ethereum staking myths faq",
+    "title_tag": "Ethereum Staking Myths FAQ | Example",
+    "meta_description": "A FAQ about staking myths.",
+    "h1": "Ethereum Staking Myths FAQ",
+    "first_paragraph": "This FAQ addresses common misconceptions about Ethereum staking, validator control, and yield expectations.",
+    "word_count": 800,
+    "headers": ["H2: FAQ", "H2: Misconceptions", "H2: Evidence"],
+    "schema_types": ["Article"],
+    "has_author": false,
+    "has_date": true,
+    "has_sources": true,
+    "source_count": 2,
+    "issues": [
+      { "type": "weak_meta_description", "severity": "medium" },
+      { "type": "missing_faq_schema", "severity": "high" },
+      { "type": "no_author", "severity": "medium" }
     ]
   }
 ]
