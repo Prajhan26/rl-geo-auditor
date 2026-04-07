@@ -5,7 +5,7 @@ colorFrom: blue
 colorTo: indigo
 sdk: docker
 app_port: 8000
-short_description: Reinforcement-learning-style GEO webpage audit environment with FastAPI endpoints.
+short_description: GEO audit RL environment with FastAPI endpoints.
 ---
 
 # GEO Audit Environment
