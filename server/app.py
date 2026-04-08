@@ -21,6 +21,22 @@ env = GeoAuditEnvironment()
 if FastAPI is not None:
     app = FastAPI(title="GEO Audit Environment", version="0.1.0")
 
+    @app.get("/")
+    def root() -> dict[str, object]:
+        return {
+            "name": "geo-audit-env",
+            "status": "ok",
+            "message": "GEO Audit Environment is running.",
+            "routes": {
+                "health": "/health",
+                "metadata": "/metadata",
+                "state": "/state",
+                "reset": "/reset",
+                "step": "/step",
+                "docs": "/docs",
+            },
+        }
+
     @app.get("/health", response_model=HealthResponse)
     def health() -> HealthResponse:
         return HealthResponse(status="healthy")

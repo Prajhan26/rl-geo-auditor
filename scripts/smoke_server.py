@@ -6,6 +6,13 @@ from server.app import app
 def main() -> None:
     client = TestClient(app)
 
+    root = client.get("/")
+    assert root.status_code == 200
+    root_payload = root.json()
+    assert root_payload["name"] == "geo-audit-env"
+    assert root_payload["routes"]["docs"] == "/docs"
+    print("[OK] /")
+
     health = client.get("/health")
     assert health.status_code == 200
     assert health.json() == {"status": "healthy"}
