@@ -25,6 +25,8 @@ TASK_SEQUENCE = ("easy", "medium", "hard")
 MAX_MODEL_TOKENS = 220
 TEMPERATURE = 0.0
 SUCCESS_SCORE_THRESHOLD = 0.5
+MIN_SUBMISSION_SCORE = 0.001
+MAX_SUBMISSION_SCORE = 0.999
 
 SYSTEM_PROMPT = """
 You are auditing a webpage inside a GEO environment.
@@ -591,6 +593,10 @@ def log_end(success: bool, steps: int, score: float, rewards: List[float]) -> No
     )
 
 
+def normalize_submission_score(score: float) -> float:
+    return min(MAX_SUBMISSION_SCORE, max(MIN_SUBMISSION_SCORE, score))
+
+
 def run_episode(client: OpenAI, task_difficulty: str) -> float:
     env = GeoAuditEnvironment()
     observation = env.reset(task_difficulty=task_difficulty)
@@ -626,7 +632,7 @@ def run_episode(client: OpenAI, task_difficulty: str) -> float:
             if observation.done:
                 break
 
-        score = max(0.0, min(1.0, observation.reward))
+        score = normalize_submission_score(observation.reward)
         success = score >= SUCCESS_SCORE_THRESHOLD
     finally:
         log_end(success=success, steps=steps_taken, score=score, rewards=rewards)
