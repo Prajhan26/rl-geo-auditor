@@ -16,7 +16,14 @@ def main() -> None:
     metadata_payload = metadata.json()
     assert metadata_payload["name"] == "geo-audit-env"
     assert "check_schema" in metadata_payload["available_actions"]
+    assert "mark_positive" in metadata_payload["available_actions"]
+    assert "has_sources" in metadata_payload["positive_types"]
     print("[OK] /metadata")
+
+    state_before_reset = client.get("/state")
+    assert state_before_reset.status_code == 200
+    assert state_before_reset.json()["message"].startswith("No active episode")
+    print("[OK] /state before reset")
 
     reset = client.post("/reset", json={"task_difficulty": "easy"})
     assert reset.status_code == 200
@@ -24,6 +31,11 @@ def main() -> None:
     assert reset_payload["step_count"] == 0
     assert reset_payload["done"] is False
     print("[OK] /reset")
+
+    state_after_reset = client.get("/state")
+    assert state_after_reset.status_code == 200
+    assert state_after_reset.json()["page"]["url"] == reset_payload["page"]["url"]
+    print("[OK] /state after reset")
 
     flag = client.post(
         "/step",
@@ -38,6 +50,19 @@ def main() -> None:
     flag_payload = flag.json()
     assert flag_payload["flagged_issues"][0]["type"] == "missing_meta_description"
     print("[OK] /step flag_issue")
+
+    positive = client.post(
+        "/step",
+        json={
+            "action_type": "mark_positive",
+            "positive_type": "good_heading_structure",
+            "details": "The page has a readable heading structure.",
+        },
+    )
+    assert positive.status_code == 200
+    positive_payload = positive.json()
+    assert positive_payload["marked_positives"][0]["type"] == "good_heading_structure"
+    print("[OK] /step mark_positive")
 
     submit = client.post("/step", json={"action_type": "submit_report"})
     assert submit.status_code == 200

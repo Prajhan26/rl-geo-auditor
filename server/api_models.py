@@ -18,6 +18,7 @@ class StepRequest(BaseModel):
     )
     target: Optional[str] = None
     issue_type: Optional[str] = None
+    positive_type: Optional[str] = None
     severity: Optional[str] = None
     details: Optional[str] = None
 
@@ -32,6 +33,7 @@ class MetadataResponse(BaseModel):
     version: str
     available_actions: List[str]
     issue_types: List[str]
+    positive_types: List[str]
 
 
 class PageDataResponse(BaseModel):
@@ -68,10 +70,16 @@ class FlaggedIssueResponse(BaseModel):
     details: str
 
 
+class PositiveFindingResponse(BaseModel):
+    type: str
+    details: str
+
+
 class ObservationResponse(BaseModel):
     page: PageDataResponse
     checked: CheckResultsResponse
     flagged_issues: List[FlaggedIssueResponse]
+    marked_positives: List[PositiveFindingResponse]
     step_count: int
     max_steps: int
     available_actions: List[str]

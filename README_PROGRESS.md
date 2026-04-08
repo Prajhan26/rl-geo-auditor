@@ -136,8 +136,9 @@ Current environment supports:
   * `check_direct_answer`
   * `check_word_count`
   * `check_trust_signals`
-  * `check_sources`
+* `check_sources`
 * `flag_issue`
+* `mark_positive`
 * `submit_report`
 
 ### 4. Reward System
@@ -204,6 +205,7 @@ Working endpoints:
 
 * `GET /health`
 * `GET /metadata`
+* `GET /state`
 * `POST /reset`
 * `POST /step`
 
@@ -393,6 +395,8 @@ Completed:
 * real-page drafting pipeline
 * frozen real benchmark with `49` finalized rows
 * final real-benchmark evaluator
+* `mark_positive` support
+* `/state` endpoint support
 
 In progress:
 

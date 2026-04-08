@@ -33,7 +33,13 @@ if FastAPI is not None:
             version="0.1.0",
             available_actions=env.AVAILABLE_ACTIONS,
             issue_types=env.ISSUE_TYPES,
+            positive_types=env.POSITIVE_TYPES,
         )
+
+    @app.get("/state", response_model=ObservationResponse)
+    def state() -> ObservationResponse:
+        observation = env.current_observation()
+        return ObservationResponse.model_validate(env.observation_dict(observation))
 
     @app.post("/reset", response_model=ObservationResponse)
     def reset(payload: ResetRequest = ResetRequest()) -> ObservationResponse:

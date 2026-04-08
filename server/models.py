@@ -9,6 +9,7 @@ class GeoAuditAction:
     action_type: str
     target: Optional[str] = None
     issue_type: Optional[str] = None
+    positive_type: Optional[str] = None
     severity: Optional[str] = None
     details: Optional[str] = None
 
@@ -54,6 +55,7 @@ class GeoAuditObservation:
     page: PageData = field(default_factory=PageData)
     checked: CheckResults = field(default_factory=CheckResults)
     flagged_issues: List[Dict] = field(default_factory=list)
+    marked_positives: List[Dict] = field(default_factory=list)
     step_count: int = 0
     max_steps: int = 10
     available_actions: List[str] = field(default_factory=list)
@@ -72,6 +74,8 @@ class GeoAuditState:
     step_count: int = 0
     max_steps: int = 10
     ground_truth_issues: List[Dict] = field(default_factory=list)
+    ground_truth_positives: List[Dict] = field(default_factory=list)
     current_page: Dict = field(default_factory=dict)
     checks_performed: List[str] = field(default_factory=list)
     flagged_issues: List[Dict] = field(default_factory=list)
+    marked_positives: List[Dict] = field(default_factory=list)

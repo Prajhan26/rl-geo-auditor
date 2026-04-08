@@ -34,6 +34,7 @@ class GeoAuditEnvironment:
         "check_trust_signals",
         "check_sources",
         "flag_issue",
+        "mark_positive",
         "submit_report",
     ]
 
@@ -53,6 +54,20 @@ class GeoAuditEnvironment:
         "no_author",
         "no_date",
         "no_sources",
+    ]
+
+    POSITIVE_TYPES = [
+        "clear_direct_answer",
+        "strong_title_tag",
+        "strong_meta_description",
+        "good_heading_structure",
+        "has_faq_schema",
+        "has_howto_schema",
+        "has_article_schema",
+        "has_author",
+        "has_date",
+        "has_sources",
+        "comprehensive_content",
     ]
 
     def __init__(self) -> None:
@@ -84,9 +99,11 @@ class GeoAuditEnvironment:
             step_count=0,
             max_steps=10,
             ground_truth_issues=page.get("issues", []),
+            ground_truth_positives=page.get("positives", []),
             current_page=page,
             checks_performed=[],
             flagged_issues=[],
+            marked_positives=[],
         )
 
         return self._build_observation(
@@ -106,6 +123,8 @@ class GeoAuditEnvironment:
             return self._handle_check(action)
         if action.action_type == "flag_issue":
             return self._handle_flag(action)
+        if action.action_type == "mark_positive":
+            return self._handle_positive(action)
         if action.action_type == "submit_report":
             return self._finalize("Report submitted.")
 
@@ -144,6 +163,30 @@ class GeoAuditEnvironment:
 
         return self._build_observation(
             message=f"Flagged issue: {issue['type']} ({issue['severity']})"
+        )
+
+    def _handle_positive(self, action: GeoAuditAction) -> GeoAuditObservation:
+        if not action.positive_type:
+            return self._build_observation(
+                message="mark_positive requires a positive_type."
+            )
+
+        if action.positive_type not in self.POSITIVE_TYPES:
+            return self._build_observation(
+                message=f"Unknown positive type: {action.positive_type}"
+            )
+
+        positive = {
+            "type": action.positive_type,
+            "details": action.details or "",
+        }
+
+        existing_types = {item["type"] for item in self._state.marked_positives}
+        if positive["type"] not in existing_types:
+            self._state.marked_positives.append(positive)
+
+        return self._build_observation(
+            message=f"Marked positive: {positive['type']}"
         )
 
     def _analyze(self, check_type: str) -> str:
@@ -215,6 +258,8 @@ class GeoAuditEnvironment:
         reward = calculate_reward(
             flagged=self._state.flagged_issues,
             ground_truth=self._state.ground_truth_issues,
+            marked_positives=self._state.marked_positives,
+            ground_truth_positives=self._state.ground_truth_positives,
         )
         return self._build_observation(message=message, done=True, reward=reward)
 
@@ -243,6 +288,7 @@ class GeoAuditEnvironment:
             ),
             checked=self._build_check_results(),
             flagged_issues=self._state.flagged_issues,
+            marked_positives=self._state.marked_positives,
             step_count=self._state.step_count,
             max_steps=self._state.max_steps,
             available_actions=self.AVAILABLE_ACTIONS,
@@ -329,8 +375,16 @@ class GeoAuditEnvironment:
                 {"type": "no_direct_answer", "severity": "critical"},
                 {"type": "thin_content", "severity": "medium"},
             ],
+            "positives": [],
         }
 
     @property
     def state(self) -> GeoAuditState:
         return self._state
+
+    def current_observation(self) -> GeoAuditObservation:
+        if not self._state.current_page:
+            return self._build_observation(
+                message="No active episode. Call reset() to start an audit."
+            )
+        return self._build_observation(message="Current episode state.")

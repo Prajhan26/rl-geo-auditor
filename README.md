@@ -28,6 +28,7 @@ The repo now contains both:
 
 - a heuristic baseline policy in `inference.py`
 - a learned Q-policy in `train_q_policy.py`
+- discrete issue flags and positive findings inside the environment
 
 ## Project Structure
 
@@ -57,6 +58,7 @@ Dockerfile           Container setup
 - Environment: the world and rules the agent interacts with
 - Observation: the page signals the agent can see
 - Action: one audit step such as `check_schema` or `flag_issue`
+- Positive finding: one thing the page does well, such as `has_sources`
 - Reward: how well the final audit report matches the labeled truth
 
 ## Reward Design
@@ -141,6 +143,11 @@ Returns a simple status payload.
 
 Returns environment metadata and supported actions.
 
+### `GET /state`
+
+Returns the current episode state so a client can inspect progress between
+steps.
+
 ### `POST /reset`
 
 Starts a new audit episode.
@@ -165,6 +172,16 @@ Example body:
   "issue_type": "missing_meta_description",
   "severity": "critical",
   "details": "Meta description is missing."
+}
+```
+
+Positive example body:
+
+```json
+{
+  "action_type": "mark_positive",
+  "positive_type": "good_heading_structure",
+  "details": "The page has a readable heading structure."
 }
 ```
 
@@ -268,6 +285,8 @@ hackathon story.
 - Learned Q-policy working
 - FastAPI server working
 - Typed Swagger docs working
+- `/state` endpoint working
+- `mark_positive` action working
 - OpenEnv validation passing
 - Dockerfile present
 - Reporting artifacts generated
