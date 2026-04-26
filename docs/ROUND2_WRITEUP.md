@@ -240,6 +240,54 @@ The double FP penalty, the F1 structure, and the held-out benchmark together mak
 
 These are the right next steps for a more robust verifier.
 
+## Task design: why the difficulty levels are genuinely different
+
+Easy, medium, and hard tasks in this environment are not just harder versions of the same check. They test different kinds of reasoning.
+
+**Easy tasks** test binary, deterministic signals.
+
+The correct answer can be read directly off the page data:
+
+- Is `meta_description` missing or empty? Flag `missing_meta_description`.
+- Is `word_count` below threshold? Flag `thin_content`.
+- Is `has_sources` false and `source_count` zero? Flag `no_sources`.
+
+An agent that learns to parse page signals and map them to issue labels will do well on easy tasks. The skill being tested is structured output correctness, not judgment.
+
+**Medium tasks** require combining multiple signals.
+
+A medium page might have a meta description that exists but is too short. It might have sources but in a format the grader does not credit. It might have headers but none relevant to the target query. These require the agent to reason about signal quality, not just signal presence.
+
+**Hard tasks** require understanding the relationship between the page and the target query.
+
+A hard audit might flag `no_direct_answer` not because the page has no content, but because the content does not match what someone searching that specific query actually needs. That requires the agent to compare the query intent against the page structure — a judgment call, not a lookup.
+
+This three-level design matters because it creates a meaningful difficulty gradient for RL training. Easy tasks provide a learning signal at the start of training. Hard tasks prevent the agent from saturating reward with shallow pattern-matching. Medium tasks create the right amount of variance to drive improvement.
+
+A benchmark that is all easy becomes a formatting test. A benchmark that is all hard produces no training signal. The mix is intentional.
+
+## Real-world transfer: what this environment is actually for
+
+The honest answer to "what does a high score here prove?" is narrow but real.
+
+A high score means: the agent can identify structured GEO issues from page signals, avoid hallucinating issues that are not there, and produce a report that matches benchmark truth at a level better than random.
+
+That is a meaningful floor for any AI-powered GEO audit tool.
+
+Here is how a third party could use this environment today:
+
+**AI for SEO SaaS companies** could use it to benchmark their audit agents before shipping. Instead of relying on internal opinions about whether the agent "sounds right," they could score it against a held-out benchmark and track improvement over time.
+
+**Content and SEO agencies** could use it to compare different LLMs on a consistent GEO task. The environment gives the same task, the same reward logic, and the same benchmark to every agent — making comparisons fair in a way that prompt demos are not.
+
+**Researchers** could use it to study the difference between prompting, SFT, and RL on a real professional task. The environment provides the scaffolding; the question of which training approach transfers best is still open.
+
+**Enterprise teams** could use it to set a minimum quality bar before deploying an LLM into a GEO workflow. Rather than trusting vibe-checks, they could require a minimum benchmark score as a ship criterion.
+
+What this environment does not prove: that high scores translate to real traffic lifts, that the benchmark is diverse enough to cover the full web, or that a model trained here will generalize to GEO tasks outside the benchmark distribution.
+
+Those are real limits. They are also exactly the limits that make the environment worth improving.
+
 ## What this project demonstrates
 
 I think the strongest claim here is not:
