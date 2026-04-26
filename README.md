@@ -12,7 +12,10 @@ short_description: GEO audit RL environment with FastAPI endpoints.
 
 **Live environment:** https://samunhashed-geo-audit-env.hf.space  
 **API docs:** https://samunhashed-geo-audit-env.hf.space/docs  
-**Full writeup:** [docs/ROUND2_WRITEUP.md](docs/ROUND2_WRITEUP.md)
+**Full writeup:** [docs/ROUND2_WRITEUP.md](docs/ROUND2_WRITEUP.md)  
+**Mini-blog:** https://huggingface.co/spaces/Samunhashed/geo-audit-env/blob/main/docs/HF_MINI_BLOG.md  
+**Training script:** https://huggingface.co/spaces/Samunhashed/geo-audit-env/blob/main/scripts/round2_train.py  
+**GitHub:** https://github.com/Prajhan26/rl-geo-auditor
 
 ---
 
