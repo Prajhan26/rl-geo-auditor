@@ -96,6 +96,10 @@ The lower score compared to the synthetic benchmark is expected. It shows the re
 
 The frozen dataset: `artifacts/real_dataset_finalized_49.json`
 
+## Full writeup
+
+The detailed technical writeup covering verifier design, reward hacking analysis, task difficulty reasoning, and real-world transfer is in [`docs/ROUND2_WRITEUP.md`](docs/ROUND2_WRITEUP.md).
+
 ## Round 2 training
 
 Training is 10% of this project's story. The environment is the point. But for completeness:
