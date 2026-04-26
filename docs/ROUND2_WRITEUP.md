@@ -169,6 +169,77 @@ The reward delta (-0.009) is noise on a 4-page eval split. The behavioral improv
 
 **Heuristic baseline for reference:** avg reward = 0.964
 
+## Verifier design: what it checks and what it does not
+
+The grader in `server/grader.py` is a deterministic, programmatic verifier. No LLM. No learned reward model. No human-in-the-loop scoring.
+
+**What it checks well:**
+
+- Whether the agent flagged real issues from the benchmark label set
+- Whether the agent avoided hallucinating issues that are not present
+- Whether the agent found both issues and positives when both exist
+- F1-style balance between precision and recall, so neither over-flagging nor under-flagging can trivially win
+
+The core logic is:
+
+```
+reward = F1(flagged_types, truth_types) - (0.1 × false_positive_count)
+```
+
+This double-penalizes false positives: once through lower precision in the F1, and again through the explicit 0.1 multiplier. That is intentional. It means an agent cannot win by dumping every known issue type onto every page.
+
+A clean page with no issues returns 1.0 when the agent correctly outputs nothing. This teaches the agent that restraint is sometimes the right answer.
+
+**What it does not check:**
+
+- It does not verify the agent's reasoning, only its labels. An agent could flag `thin_content` because word count is low, or because it randomly guessed, and get the same score either way.
+- It does not score severity. Any severity attached to a correct issue type is treated equally.
+- It does not measure whether the agent's audit would help a real GEO practitioner. A correct label on a borderline case counts the same as a correct label on an obvious one.
+- It does not verify order of operations. The agent could skip all intermediate audit steps and jump straight to a report, and the grader would not know.
+
+These gaps are known and intentional for this stage. The goal was to build a verifiable, reproducible reward first. Deeper semantic checking is the right next layer.
+
+## Reward hacking analysis
+
+A strong environment is not just well-designed. It is also stress-tested. I tried to break the reward myself before defending it.
+
+**Hack 1: Flag nothing on every page**
+
+If an agent always outputs `{“issues”:[]}`, it scores 1.0 on any clean page and 0.0 on any page with real issues. On a benchmark with many clean pages, this strategy can produce a deceptively high average reward without doing any real auditing.
+
+Current guardrail: we penalize missed issues through low recall in F1. But on a benchmark skewed toward clean pages, this guardrail weakens.
+
+**Hack 2: Flag everything every time**
+
+If an agent flags all known issue types on every page, recall is always 1.0 but precision collapses. The double FP penalty makes this unprofitable, but only if the FP count is large. On a page with 3 real issues and 6 hallucinated ones, the agent still gets partial credit.
+
+Current guardrail: the -0.1 FP multiplier makes this strategy lose on net. But it does not make it zero. An agent that flags 2-3 common issue types everywhere can still get a mediocre-but-non-zero score.
+
+**Hack 3: Memorize benchmark label priors**
+
+If certain issue types appear frequently in the benchmark (e.g., `no_sources` in 30 out of 60 pages), an agent could learn to always flag those types and score well on average without inspecting the page signals at all.
+
+Current guardrail: the held-out eval split limits this during training. But the benchmark is not adversarially constructed, so this risk is real.
+
+**Hack 4: Exploit the clean-page shortcut**
+
+The grader returns 1.0 for any page where both ground truth and flagged issues are empty. An agent that learns the pattern “if the page looks clean, output nothing” could exploit this on ambiguous pages.
+
+Current guardrail: the benchmark includes pages at all difficulty levels. But this is still a soft guardrail.
+
+**What makes the reward hard to game in practice:**
+
+The double FP penalty, the F1 structure, and the held-out benchmark together make it difficult to win with any single shallow strategy. No strategy dominates: under-flagging loses recall, over-flagging loses precision plus the explicit penalty, and memorization is limited by the held-out split.
+
+**What would make it harder to game:**
+
+- Rotating or hidden eval splits
+- Adversarially constructed pages that share surface signals with clean pages but have hidden issues
+- Process-level checks that verify the agent used intermediate audit steps before submitting
+- Per-issue confidence scoring rather than binary present/absent matching
+
+These are the right next steps for a more robust verifier.
+
 ## What this project demonstrates
 
 I think the strongest claim here is not:
