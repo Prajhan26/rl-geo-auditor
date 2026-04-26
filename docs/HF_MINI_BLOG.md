@@ -2,34 +2,51 @@
 
 The frustration came first.
 
-I kept watching teams spend real money on GEO work — AI search optimization, answer engine visibility — with no clean way to measure whether any of it was working. The outputs looked confident. The advice sounded smart. But there was no ground truth, no verifier, no number you could point at and say: this agent is better than that one.
+I had been close to GEO work with companies like MoonPay, Ledger, Alto, and QuickNode. The pattern was always the same: real budget going out the door, real content being produced, real agency hours being billed. But when I asked how they knew whether the GEO work was actually helping, the answer was always some version of "it feels like it is."
 
-Most tools in this space let a human read AI output and decide what to do. That is not evaluation. That is a text box.
+That is not an answer. That is hope.
+
+Gartner projects traditional search volume will drop 25% by 2026 as AI chatbots take over query traffic. The market for GEO services is growing from $886 million today to $7.3 billion by 2031. 94% of digital marketing leaders plan to increase GEO spend next year. The money is real. The measurement is not.
 
 ![GEO is real spend — with no standard way to measure results](../artifacts/geo_market_problem.png)
-*GEO services market growing from $886M (2024) to $7.3B (2031) at 34% CAGR. 94% of digital marketing leaders plan to increase spend in 2026. Sources: Valuates Reports, eMarketer, Incremys.*
+*GEO services market: $886M (2024) to $7.3B (2031) at 34% CAGR. Sources: Valuates Reports, eMarketer, Incremys, Gartner (2025).*
 
-So I built the other thing.
+Most tools in this space let a human read AI output and decide what to do. That is not evaluation. That is a text box with extra steps.
 
-## The environment
+So I built the environment instead.
 
-The GEO Audit Environment gives an agent a webpage and a target query. The agent inspects structured signals — meta description, headers, word count, sources, schema — flags what is wrong, and submits a report. A deterministic verifier scores it against labeled ground truth.
+## What the environment actually does
 
-The reward formula:
+The GEO Audit Environment turns page auditing into a scored task. An agent gets a webpage and a target query. It inspects structured signals: meta description, headers, word count, sources, schema. It flags what it finds wrong. It submits a report. A deterministic verifier scores it against labeled ground truth.
 
+No human judge. No "does this sound good?" The scoring is programmatic.
+
+The rule: find real problems, get credit. Invent problems that are not there, lose credit twice over. A clean page that receives an empty report scores 1.0. Knowing when to say nothing is part of the task.
+
+The environment is live. You can run a full audit episode right now:
+
+```bash
+# Start an episode — get a real page with structured signals
+curl -X POST https://samunhashed-geo-audit-env.hf.space/reset \
+  -H "Content-Type: application/json" \
+  -d '{"task_difficulty": "easy"}'
+
+# Flag an issue
+curl -X POST https://samunhashed-geo-audit-env.hf.space/step \
+  -H "Content-Type: application/json" \
+  -d '{"action_type": "flag_issue", "issue_type": "thin_content", "severity": "medium"}'
+
+# Submit and receive your score
+curl -X POST https://samunhashed-geo-audit-env.hf.space/step \
+  -H "Content-Type: application/json" \
+  -d '{"action_type": "submit_report"}'
 ```
-reward = F1(flagged, truth) - (0.1 × false_positive_count)
-```
 
-In plain English: the agent gets credit for finding real problems and loses credit for making things up. If it invents issues that are not there, it gets penalized twice — once for being wrong, again with an explicit deduction. Flooding the report with every possible issue type is always a losing move.
+That loop, exposed as an API, is what makes this trainable. An agent that can be scored can be improved.
 
-A clean page that receives an empty report scores 1.0. Knowing when to say nothing is part of the task.
+## The clearest way to see what training did
 
-Before showing this to anyone, I tried to break it myself. Flag nothing. Flag everything. Memorize which issue types appear most often. None of those strategies dominated cleanly. I documented exactly where the reward is soft, because pretending it is unbeatable would be dishonest.
-
-## Before and after — same page, same environment
-
-This is the clearest way to see what training did. Take a page with two real issues: `thin_content` and `missing_meta_description`.
+Take a page with two real issues: thin content and a missing meta description. Show the same model on the same page before and after training.
 
 **Before training**, the untrained 7B model outputs:
 ```json
@@ -45,38 +62,36 @@ One issue. The one that is actually there. Nothing invented. Reward: 0.5.
 
 The model did not get smarter about GEO. It got more honest about what it actually knows.
 
-## What training actually looked like
+## The training story, including the part that went wrong
 
-SFT warm start into GRPO on Qwen2.5-7B-Instruct.
+I ran supervised fine-tuning first, then GRPO (a reinforcement learning method) on Qwen2.5-7B-Instruct.
 
-The thing I did not expect: GRPO produces zero signal until SFT teaches the output format first. When SFT loss was at 3.15, every single GRPO reward call returned 0.000 flat. Not low. Zero. The model could not produce a parseable completion, so the reward function had nothing to score.
+The thing I did not expect: reinforcement learning produces zero signal until supervised training teaches the output format first. When the model's supervised loss was still at 3.15, every single RL reward call came back 0.000. Not low. Zero. The model could not produce a readable output, so there was nothing for the reward function to score.
 
-After 240 SFT steps, loss dropped to 0.841. Then GRPO started producing real variance. Reward standard deviation of 0.172 across completions. The model was actually learning.
+Once supervised training ran long enough to push loss down to 0.841, the RL phase started working. The model began producing real variance across its guesses. It was actually learning from the scores the environment was giving it.
 
-After 80 GRPO steps:
-
-- False positive rate: 0.333 to 0.250 (25% fewer hallucinated issues)
-- Average response length: 96 characters to 56 characters (42% more concise)
-- Reward delta across 4 eval pages: -0.009
-
-That last number looks bad. It is not. On four pages it is noise. What changed is behavior: the model learned to hallucinate less and commit to shorter, more precise outputs. The reward went sideways; the model got measurably better.
+After the full training run, the false positive rate fell from 0.333 to 0.250 (25% fewer invented issues). Average response length dropped from 96 characters to 56 (42% more concise). The reward delta across four eval pages was -0.009, which is statistical noise. What changed was behavior, not the headline number.
 
 ![Behavioral improvements after SFT + GRPO training](../artifacts/round2_behavioral.png)
 
-## The honest part
+## The honest numbers
 
-The heuristic baseline scores 0.964 on synthetic tasks. The trained model scores 0.458. That gap is real, and I am not going to pretend it is not.
+The heuristic baseline scores 0.964 on synthetic tasks. The trained model scores 0.458. I am not going to pretend that gap is not there.
 
-![Reward comparison — heuristic vs LLM before and after training](../artifacts/round2_comparison.png)
+![Reward comparison: heuristic vs LLM before and after training](../artifacts/round2_comparison.png)
 
-What I care about is that the environment made this outcome visible instead of hiding it. Most GEO tooling cannot tell you whether the model it is running is accurate or just confident. This one can.
+What I care about is that the environment made this outcome visible instead of hiding it. Most GEO tooling cannot tell you whether the model it is running is accurate or just confident-sounding. This one can.
 
-On the real benchmark — 49 pages collected from the live web, labeled by hand — the heuristic scores 0.571 and the learned model scores 0.460. The gap narrows. Real pages are harder and noisier, which is exactly what makes them a useful proof set.
+On the real benchmark, which covers 49 pages collected from the live web and labeled by hand, the heuristic scores 0.571 and the learned model scores 0.460. The gap narrows on real pages because real pages are harder and noisier. That is what makes them a useful proof set: a benchmark that is too easy to pass is not a benchmark.
 
-## Why this matters
+## What this actually changes
+
+If you run a GEO tool today, you get a report. You read it. You decide whether the advice seems right. You act on it or you do not. At no point does the tool know whether it was correct.
+
+This environment breaks that pattern. An agent that goes through this loop can be scored, compared against other agents, and trained to score better. The feedback is deterministic. The loop is open. Anyone can run it.
 
 GEO work is guesswork until you can measure it.
 
-The environment is live at [samunhashed-geo-audit-env.hf.space](https://samunhashed-geo-audit-env.hf.space). You can run a full audit episode right now with three curl commands. The code, benchmark data, and training scripts are open.
-
-This is the measuring instrument.
+**Live environment:** [samunhashed-geo-audit-env.hf.space](https://samunhashed-geo-audit-env.hf.space)  
+**API docs:** [samunhashed-geo-audit-env.hf.space/docs](https://samunhashed-geo-audit-env.hf.space/docs)  
+**Code and benchmark data:** [huggingface.co/spaces/Samunhashed/geo-audit-env](https://huggingface.co/spaces/Samunhashed/geo-audit-env)
