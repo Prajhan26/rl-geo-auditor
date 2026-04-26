@@ -115,6 +115,28 @@ In RL training for LLMs, rollout generation dominates runtime — not the optimi
 
 What we did not do: we never profiled the exact split between rollout time and optimizer time, and we did not try vLLM or batched async inference. Those are the right next steps if training time became a serious constraint at larger scale.
 
+## Monitoring during training
+
+We monitor more than one scalar. Every 8 reward calls the training script prints a decomposed reward line:
+
+```
+[reward] correctness=0.600  format=0.100  fp_penalty=0.000  total=0.700  tokens=1.0  parse_ok=1.00  hit_cap=0.00
+```
+
+This covers overall reward (`total`), individual reward components (`correctness`, `format`, `fp_penalty`), success indicators (`parse_ok`), and length cap frequency (`hit_cap`). A rising `total` with a rising `fp_penalty` would flag reward hacking immediately.
+
+Every 20 calls the script also samples and prints one raw completion alongside its ground truth:
+
+```
+[generation sample]
+  truth:      ['thin_content', 'no_sources']
+  completion: {"issues":[{"type":"thin_content","severity":"medium"}]}
+```
+
+This is the generation inspection the checklist specifically calls out. Scalars alone are not enough — if the model learns to output `{"issues":[]}` on every page and the benchmark happens to be full of clean pages, the reward can look fine while the behavior is useless. Printing actual completions every 20 steps catches that before it compounds.
+
+All sampled completions are saved to `artifacts/round2_generation_samples.json` at the end of each run.
+
 ## Training direction
 
 For the training side, I used:

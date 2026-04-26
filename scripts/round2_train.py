@@ -597,6 +597,7 @@ elif sft_result.training_loss < 0.8:
 
 
 _reward_log: List[Dict] = []
+_generation_log: List[Dict] = []  # sampled completions for drift inspection
 
 def reward_fn(completions: List[str], ground_truth_issues: List[str], **kwargs) -> List[float]:
     rewards = []
@@ -614,7 +615,7 @@ def reward_fn(completions: List[str], ground_truth_issues: List[str], **kwargs) 
         token_estimate = len(completion.split())
         parse_ok = extract_json_payload(completion) is not None
 
-        total = correctness + fmt
+        total = max(0.0, correctness + fmt)
         rewards.append(total)
         _reward_log.append({
             "correctness": round(correctness, 3),
@@ -625,6 +626,7 @@ def reward_fn(completions: List[str], ground_truth_issues: List[str], **kwargs) 
             "parse_ok":    parse_ok,
             "hit_cap":     token_estimate >= max(1, MAX_GENERATION_TOKENS - 5),
         })
+
     # print decomposed reward every 8 calls
     if len(_reward_log) % 8 == 0 and _reward_log:
         recent = _reward_log[-8:]
@@ -637,6 +639,17 @@ def reward_fn(completions: List[str], ground_truth_issues: List[str], **kwargs) 
             f"  parse_ok={np.mean([float(r['parse_ok']) for r in recent]):.2f}"
             f"  hit_cap={np.mean([float(r['hit_cap']) for r in recent]):.2f}"
         )
+
+    # sample one raw completion every 20 calls — catch reward hacking before it compounds
+    if len(_reward_log) % 20 == 0 and completions:
+        sample = normalize_completion_text(completions[0])
+        gt_sample = json.loads(ground_truth_issues[0])
+        truth_preview = [i["type"] for i in gt_sample if i.get("type") in ACTIVE_ISSUE_TYPES]
+        print(f"  [generation sample]")
+        print(f"    truth:      {truth_preview}")
+        print(f"    completion: {sample[:120]}")
+        _generation_log.append({"step": len(_reward_log), "truth": truth_preview, "completion": sample[:200]})
+
     return rewards
 
 
@@ -806,6 +819,11 @@ transcript = {
 with open("artifacts/round2_example_transcript.json", "w") as f:
     json.dump(transcript, f, indent=2)
 print("Saved: artifacts/round2_example_transcript.json")
+
+if _generation_log:
+    with open("artifacts/round2_generation_samples.json", "w") as f:
+        json.dump(_generation_log, f, indent=2)
+    print(f"Saved: artifacts/round2_generation_samples.json ({len(_generation_log)} samples)")
 
 print("\nAll artifacts saved to artifacts/")
 print("\nSummary:")
