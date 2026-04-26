@@ -20,21 +20,15 @@ That gap is why this repo exists.
 
 This project turns GEO auditing into an environment. An agent gets a page and a target query, inspects structured page signals, flags issues, submits a report, and gets scored against benchmark truth. The goal is not just to make GEO advice sound smart. The goal is to make GEO work measurable, testable, and eventually trainable.
 
-## Why this is different from a normal SEO tool
+## Why this is not just another GEO tool
 
-Most SEO or GEO products help a human audit a page.
+Most SEO or GEO products help a human audit a page. There is a person in the loop. They read the output, decide what to do, and move on.
 
-This project is built to evaluate and train agents on the workflow itself.
+This project removes the human from that loop and asks a harder question: can the agent itself be evaluated, compared, and improved?
 
-That means a few things:
+That requires something different from a text box with a submit button. It requires a structured action space, a deterministic verifier, benchmark tasks at real difficulty levels, and a reward signal that cannot be gamed by generating confident-sounding output.
 
-- structured action space instead of one vague text box
-- deterministic verifier and reward logic instead of subjective review
-- benchmark tasks across three difficulty levels
-- FastAPI, Docker, and Hugging Face deployment
-- heuristic baseline, learned policy, and a working RL training loop
-
-A tool that gives nice GEO suggestions is useful. An environment where agent behavior can be measured, compared, and improved is a different kind of asset.
+None of that is free. That is why most tools do not have it.
 
 ## The environment loop
 
@@ -56,9 +50,9 @@ The reward is F1-style with a hard hallucination penalty.
 reward = F1(flagged_types, truth_types) - (0.1 × false_positive_count)
 ```
 
-False positives get penalized twice: once through lower precision in the F1, and again through the explicit multiplier. That means flagging everything does not work. An agent cannot win by dumping every known issue type onto every page.
+False positives get penalized twice — once through lower precision in the F1, and again through the explicit multiplier. Flagging everything does not work. I specifically designed it so that dumping every known issue type onto every page is a losing strategy.
 
-A clean page that receives an empty report scores 1.0. This teaches the agent that restraint is sometimes the right call.
+A clean page that receives an empty report scores 1.0. Knowing when to say nothing is part of the task.
 
 Positive findings are tracked separately at 15% weight, so a complete audit that catches both issues and strengths scores higher than one that only flags problems.
 
@@ -76,7 +70,7 @@ This gradient matters for training. Easy tasks give signal early. Hard tasks pre
 
 ## Reward hacking: how I tried to break it
 
-A deterministic reward is only as strong as its resistance to shortcuts. I tried to break mine.
+Before defending the reward to anyone else, I tried to break it myself.
 
 **Flag nothing** — outputs `{"issues":[]}` everywhere. Scores 1.0 on clean pages, 0.0 on pages with real issues. Works if the benchmark is heavily skewed toward clean pages. Guardrail: the benchmark intentionally includes pages across all difficulty levels.
 
@@ -86,11 +80,11 @@ A deterministic reward is only as strong as its resistance to shortcuts. I tried
 
 **Exploit the clean-page shortcut** — learn to output nothing on ambiguous pages. Guardrail: difficulty-balanced benchmark. Still a soft guardrail.
 
-The honest position: the reward is hard to game with any single strategy, but it is not impossible to game. The right next steps are rotating eval splits, adversarial page construction, and process-level checks that verify the agent used intermediate audit steps before submitting.
+No single shallow strategy dominates. But I would not claim the reward is impossible to game. The benchmark is not adversarially constructed, and that is a real gap. The next version needs rotating eval splits, pages designed to fool shallow pattern-matching, and checks that verify the agent actually did the audit work before submitting a report.
 
-## The benchmark: 49 human-reviewed real pages
+## The benchmark: 49 real pages, manually reviewed
 
-Synthetic benchmarks are easy to score well on. So I froze a real-page benchmark of 49 manually reviewed pages.
+I did not want to only evaluate against synthetic data. Synthetic benchmarks are easy to score well on, and that would be cheating myself.
 
 Each page was collected from the live web, checked against the issue taxonomy, and labeled by hand. The benchmark covers 15 easy, 17 medium, and 17 hard pages.
 
