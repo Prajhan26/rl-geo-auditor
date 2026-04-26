@@ -58,6 +58,32 @@ webpages. An agent:
 
 In practice, I think of it less like a toy SEO checker and more like evaluation infrastructure for serious GEO workflows. If people are going to trust AI for SEO and AI search visibility work, they need something better than prompts, opinions, and screenshots. They need a task environment, a verifier, and a benchmark.
 
+## Round 2 Training Results
+
+We ran a full SFT + GRPO training loop against the environment reward in Round 2.
+
+**Model:** `Qwen2.5-7B-Instruct` with Unsloth 4-bit quantization  
+**Method:** SFT warm start (15 epochs) → GRPO (80 steps, lr=3e-6)
+
+| Metric | Before Training | After Training |
+|--------|----------------|----------------|
+| avg reward | 0.467 | 0.458 |
+| false positive rate | 0.333 | **0.250** |
+| parse success rate | 1.000 | 1.000 |
+| avg response length | 96 chars | **56 chars** |
+
+**SFT loss: 3.15 → 0.84** — warm start confirmed working  
+**GRPO reward variance: min=-0.037, max=1.000, std=0.172** — real training signal
+
+Heuristic baseline: avg reward = 0.964
+
+The key lesson: SFT must teach output format before GRPO can refine correctness. Without a working warm start, GRPO loss stays flat at 0.0000 and produces no improvement. Once SFT works, GRPO produces real reward signal and measurable behavioral changes.
+
+Full training script: `scripts/round2_train.py`  
+Results: `artifacts/round2_comparison.json`
+
+---
+
 The repo now contains both:
 
 - a heuristic baseline policy in `inference.py`
@@ -108,6 +134,23 @@ This encourages the agent to find real issues without over-flagging.
 Special case:
 
 - a clean page with no issues gets reward `1.0` when the agent correctly flags nothing
+
+## Reward Hacking and Limits
+
+The reward is deterministic, which is a strength, but that does not mean it is impossible to game.
+
+Right now the verifier is strongest at measuring issue-label agreement and false-positive control under a fixed issue taxonomy. It is weaker at measuring deeper content usefulness, real ranking lift, or broader GEO quality outside the benchmark.
+
+That means an agent could still overfit to benchmark patterns, shallow cues, or conservative under-flagging behavior if we are not careful.
+
+We already have some guardrails:
+
+- explicit false-positive penalties
+- structured issue types
+- held-out evaluation
+- synthetic and real benchmark tasks
+
+But the honest position is that this reward is a useful verifier, not a perfect proxy for full GEO performance.
 
 ## Local Setup
 

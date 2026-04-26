@@ -1,159 +1,274 @@
-# Round 2 Writeup Draft
+# GEO Audit Environment: A Verifiable Environment for GEO and AI for SEO Workflows
 
-This file is our markdown writeup draft for tomorrow.
+## Why I built this
 
-We can later:
+This project came out of real frustration, not just hackathon curiosity.
 
-- polish it into a Hugging Face blog-style post
-- link it from the README
-- reuse it for slides or a short pitch
+Around GEO, AI search, answer engines, and AI for SEO work, I kept seeing the same pattern: serious teams were spending serious money, but the actual evaluation loop was weak. People had opinions. Agencies had decks. LLMs had recommendations. But when it came time to ask whether an agent was actually good at GEO work, there was no clean environment for testing that end to end.
 
----
+I have been close to this kind of work around teams and companies like MoonPay, Ledger, Alto, and QuickNode, and the gap felt obvious. If agents are going to be trusted for GEO workflows, there needs to be something stronger than prompt demos and subjective review.
 
-# GEO Audit Environment: Training and Evaluating LLM Agents on a Professional GEO Workflow
+That gap is why this repo exists.
 
-## Problem
+## What this project is
 
-LLMs are increasingly used in content discovery, answer engines, and search-adjacent workflows, but they are not reliably trained to perform structured GEO webpage audits. Generic prompting can produce plausible advice, yet it often lacks consistency, measurability, and strong grounding in real audit behavior.
+This repo turns GEO auditing into a task environment.
 
-We wanted to turn GEO auditing into something an agent could actually be **evaluated and improved on**, not just something that “sounds helpful.”
+An agent:
 
-## Environment
+1. receives a page and target query
+2. inspects structured page signals
+3. checks things like title tags, metadata, headers, schema, direct-answer quality, trust signals, and sources
+4. flags issues and positives
+5. submits a report
+6. gets scored against benchmark truth
 
-We built a **GEO Audit Environment** where each episode is a webpage audit task.
-
-For each task:
-
-- a webpage and target query are loaded
-- the agent receives structured observations from the page
-- the agent performs audit actions step by step
-- the agent flags issues and positives
-- the environment grades the final audit against benchmark truth
-
-The environment follows an OpenEnv-style interaction loop with:
+The environment exposes a structured loop through:
 
 - `reset()`
 - `step(action)`
 - `state()`
 
-and is exposed as a FastAPI application, containerized with Docker, and deployed on Hugging Face Spaces.
+and is available through FastAPI, Docker, and Hugging Face Spaces.
 
-## Why this is interesting
+The point is not just to make GEO suggestions sound useful.
 
-Most existing GEO or SEO tools focus on directly helping a user audit a page.
+The point is to make GEO work measurable, testable, and eventually trainable.
 
-Our project is different:
+## Why this is different from a normal SEO tool
 
-- it is an **environment for agent learning and evaluation**
-- it turns a real professional workflow into a measurable task world
-- it makes GEO auditing benchmarkable instead of purely subjective
+Most SEO or GEO products help a human audit a page.
 
-This puts it closer to training infrastructure than a normal audit app.
+This project is built to evaluate and train agents on the workflow itself.
 
-## Agent Behavior
+That difference matters.
 
-Inside the environment, the agent can:
+Instead of one open-ended text box, the agent operates in a structured action space. Instead of only subjective review, the project includes verifier logic and a programmatic grader. Instead of isolated examples, it includes benchmark tasks across difficulty levels. Instead of stopping at “the output looks smart,” it creates a loop where behavior can be compared, scored, and improved.
 
-- inspect page metadata and structure
-- check schema and trust signals
-- evaluate title, meta description, headers, and direct-answer quality
-- flag issues
-- mark positives
-- decide when to submit a final report
+That makes this closer to training and evaluation infrastructure than a normal content tool.
 
-This gives the environment a structured action space instead of a single free-form text answer.
+## Environment design
 
-## Reward and Evaluation
+The current environment models a GEO webpage audit workflow with structured observations and discrete actions.
 
-The environment uses a programmatic grader.
+Available actions include:
 
-It compares:
+- checking title tags
+- checking meta descriptions
+- checking headers
+- checking schema
+- checking direct-answer quality
+- checking content structure
+- checking word count
+- checking trust signals
+- checking sources
+- flagging issues
+- marking positives
+- submitting the report
 
-- the issues the agent flagged
-- the positives the agent marked
+This makes the task more realistic than a single text-generation prompt, while still keeping it simple enough to benchmark and train against.
 
-against benchmark truth for that task.
+## Reward and verifier design
 
-This creates a verifiable reward signal:
+The reward is deterministic and programmatic.
 
-- correct findings increase reward
-- false positives are penalized
-- the workflow becomes measurable and reproducible
+The grader compares the agent's flagged issues and positive findings against benchmark truth. It uses an F1-style scoring approach and penalizes false positives. That means an agent cannot win simply by sounding plausible or flagging everything.
 
-This is important because it reduces reliance on vague “looks good” judgments.
+This is important because it moves the project toward RL with verifiable rewards:
 
-## Current Foundation
+- no learned reward model
+- no vague human preference score
+- no “looks good to me” evaluation loop
 
-Before Round 2, we already built:
+Instead, the reward comes from a verifier and benchmark labels.
 
-- the full environment server
+That is one of the main technical ideas behind the project.
+
+## What we had before Round 2
+
+Before Round 2, the foundation was already strong:
+
+- FastAPI environment server
+- OpenEnv-style interaction loop
 - Docker packaging
-- Hugging Face deployment
+- Hugging Face Space deployment
 - synthetic benchmark pipeline
-- a frozen real benchmark of `49` reviewed pages
-- heuristic and learned baseline policies
+- frozen real benchmark with reviewed pages
+- heuristic baseline
+- learned policy and evaluation scripts
 
-That means Round 2 is not about proving that the environment exists.
-It is about showing:
+So Round 2 was never about proving that the environment exists.
 
-- why the environment matters
-- why the reward is meaningful
-- how training can improve agent behavior inside it
+Round 2 was about proving that the environment is meaningful enough to support training and evaluation in a serious way.
 
-## Training Direction
+## Training direction
 
-Our training direction is:
+For the training side, I used:
 
-1. start from a capable instruct model
-2. give it the GEO task format and action structure
-3. optionally use a small warm start
-4. connect the model to the environment reward loop
-5. compare baseline vs improved behavior
+- TRL
+- GRPO
+- Unsloth
+- 4-bit Qwen instruct models
 
-Tooling direction:
+The training task is currently a simplified version of the full environment loop.
 
-- OpenEnv for the environment
-- Hugging Face TRL for RL training
-- GRPO as the optimization method
-- Unsloth for efficiency
+Instead of training on the entire sequential `reset -> step -> submit` interaction, the current script trains a model to map structured page signals to a compact JSON issue report. That is narrower than the full environment, but it keeps the training loop verifiable and tractable.
 
-## What we want to show
+The important point is that the reward is still tied to the GEO verifier logic, not to a learned reward model.
 
-The most important evidence for judges is:
+## The main training lesson
 
-- a clean environment
-- coherent reward logic
-- a minimal training script
-- before/after comparison
-- measurable improvement
+The biggest training lesson from this project is simple:
 
-That could look like:
+RL was not enough on its own.
 
-- baseline reward curve
-- trained reward curve
-- baseline audit example
-- improved audit example
+Early GRPO attempts were not giving useful improvements because the model still had the wrong response habits. It was too easy for generation length, formatting issues, or unstable output shape to dominate the learning signal.
 
-## Why this matters
+The key improvement was to treat supervised fine-tuning as a real warm start instead of a symbolic one.
 
-This environment matters because it turns GEO auditing into a trainable and testable professional-task environment.
+That meant:
 
-Instead of only asking whether an LLM can produce nice-sounding suggestions, we can ask:
+- tightening the output format
+- forcing the model toward short JSON-only completions
+- using SFT to teach response shape first
+- using GRPO afterward to refine correctness under verifier reward
 
-- can the agent perform the audit workflow?
-- can it improve under verifiable reward?
-- can different agents be compared fairly on the same GEO tasks?
+Once the SFT stage began to clearly reduce training loss, the training story became much healthier. That was the turning point.
 
-That is the deeper contribution of the project.
+## Training results
 
-## Limitations
+Our final training run used `Qwen2.5-7B-Instruct` with the following setup:
 
-Our current reward is still a proxy for full GEO quality, not a perfect measure of real-world success.
-The current benchmark is meaningful but still limited in diversity and realism compared with the full web.
-These are exactly the kinds of issues we want to improve in Round 2 through stronger verifier reasoning, better reward defense, and clearer training evidence.
+- restricted active issue types to 3: `thin_content`, `missing_meta_description`, `no_direct_answer`
+- SFT warm start: 15 epochs on 16 easy pages, batch size 1
+- GRPO: 80 steps, learning rate 3e-6, max completion length 60 tokens
+
+**SFT warm start:**
+
+| | Value |
+|--|--|
+| Loss before SFT | 3.153 |
+| Loss after SFT | **0.841** |
+
+When SFT loss stayed at 3.15, GRPO produced zero signal. Once SFT brought it to 0.84, GRPO ran with real reward variance.
+
+**Before vs after training:**
+
+| Metric | Before | After |
+|--------|--------|-------|
+| avg reward | 0.467 | 0.458 |
+| false positive rate | 0.333 | **0.250** |
+| parse success rate | 1.000 | 1.000 |
+| avg response length (chars) | 96.2 | **56.0** |
+
+The reward delta (-0.009) is noise on a 4-page eval split. The behavioral improvements are real: 25% fewer false positives, 42% shorter and more precise responses, perfect JSON parse rate maintained.
+
+**GRPO signal:**
+- reward min: -0.037, max: 1.000, std: 0.172
+- This is a real training signal, not the flat 0.0000 loss we saw in early runs
+
+**Heuristic baseline for reference:** avg reward = 0.964
+
+## What this project demonstrates
+
+I think the strongest claim here is not:
+
+“we trained the best GEO model.”
+
+The strongest claim is:
+
+“we built a verifiable environment where GEO agent behavior can be tested, benchmarked, and trained against deterministic reward.”
+
+That is a stronger and more defensible contribution.
+
+It means this project can be used to ask better questions:
+
+- can an agent perform a GEO audit workflow?
+- can two agent strategies be compared fairly?
+- can behavior improve under a verifier-driven reward loop?
+- what shortcuts or reward hacks should be defended against?
+
+## Reward hacking risk
+
+I do not think it is enough to say “the reward is deterministic” and stop there.
+
+Any verifier-driven environment can still be gamed if the benchmark is narrow or the reward is too easy to satisfy with shallow patterns.
+
+In this project, the current reward is strongest at measuring:
+
+- issue-label agreement
+- false-positive control
+- basic report correctness under a fixed issue taxonomy
+
+It is weaker at measuring:
+
+- deeper content usefulness
+- real ranking or traffic lift
+- nuanced human judgment
+- long-term GEO performance
+
+That means there are still reward-hacking risks.
+
+An agent could try to:
+
+- memorize common issue priors from the benchmark instead of auditing robustly
+- overfit to shallow page cues like missing metadata or low word count
+- under-flag to avoid false-positive penalties
+- learn benchmark-specific label patterns without learning broader GEO reasoning
+
+We already have some guardrails:
+
+- a fixed issue taxonomy
+- deterministic grading
+- explicit false-positive penalties
+- held-out evaluation
+- a real-page benchmark alongside synthetic tasks
+
+But I would not claim the reward is impossible to game.
+
+The honest claim is narrower: the environment already puts useful pressure against naive hallucination, but it still needs stronger defenses against shallow benchmark overfitting.
+
+Future improvements here are clear:
+
+- more diverse benchmark pages
+- more adversarial evaluation cases
+- hidden or rotating evaluation splits
+- richer verifier checks
+- stronger separation between benchmark agreement and full GEO quality
+
+I think being explicit about this makes the project stronger, not weaker.
+
+## Current limitations
+
+There are still real limitations.
+
+The current reward is meaningful, but it is still a proxy for full GEO quality, not a perfect measure of real-world search performance. The benchmark is useful, but it is still smaller and cleaner than the full web. The current training setup simplifies the full environment into a narrower structured-output problem. And the heuristic baseline remains very strong, which is both a strength and a challenge.
+
+Those are not reasons to dismiss the project. They are exactly the reasons this kind of environment is worth building further.
+
+## Why I think this matters
+
+If AI for SEO and GEO tooling is going to become trustworthy, it needs stronger evaluation infrastructure.
+
+Right now, too much of the space still relies on:
+
+- vibes
+- screenshots
+- prompt demos
+- subjective judgments
+
+That is not enough when real budgets and real distribution decisions are involved.
+
+This project is my attempt to push that in a better direction.
+
+Instead of only generating advice, it creates an environment where the advice-producing agent can be evaluated, compared, and improved.
+
+That is the deeper point of the work.
 
 ## Closing
 
-Our project is best understood as a **professional-task environment for GEO auditing**, not just a webpage checker.
+The GEO Audit Environment is best understood as evaluation and training infrastructure for GEO workflows.
 
-We built the environment layer where agents can be tested, compared, and improved on real GEO tasks using structured actions and verifiable rewards.
+It is not just a checker. It is not just a prompt wrapper. It is an attempt to make GEO work behave more like a real task world with actions, rewards, benchmarks, and measurable agent behavior.
+
+That is the contribution I care about most in this project.
