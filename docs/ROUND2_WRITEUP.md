@@ -137,6 +137,21 @@ This is the generation inspection the checklist specifically calls out. Scalars 
 
 All sampled completions are saved to `artifacts/round2_generation_samples.json` at the end of each run.
 
+## Model saving: LoRA adapters, not naive merges
+
+We use QLoRA via Unsloth — 4-bit base model with LoRA adapters trained on top. The correct save path matters here.
+
+The dangerous pattern is: upcast the 4-bit base to float16, then call `merge_and_unload()`. That path can silently corrupt the model weights because the quantization boundaries are lost during the upcast. The result looks fine until you run inference and get degraded outputs.
+
+What we do instead:
+
+- Save LoRA adapters only via `model.save_pretrained("outputs/round2_lora_adapter")`
+- Post-training inference runs immediately in the same script — the model is already in memory, so there is no cold-start gap where a bad save could hide
+- GRPOConfig uses `save_steps=50` to checkpoint adapter weights during training, not merged weights
+- If a full merge is ever needed, the correct path is Unsloth's `save_pretrained_merged` which handles the quantization boundaries safely
+
+The practical rule: never leave model export until the end of a training run. Test inference before the session ends, using the same in-memory model that just finished training.
+
 ## Training direction
 
 For the training side, I used:

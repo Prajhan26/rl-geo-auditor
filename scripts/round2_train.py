@@ -832,3 +832,13 @@ print(f"  LLM before training: {comparison['llm_before_training']}")
 print(f"  LLM after training:  {comparison['llm_after_training']}")
 delta = comparison["llm_after_training"]["avg_reward"] - comparison["llm_before_training"]["avg_reward"]
 print(f"  Delta (LLM):         {delta:+.3f}")
+
+# ── Safe model save ────────────────────────────────────────────────────────────
+# Save LoRA adapters only. Do NOT use merge_and_unload() on a 4-bit model —
+# that path can corrupt weights. Use Unsloth's save path or keep adapters separate.
+print("\nSaving LoRA adapters …")
+model.save_pretrained("outputs/round2_lora_adapter")
+tokenizer.save_pretrained("outputs/round2_lora_adapter")
+print("Saved LoRA adapters to outputs/round2_lora_adapter/")
+print("To merge safely later: use FastLanguageModel.get_peft_model + save_pretrained_merged")
+print("Do not upcast to float16 and merge naively — that path damages 4-bit model weights.")
