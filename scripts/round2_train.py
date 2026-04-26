@@ -109,24 +109,26 @@ print(f"  flagged: {example['flagged']}")
 # ## Section C — Training Configuration
 
 # %%
-MODEL_NAME = "unsloth/Qwen2.5-1.5B-Instruct"
+MODEL_NAME = "unsloth/Qwen2.5-7B-Instruct"
 
 ISSUE_TYPES = GeoAuditEnvironment.ISSUE_TYPES
 POSITIVE_TYPES = GeoAuditEnvironment.POSITIVE_TYPES
 
-SYSTEM_PROMPT = f"""You are a GEO audit expert. Given structured signals from a webpage, identify all GEO issues.
+# Restrict to 3 easy issue types so GRPO has a tractable search space
+ACTIVE_ISSUE_TYPES = ["thin_content", "missing_meta_description", "no_direct_answer"]
+
+SYSTEM_PROMPT = f"""You are a GEO audit expert. Given structured signals from a webpage, identify GEO issues.
 
 Return ONLY a JSON object with this exact format:
 {{"issues":[{{"type":"<issue_type>","severity":"<critical|high|medium|low>"}}]}}
 
-Valid issue types:
-{', '.join(ISSUE_TYPES)}
+Valid issue types: {', '.join(ACTIVE_ISSUE_TYPES)}
 
 Rules:
-- Only include issues that are clearly present based on the signals.
+- Only flag issues clearly supported by the page signals.
 - Do not invent issues. False positives are penalized.
-- If there are no clear issues, return {{"issues":[]}}.
-- Return valid JSON only, with no markdown fences, prose, or explanations."""
+- If no issues are present, return {{"issues":[]}}.
+- Return valid JSON only, no markdown fences, no prose."""
 
 
 def build_prompt(page_data: Dict) -> str:
@@ -158,8 +160,8 @@ def parse_completion(text: str) -> List[Dict]:
             return []
         payload = json.loads(match.group())
         issues = payload.get("issues", [])
-        # filter to valid types only
-        return [i for i in issues if isinstance(i, dict) and i.get("type") in ISSUE_TYPES]
+        # filter to active types only
+        return [i for i in issues if isinstance(i, dict) and i.get("type") in ACTIVE_ISSUE_TYPES]
     except Exception:
         return []
 
@@ -181,13 +183,25 @@ def format_reward(completion: str) -> float:
                 return -0.05
             issue_type = issue.get("type")
             severity = issue.get("severity")
-            if issue_type not in ISSUE_TYPES or severity not in {"critical", "high", "medium", "low"}:
+            if issue_type not in ACTIVE_ISSUE_TYPES or severity not in {"critical", "high", "medium", "low"}:
                 return -0.05
         if issues:
             bonus += 0.05
         return bonus
     except Exception:
         return -0.05
+
+
+def dense_correctness_reward(completion: str, ground_truth_issues: List[Dict]) -> float:
+    """Partial credit: +0.3 per correct issue found, -0.2 per false positive."""
+    flagged = parse_completion(completion)
+    flagged_types = {i["type"] for i in flagged if isinstance(i, dict)}
+    truth_types   = {i["type"] for i in ground_truth_issues if i.get("type") in ACTIVE_ISSUE_TYPES}
+    if not truth_types and not flagged_types:
+        return 0.3  # correctly identified no issues
+    hits = flagged_types & truth_types
+    fps  = flagged_types - truth_types
+    return 0.3 * len(hits) - 0.2 * len(fps)
 
 
 def score_completion(completion: str, ground_truth_issues: List[Dict]) -> float:
@@ -297,20 +311,16 @@ def pages_to_dataset(pages: List[Dict]) -> Dataset:
 
 
 def canonical_issue_output(page: Dict) -> str:
-    issues = []
     severity_map = {
         "missing_meta_description": "high",
-        "missing_title_tag": "high",
         "no_direct_answer": "high",
-        "no_sources": "medium",
-        "no_headers": "medium",
         "thin_content": "medium",
-        "missing_schema": "medium",
-        "missing_author": "low",
-        "missing_date": "low",
     }
+    issues = []
     for issue in page.get("issues", []):
         issue_type = issue["type"]
+        if issue_type not in ACTIVE_ISSUE_TYPES:
+            continue
         issues.append({
             "type": issue_type,
             "severity": severity_map.get(issue_type, "medium"),
@@ -434,9 +444,14 @@ print(f"SFT warm-start dataset: {len(sft_dataset)} rows")
 from trl import GRPOConfig, GRPOTrainer, SFTConfig, SFTTrainer
 
 
+target_sft_examples = 24
+if len(sft_dataset) > target_sft_examples:
+    sft_dataset = sft_dataset.select(range(target_sft_examples))
+    print(f"SFT warm-start dataset capped to {target_sft_examples} rows")
+
 sft_args = SFTConfig(
     output_dir="outputs/round2_sft",
-    num_train_epochs=1,
+    num_train_epochs=3,
     per_device_train_batch_size=2,
     gradient_accumulation_steps=4,
     learning_rate=2e-5,
@@ -457,6 +472,8 @@ print("Starting SFT warm start on easy tasks …")
 sft_result = sft_trainer.train()
 print("SFT warm start complete.")
 print(f"  Train loss: {sft_result.training_loss:.4f}")
+if sft_result.training_loss > 1.5:
+    print("  WARNING: SFT loss still high — warm start may not have worked")
 
 
 _reward_log: List[Dict] = []
@@ -465,17 +482,14 @@ def reward_fn(completions: List[str], ground_truth_issues: List[str], **kwargs) 
     rewards = []
     for completion, gt_json in zip(completions, ground_truth_issues):
         gt_issues = json.loads(gt_json)
-        correctness = score_completion(completion, gt_issues)
+        correctness = dense_correctness_reward(completion, gt_issues)
         fmt         = format_reward(completion)
 
         flagged = parse_completion(completion)
         flagged_types = {i["type"] for i in flagged if isinstance(i, dict)}
-        truth_types   = {i["type"] for i in gt_issues}
+        truth_types   = {i["type"] for i in gt_issues if i.get("type") in ACTIVE_ISSUE_TYPES}
         fp_count      = len(flagged_types - truth_types)
-        # score_completion already includes the grader's false-positive penalty.
-        # Keep this as a logged diagnostic so we can see whether training is
-        # reducing hallucinations without double-penalizing the reward.
-        fp_penalty    = -0.1 * fp_count
+        fp_penalty    = -0.2 * fp_count
 
         total = correctness + fmt
         rewards.append(total)
@@ -502,8 +516,9 @@ training_args = GRPOConfig(
     num_train_epochs=5,
     per_device_train_batch_size=2,
     gradient_accumulation_steps=4,
-    num_generations=8,           # increased for better rollout variance
-    max_completion_length=256,
+    num_generations=8,
+    max_completion_length=80,    # short completions force crisp JSON, not wall-of-text
+    temperature=0.7,             # rollout diversity for GRPO variance
     learning_rate=2e-5,
     lr_scheduler_type="cosine",
     warmup_ratio=0.1,
