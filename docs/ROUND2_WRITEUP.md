@@ -101,6 +101,20 @@ So Round 2 was never about proving that the environment exists.
 
 Round 2 was about proving that the environment is meaningful enough to support training and evaluation in a serious way.
 
+## Keeping inference fast
+
+In RL training for LLMs, rollout generation dominates runtime — not the optimizer step. We made four concrete choices to keep this fast.
+
+**Unsloth with 4-bit quantization.** The 7B model runs in roughly half the memory and at roughly 2x the speed of a standard load. Without this, rollout generation on a single Kaggle T4 would have been the bottleneck for the entire training loop.
+
+**Short completions.** `max_completion_length=60` was not just a formatting fix — it cut rollout time per sample significantly. A model generating 256 tokens per completion takes 4x longer than one generating 60. At `num_generations=4` rollouts per prompt, that compounds fast.
+
+**Lightweight environment.** The grader is a pure Python function with no external calls, no database, no network. A single reward computation takes microseconds. The environment never became the bottleneck.
+
+**Reduced rollout count.** `num_generations=4` instead of 8 halved completions generated per training step. The tradeoff is slightly less reward variance, but on a single GPU the speed gain was worth it.
+
+What we did not do: we never profiled the exact split between rollout time and optimizer time, and we did not try vLLM or batched async inference. Those are the right next steps if training time became a serious constraint at larger scale.
+
 ## Training direction
 
 For the training side, I used:
