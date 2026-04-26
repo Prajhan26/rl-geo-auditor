@@ -240,6 +240,26 @@ The double FP penalty, the F1 structure, and the held-out benchmark together mak
 
 These are the right next steps for a more robust verifier.
 
+## Reward hacking protections: implemented vs missing
+
+**What is implemented:**
+
+- `max_steps=10` hard cap — episode auto-submits if the agent never calls `submit_report`. No infinite loops possible.
+- Issue type whitelist — `_handle_flag` rejects any type not in `ISSUE_TYPES`. The agent cannot invent new issue categories.
+- Duplicate prevention — flagging the same issue type twice does nothing. Second flag is silently dropped. No stacking credit on one issue.
+- Episode isolation — every `reset()` creates a new `GeoAuditState` with a fresh UUID. No cross-episode state bleed.
+- Pure function grader — `calculate_reward` has no global state, no caching, no side effects. Same inputs always give the same reward.
+- Request body size limit — API rejects any payload over 32KB. An agent cannot exploit the step endpoint with oversized requests.
+
+**Known gaps:**
+
+- Single reward function only. No second independent verifier to cross-check the primary grader. A reward two independent checkers agree on is much harder to game than one.
+- No drift detection. If reward climbs while real audit quality falls — the classic reward hacking pattern — nothing stops training or raises an alert.
+- No per-episode timeout on API calls. A slow agent can hold a connection open without a hard server-side cutoff.
+- No automated rollback. If a training run starts producing suspicious outputs, there is no checkpoint-and-rollback mechanism.
+
+The practical fix for the most serious gap is adding a second independent reward signal — for example, checking whether the flagged issues are actually detectable from the page signals, not just present in the label set. That is the next version of the verifier.
+
 ## Task design: why the difficulty levels are genuinely different
 
 Easy, medium, and hard tasks in this environment are not just harder versions of the same check. They test different kinds of reasoning.

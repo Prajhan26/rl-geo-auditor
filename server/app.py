@@ -1,7 +1,9 @@
 try:
-    from fastapi import FastAPI
+    from fastapi import FastAPI, Request
+    from fastapi.responses import JSONResponse
 except ImportError:  # pragma: no cover - optional until deps are installed
     FastAPI = None
+    Request = None
 
 import uvicorn
 
@@ -18,8 +20,17 @@ from .models import GeoAuditAction
 
 env = GeoAuditEnvironment()
 
+MAX_STEP_ACTIONS = 50  # hard cap: reject agents that flood the step endpoint
+
 if FastAPI is not None:
     app = FastAPI(title="GEO Audit Environment", version="0.1.0")
+
+    @app.middleware("http")
+    async def reject_oversized_bodies(request: Request, call_next):
+        if request.headers.get("content-length", "0").isdigit():
+            if int(request.headers.get("content-length", "0")) > 32_768:
+                return JSONResponse({"error": "request body too large"}, status_code=413)
+        return await call_next(request)
 
     @app.get("/")
     def root() -> dict[str, object]:
