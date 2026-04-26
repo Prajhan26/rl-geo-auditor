@@ -38,9 +38,13 @@ After 80 GRPO steps:
 
 That last number looks bad. It is not. On four pages it is noise. What changed is behavior: the model learned to hallucinate less and commit to shorter, more precise outputs. The reward went sideways; the model got measurably better.
 
+![Behavioral improvements after SFT + GRPO training](../artifacts/round2_behavioral.png)
+
 ## The honest part
 
 The heuristic baseline scores 0.964 on synthetic tasks. The trained model scores 0.458. That gap is real, and I am not going to pretend it is not.
+
+![Reward comparison — heuristic vs LLM before and after training](../artifacts/round2_comparison.png)
 
 What I care about is that the environment made this outcome visible instead of hiding it. Most GEO tooling cannot tell you whether the model it is running is accurate or just confident. This one can.
 
