@@ -6,6 +6,9 @@ I kept watching teams spend real money on GEO work — AI search optimization, a
 
 Most tools in this space let a human read AI output and decide what to do. That is not evaluation. That is a text box.
 
+![GEO is real spend — with no standard way to measure results](../artifacts/geo_market_problem.png)
+*GEO services market growing from $886M (2024) to $7.3B (2031) at 34% CAGR. 94% of digital marketing leaders plan to increase spend in 2026. Sources: Valuates Reports, eMarketer, Incremys.*
+
 So I built the other thing.
 
 ## The environment
