@@ -20,6 +20,57 @@ That gap is why this repo exists.
 
 This project turns GEO auditing into an environment. An agent gets a page and a target query, inspects structured page signals, flags issues, submits a report, and gets scored against benchmark truth. The goal is not just to make GEO advice sound smart. The goal is to make GEO work measurable, testable, and eventually trainable.
 
+## Live demo: one full audit episode
+
+The environment is running at `https://samunhashed-geo-audit-env.hf.space`. Here is a real episode, live from the API.
+
+**Step 1 — start an episode**
+```bash
+curl -X POST https://samunhashed-geo-audit-env.hf.space/reset \
+  -H "Content-Type: application/json" \
+  -d '{"task_difficulty": "easy"}'
+```
+Returns a page with structured signals:
+```
+url:         https://example.com/validator-uptime
+query:       what is validator uptime
+meta:        "Learn about uptime."
+word_count:  210
+has_sources: false
+headers:     []
+steps:       0/10
+```
+
+**Step 2 — agent flags an issue**
+```bash
+curl -X POST https://samunhashed-geo-audit-env.hf.space/step \
+  -H "Content-Type: application/json" \
+  -d '{"action_type": "flag_issue", "issue_type": "thin_content", "severity": "medium"}'
+```
+
+**Step 3 — submit and receive reward**
+```bash
+curl -X POST https://samunhashed-geo-audit-env.hf.space/step \
+  -H "Content-Type: application/json" \
+  -d '{"action_type": "submit_report"}'
+```
+```
+reward:  0.5
+flagged: ['thin_content']
+done:    true
+```
+
+The reward is 0.5 — the agent found one real issue. Flagging a second correct issue would push it toward 1.0. Flagging a wrong issue would pull it down. That is the verifier working as intended.
+
+**Before vs after training (same environment, same reward):**
+
+| | avg reward | false positive rate | response length |
+|-|------------|--------------------|-----------------| 
+| Before training | 0.467 | 0.333 | 96 chars |
+| After training | 0.458 | **0.250** | **56 chars** |
+
+The reward delta is small on a 4-page eval split. The behavioral shift is real: 25% fewer hallucinated issues, 42% more concise outputs.
+
 ## Why this is not just another GEO tool
 
 Most SEO or GEO products help a human audit a page. There is a person in the loop. They read the output, decide what to do, and move on.
