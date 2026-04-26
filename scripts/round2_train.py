@@ -181,7 +181,33 @@ def extract_json_payload(text: str) -> Dict | None:
         return None
 
 
+def normalize_completion_text(completion) -> str:
+    """
+    Convert TRL/Unsloth completion payloads into a plain string.
+
+    GRPO can pass completions as strings, chat-message dicts, or nested lists
+    depending on the backend and generation path.
+    """
+    if completion is None:
+        return ""
+    if isinstance(completion, str):
+        return completion
+    if isinstance(completion, dict):
+        for key in ("content", "text"):
+            value = completion.get(key)
+            if isinstance(value, str):
+                return value
+            if isinstance(value, list):
+                return normalize_completion_text(value)
+        return json.dumps(completion, ensure_ascii=False)
+    if isinstance(completion, list):
+        parts = [normalize_completion_text(item) for item in completion]
+        return " ".join(part for part in parts if part).strip()
+    return str(completion)
+
+
 def completion_diagnostics(completion: str, ground_truth_issues: List[Dict]) -> Dict:
+    completion = normalize_completion_text(completion)
     payload = extract_json_payload(completion)
     raw_issues = payload.get("issues") if isinstance(payload, dict) else None
     parsed = parse_completion(completion)
@@ -563,6 +589,7 @@ _reward_log: List[Dict] = []
 def reward_fn(completions: List[str], ground_truth_issues: List[str], **kwargs) -> List[float]:
     rewards = []
     for completion, gt_json in zip(completions, ground_truth_issues):
+        completion = normalize_completion_text(completion)
         gt_issues = json.loads(gt_json)
         correctness = dense_correctness_reward(completion, gt_issues)
         fmt         = format_reward(completion)
