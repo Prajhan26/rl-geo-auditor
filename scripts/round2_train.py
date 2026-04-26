@@ -58,7 +58,7 @@ from inference import plan_actions, normalize_submission_score
 
 DIFFICULTIES = ["easy", "medium", "hard"]
 SUCCESS_THRESHOLD = 0.5
-EXPERIMENT_MODE = "easy_only"
+EXPERIMENT_MODE = "all"
 
 
 def run_heuristic_episode(difficulty: str) -> Dict:
@@ -115,8 +115,14 @@ MAX_GENERATION_TOKENS = 80
 ISSUE_TYPES = GeoAuditEnvironment.ISSUE_TYPES
 POSITIVE_TYPES = GeoAuditEnvironment.POSITIVE_TYPES
 
-# Restrict to 3 easy issue types so GRPO has a tractable search space
-ACTIVE_ISSUE_TYPES = ["thin_content", "missing_meta_description", "no_direct_answer"]
+# 5 issue types with clear signal in page data — covers easy + medium + hard
+ACTIVE_ISSUE_TYPES = [
+    "thin_content",           # word_count low
+    "missing_meta_description",  # meta_description missing
+    "no_direct_answer",       # first paragraph doesn't answer query
+    "no_sources",             # has_sources=False, source_count=0
+    "no_headers",             # headers list empty
+]
 
 SYSTEM_PROMPT = f"""You are a GEO audit expert. Given structured signals from a webpage, identify GEO issues.
 
@@ -125,14 +131,18 @@ Return ONLY a JSON object with this exact format:
 
 Valid issue types: {', '.join(ACTIVE_ISSUE_TYPES)}
 
+Signals to check:
+- thin_content: word_count is very low (under 300)
+- missing_meta_description: meta_description is missing or empty
+- no_direct_answer: first paragraph does not answer the target query
+- no_sources: has_sources is False and source_count is 0
+- no_headers: headers list is empty or missing
+
 Rules:
-- Only flag issues clearly supported by the page signals.
+- Only flag issues clearly supported by the signals above.
 - Do not invent issues. False positives are penalized.
 - If no issues are present, return {{"issues":[]}}.
-- Return exactly one JSON object.
-- Do not add explanation text before or after the JSON.
-- Keep the response short.
-- Return valid JSON only, no markdown fences, no prose."""
+- Return exactly one JSON object, no markdown, no prose."""
 
 
 def build_prompt(page_data: Dict) -> str:
@@ -399,6 +409,8 @@ def canonical_issue_output(page: Dict) -> str:
         "missing_meta_description": "high",
         "no_direct_answer": "high",
         "thin_content": "medium",
+        "no_sources": "medium",
+        "no_headers": "medium",
     }
     issues = []
     for issue in page.get("issues", []):
