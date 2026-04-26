@@ -1,0 +1,43 @@
+{
+  "heuristic_baseline": {
+    "avg_reward": 0.964,
+    "avg_fp_rate": "n/a"
+  },
+  "llm_before_training": {
+    "avg_reward": 0.467,
+    "avg_fp_rate": 0.333,
+    "parse_success_rate": 1.0,
+    "empty_prediction_rate": 0.0,
+    "avg_completion_tokens": 1.0,
+    "avg_completion_chars": 96.2,
+    "hit_length_cap_rate": 0.0,
+    "min_reward": 0.0,
+    "max_reward": 0.7,
+    "per_page_scores": [0.7, 0.5, 0.0, 0.667]
+  },
+  "llm_after_training": {
+    "avg_reward": 0.458,
+    "avg_fp_rate": 0.25,
+    "parse_success_rate": 1.0,
+    "empty_prediction_rate": 0.0,
+    "avg_completion_tokens": 1.0,
+    "avg_completion_chars": 56.0,
+    "hit_length_cap_rate": 0.0,
+    "min_reward": 0.0,
+    "max_reward": 0.667,
+    "per_page_scores": [0.667, 0.5, 0.0, 0.667]
+  },
+  "training_config": {
+    "model": "unsloth/Qwen2.5-7B-Instruct",
+    "sft_epochs": 15,
+    "sft_loss_before": 3.153,
+    "sft_loss_after": 0.841,
+    "grpo_steps": 80,
+    "grpo_lr": 3e-6,
+    "max_completion_length": 60,
+    "active_issue_types": ["thin_content", "missing_meta_description", "no_direct_answer"],
+    "reward_min": -0.037,
+    "reward_max": 1.0,
+    "reward_std": 0.172
+  }
+}
