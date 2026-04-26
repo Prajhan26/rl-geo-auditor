@@ -12,7 +12,7 @@ short_description: GEO audit RL environment with FastAPI endpoints.
 
 I built this project out of a pretty simple frustration.
 
-Around GEO, AI search, answer engines, and AI for SEO work, I kept seeing teams spend serious money without a clean way to evaluate whether an agent was actually good at the job. I’ve been close to this with companies and teams around names like MoonPay, Ledger, Alto, and QuickNode, and the pattern was always similar: lots of opinions, lots of content, lots of spend, but no real environment for testing behavior end to end.
+Around GEO, AI search, answer engines, and AI for SEO work, I kept seeing teams spend serious money without a clean way to evaluate whether an agent was actually good at the job. I've been close to this with companies and teams around names like MoonPay, Ledger, Alto, and QuickNode, and the pattern was always similar: lots of opinions, lots of content, lots of spend, but no real environment for testing behavior end to end.
 
 Most tools in this space can generate recommendations. Very few let you put an agent inside a workflow, inspect what it does, grade it programmatically, compare baselines, and try training against that loop.
 
@@ -20,82 +20,104 @@ That gap is why this repo exists.
 
 This project turns GEO auditing into an environment. An agent gets a page and a target query, inspects structured page signals, flags issues, submits a report, and gets scored against benchmark truth. The goal is not just to make GEO advice sound smart. The goal is to make GEO work measurable, testable, and eventually trainable.
 
-## Why This Matters
+## Why this is different from a normal SEO tool
 
-Right now, a lot of GEO and AI for SEO work still gets judged in a pretty weak way. Someone runs prompts, gets suggestions back, maybe ships a few changes, and then everyone argues about whether the output was actually useful. That might be fine for brainstorming. It is not fine if you want to evaluate agents, compare approaches, or trust automation in a workflow that affects distribution, traffic, and revenue.
-
-I wanted something stricter than that.
-
-This repo is my attempt to make GEO work feel more like a proper task environment instead of a loose consulting exercise. If an agent says a page has weak metadata, poor answer structure, missing schema, or weak trust signals, it should be possible to score that claim against benchmark truth instead of just nodding along because the wording sounds confident.
-
-## What Makes This Different
-
-Most SEO or GEO tools are built to help a person audit a page.
+Most SEO or GEO products help a human audit a page.
 
 This project is built to evaluate and train agents on the workflow itself.
 
 That means a few things:
 
-- there is a structured action space instead of one vague text box
-- there is a verifier and reward logic instead of only subjective review
-- there are benchmark tasks across difficulty levels
-- there is a local API, Docker packaging, and Hugging Face deployment
-- there is a baseline policy and a training path, even if training still has room to improve
+- structured action space instead of one vague text box
+- deterministic verifier and reward logic instead of subjective review
+- benchmark tasks across three difficulty levels
+- FastAPI, Docker, and Hugging Face deployment
+- heuristic baseline, learned policy, and a working RL training loop
 
-I think that distinction matters. A tool that gives nice GEO suggestions is useful. An environment where agent behavior can be measured, compared, and improved is a different kind of asset.
+A tool that gives nice GEO suggestions is useful. An environment where agent behavior can be measured, compared, and improved is a different kind of asset.
 
-## What This Project Does
+## The environment loop
 
-This project simulates a reinforcement-learning-style audit workflow for
-webpages. An agent:
+An agent in this environment:
 
-1. receives a page and target query
-2. inspects page signals such as title tags, schema, headers, trust signals,
-   and sources
-3. flags GEO issues
-4. submits a report
-5. receives reward based on agreement with labeled ground truth
+1. receives a page and target query via `POST /reset`
+2. inspects structured signals — title, meta, headers, schema, sources, trust signals
+3. flags issues and marks positives via `POST /step`
+4. submits a final report
+5. receives a deterministic reward from the grader
 
-In practice, I think of it less like a toy SEO checker and more like evaluation infrastructure for serious GEO workflows. If people are going to trust AI for SEO and AI search visibility work, they need something better than prompts, opinions, and screenshots. They need a task environment, a verifier, and a benchmark.
+The loop is exposed through three endpoints: `reset`, `step`, `state`. It follows the OpenEnv spec and passes automated validation.
 
-## Round 2 Training Results
+## Reward design
 
-We ran a full SFT + GRPO training loop against the environment reward in Round 2.
+The reward is F1-style with a hard hallucination penalty.
 
-**Model:** `Qwen2.5-7B-Instruct` with Unsloth 4-bit quantization  
-**Method:** SFT warm start (15 epochs) → GRPO (80 steps, lr=3e-6)
+```
+reward = F1(flagged_types, truth_types) - (0.1 × false_positive_count)
+```
 
-| Metric | Before Training | After Training |
-|--------|----------------|----------------|
-| avg reward | 0.467 | 0.458 |
-| false positive rate | 0.333 | **0.250** |
-| parse success rate | 1.000 | 1.000 |
-| avg response length | 96 chars | **56 chars** |
+False positives get penalized twice: once through lower precision in the F1, and again through the explicit multiplier. That means flagging everything does not work. An agent cannot win by dumping every known issue type onto every page.
 
-**SFT loss: 3.15 → 0.84** — warm start confirmed working  
-**GRPO reward variance: min=-0.037, max=1.000, std=0.172** — real training signal
+A clean page that receives an empty report scores 1.0. This teaches the agent that restraint is sometimes the right call.
 
-Heuristic baseline: avg reward = 0.964
+Positive findings are tracked separately at 15% weight, so a complete audit that catches both issues and strengths scores higher than one that only flags problems.
 
-The key lesson: SFT must teach output format before GRPO can refine correctness. Without a working warm start, GRPO loss stays flat at 0.0000 and produces no improvement. Once SFT works, GRPO produces real reward signal and measurable behavioral changes.
+## Why the difficulty levels are genuinely different
 
-Full training script: `scripts/round2_train.py`  
-Results: `artifacts/round2_comparison.json`
+Easy, medium, and hard are not just harder versions of the same check. They test different kinds of reasoning.
 
----
+**Easy** — binary, deterministic signals. Is `meta_description` empty? Is `word_count` below threshold? Is `has_sources` false? The correct answer can be read directly off the page data.
 
-The repo now contains both:
+**Medium** — combined signals. A page might have a meta description that exists but is too short. It might have sources in a format the grader does not credit. Requires reasoning about signal quality, not just signal presence.
 
-- a heuristic baseline policy in `inference.py`
-- a learned Q-policy in `train_q_policy.py`
-- discrete issue flags and positive findings inside the environment
+**Hard** — query-content relationship. Flagging `no_direct_answer` on a hard page means understanding that the content does not match what someone searching that specific query actually needs. That is a judgment call, not a lookup.
 
-## Project Structure
+This gradient matters for training. Easy tasks give signal early. Hard tasks prevent reward saturation from shallow pattern-matching. The mix is intentional.
+
+## Reward hacking: how I tried to break it
+
+A deterministic reward is only as strong as its resistance to shortcuts. I tried to break mine.
+
+**Flag nothing** — outputs `{"issues":[]}` everywhere. Scores 1.0 on clean pages, 0.0 on pages with real issues. Works if the benchmark is heavily skewed toward clean pages. Guardrail: the benchmark intentionally includes pages across all difficulty levels.
+
+**Flag everything** — outputs all known issue types on every page. Recall is always 1.0 but precision collapses and the -0.1 FP multiplier makes it unprofitable. Still gets partial credit on pages with many real issues, which is a known weakness.
+
+**Memorize label priors** — if `no_sources` appears in 30 of 60 pages, always flag it. Guardrail: held-out eval split. But the benchmark is not adversarially constructed, so this risk is real and acknowledged.
+
+**Exploit the clean-page shortcut** — learn to output nothing on ambiguous pages. Guardrail: difficulty-balanced benchmark. Still a soft guardrail.
+
+The honest position: the reward is hard to game with any single strategy, but it is not impossible to game. The right next steps are rotating eval splits, adversarial page construction, and process-level checks that verify the agent used intermediate audit steps before submitting.
+
+## The benchmark: 49 human-reviewed real pages
+
+Synthetic benchmarks are easy to score well on. So I froze a real-page benchmark of 49 manually reviewed pages.
+
+Each page was collected from the live web, checked against the issue taxonomy, and labeled by hand. The benchmark covers 15 easy, 17 medium, and 17 hard pages.
+
+Real benchmark results:
+- heuristic policy: `0.571` overall
+- learned policy: `0.460` overall
+
+The lower score compared to the synthetic benchmark is expected. It shows the real benchmark is actually harder, which makes it a better proof set. If both benchmarks scored 1.0, the real one would be useless.
+
+The frozen dataset: `artifacts/real_dataset_finalized_49.json`
+
+## Round 2 training
+
+Training is 10% of this project's story. The environment is the point. But for completeness:
+
+We ran SFT warm start → GRPO on `Qwen2.5-7B-Instruct`.
+
+The key finding: GRPO produces zero signal until SFT teaches the output format first. Once SFT loss dropped from 3.15 to 0.84, GRPO produced real reward variance (std=0.172) and the model's false-positive rate fell from 0.333 to 0.250.
+
+Full script: `scripts/round2_train.py` | Results: `artifacts/round2_comparison.json`
+
+## Project structure
 
 ```text
 server/
   app.py             FastAPI app
-  api_models.py      Typed API request/response schemas
+  api_models.py      Typed request/response schemas
   environment.py     Audit environment logic
   grader.py          Reward calculation
   models.py          Action/observation/state models
@@ -103,58 +125,15 @@ data/
   task1_easy.json    Easy task pages
   task2_medium.json  Medium task pages
   task3_hard.json    Hard task pages
-artifacts/           Saved policy and evaluation reports
+artifacts/           Policies, benchmark data, training results
 inference.py         Heuristic baseline policy
-train_q_policy.py    Learned Q-policy training loop
-compare_policies.py  Heuristic vs learned evaluation
-analyze_policies.py  Per-page error analysis
-final_real_evaluation.py  Final real-benchmark evaluation
-openenv.yaml         Environment metadata
+scripts/
+  round2_train.py    SFT + GRPO training script
+openenv.yaml         OpenEnv spec
 Dockerfile           Container setup
 ```
 
-## Core Concepts
-
-- Environment: the world and rules the agent interacts with
-- Observation: the page signals the agent can see
-- Action: one audit step such as `check_schema` or `flag_issue`
-- Positive finding: one thing the page does well, such as `has_sources`
-- Reward: how well the final audit report matches the labeled truth
-
-## Reward Design
-
-The environment uses an F1-style reward with a hallucination penalty.
-
-- True positives improve reward
-- Missed issues reduce recall
-- Invented issues reduce precision and also incur a penalty
-
-This encourages the agent to find real issues without over-flagging.
-
-Special case:
-
-- a clean page with no issues gets reward `1.0` when the agent correctly flags nothing
-
-## Reward Hacking and Limits
-
-The reward is deterministic, which is a strength, but that does not mean it is impossible to game.
-
-Right now the verifier is strongest at measuring issue-label agreement and false-positive control under a fixed issue taxonomy. It is weaker at measuring deeper content usefulness, real ranking lift, or broader GEO quality outside the benchmark.
-
-That means an agent could still overfit to benchmark patterns, shallow cues, or conservative under-flagging behavior if we are not careful.
-
-We already have some guardrails:
-
-- explicit false-positive penalties
-- structured issue types
-- held-out evaluation
-- synthetic and real benchmark tasks
-
-But the honest position is that this reward is a useful verifier, not a perfect proxy for full GEO performance.
-
-## Local Setup
-
-### Install dependencies
+## Local setup
 
 ```bash
 python3 -m venv venv
@@ -162,218 +141,36 @@ source venv/bin/activate
 pip install -e .
 ```
 
-### Run the baseline audit
-
+Run the heuristic baseline:
 ```bash
 python3 inference.py
 ```
 
-### Train the learned Q-policy
-
-```bash
-python3 train_q_policy.py
-```
-
-### Compare heuristic vs learned policy
-
-```bash
-python3 compare_policies.py
-```
-
-### Analyze page-by-page misses
-
-```bash
-python3 analyze_policies.py
-```
-
-### Evaluate the frozen real benchmark
-
-```bash
-python3 final_real_evaluation.py
-```
-
-### Run the local smoke test
-
-```bash
-./venv/bin/python scripts/smoke_server.py
-```
-
-### Start the API locally
-
-```bash
-./venv/bin/python scripts/run_server.py
-```
-
-Or with Uvicorn directly:
-
+Start the API:
 ```bash
 ./venv/bin/uvicorn server.app:app --host 127.0.0.1 --port 8000
 ```
 
-## API Endpoints
-
-### `GET /health`
-
-Returns a simple status payload.
-
-### `GET /metadata`
-
-Returns environment metadata and supported actions.
-
-### `GET /state`
-
-Returns the current episode state so a client can inspect progress between
-steps.
-
-### `POST /reset`
-
-Starts a new audit episode.
-
-Example body:
-
-```json
-{
-  "task_difficulty": "easy"
-}
-```
-
-### `POST /step`
-
-Applies one action to the current episode.
-
-Example body:
-
-```json
-{
-  "action_type": "flag_issue",
-  "issue_type": "missing_meta_description",
-  "severity": "critical",
-  "details": "Meta description is missing."
-}
-```
-
-Positive example body:
-
-```json
-{
-  "action_type": "mark_positive",
-  "positive_type": "good_heading_structure",
-  "details": "The page has a readable heading structure."
-}
-```
-
-## Docker
-
-### Build
-
-```bash
-docker build -t geo-audit-env .
-```
-
-### Run
-
-```bash
-docker run -p 8000:8000 geo-audit-env
-```
-
-Then open:
-
-```text
-http://localhost:8000/health
-```
-
-Or browse the API docs:
-
-```text
-http://localhost:8000/docs
-```
-
-## OpenEnv Validation
-
-Run:
-
+Validate OpenEnv compliance:
 ```bash
 ./venv/bin/openenv validate .
 ```
 
-Current status: passing.
+## API endpoints
 
-## Synthetic Benchmark
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/health` | GET | Status check |
+| `/metadata` | GET | Environment metadata and action space |
+| `/state` | GET | Current episode state |
+| `/reset` | POST | Start new audit episode |
+| `/step` | POST | Apply one audit action |
 
-Latest full-dataset comparison:
+## Docker
 
-- easy: `1.000`
-- medium: `1.000`
-- hard: `1.000`
-- overall: `1.000`
+```bash
+docker build -t geo-audit-env .
+docker run -p 8000:8000 geo-audit-env
+```
 
-See:
-
-- `artifacts/comparison_report.json`
-- `artifacts/policy_analysis.json`
-- `artifacts/training_report.json`
-
-## Real Dataset Freeze
-
-The synthetic benchmark is complete, and the real-page collection pipeline has
-now been frozen into:
-
-- `artifacts/real_dataset_finalized_49.json`
-- `artifacts/real_dataset_replacements_11.json`
-- `artifacts/real_dataset_tracker_google_sheets.csv`
-- `artifacts/real_dataset_final_summary.json`
-
-Current real-page status:
-
-- finalized rows: `49`
-- replacement backlog: `11`
-- easy finalized: `15`
-- medium finalized: `17`
-- hard finalized: `17`
-
-## Frozen Real Benchmark
-
-The frozen real-page evaluation now writes:
-
-- `artifacts/final_real_evaluation_report.json`
-
-Current real-benchmark averages:
-
-- heuristic overall: `0.571`
-- learned overall: `0.460`
-
-By difficulty:
-
-- heuristic easy: `0.558`
-- heuristic medium: `0.625`
-- heuristic hard: `0.528`
-- learned easy: `0.427`
-- learned medium: `0.514`
-- learned hard: `0.435`
-
-This lower score is expected and useful. It shows the real benchmark is much
-harder than the synthetic one, which makes it a better proof set for the
-hackathon story.
-
-## Current Status
-
-- Environment working locally
-- Heuristic baseline working
-- Learned Q-policy working
-- FastAPI server working
-- Typed Swagger docs working
-- `/state` endpoint working
-- `mark_positive` action working
-- OpenEnv validation passing
-- Dockerfile present
-- Reporting artifacts generated
-- Hugging Face Space deployed and responding
-- Real-page dataset drafting pipeline complete
-- Finalized real benchmark frozen at `49` reviewed pages
-- Final real-benchmark evaluator added
-
-## Next Steps
-
-- Replace the remaining `11` weak real-page candidates if a fuller benchmark is needed
-- Improve heuristic or learned policy performance on the frozen real benchmark
-- Verify Docker build end to end on a machine with Docker installed
+Then: `http://localhost:8000/docs`
