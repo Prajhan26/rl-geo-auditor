@@ -105,6 +105,9 @@ One issue. The one that is actually there. Nothing invented.
 
 The reward delta on the 4-page eval split is -0.009 — noise at that scale. The behavioral change is real and consistent: the model hallucinates less and produces shorter, more precise outputs.
 
+![Training evidence — SFT loss, GRPO signal unlock, and episode rewards](artifacts/training_curves.png)
+*Left: SFT loss 3.153 → 0.841 over 15 epochs. Center: GRPO reward variance 0.000 → 0.172 — RL produces no signal until SFT converges first. Right: episode rewards over 2,500 training steps.*
+
 ![Reward comparison — heuristic vs LLM before and after training](artifacts/round2_comparison.png)
 *Heuristic baseline (0.964) sets the ceiling. LLM before (0.467) vs after SFT+GRPO (0.458) — delta is noise on 4 pages, behavioral improvements are real.*
 
