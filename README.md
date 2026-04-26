@@ -10,7 +10,39 @@ short_description: GEO audit RL environment with FastAPI endpoints.
 
 # GEO Audit Environment
 
-A reinforcement-learning-style GEO auditing environment for hackathon use.
+I built this project out of a pretty simple frustration.
+
+Around GEO, AI search, answer engines, and AI for SEO work, I kept seeing teams spend serious money without a clean way to evaluate whether an agent was actually good at the job. I’ve been close to this with companies and teams around names like MoonPay, Ledger, Alto, and QuickNode, and the pattern was always similar: lots of opinions, lots of content, lots of spend, but no real environment for testing behavior end to end.
+
+Most tools in this space can generate recommendations. Very few let you put an agent inside a workflow, inspect what it does, grade it programmatically, compare baselines, and try training against that loop.
+
+That gap is why this repo exists.
+
+This project turns GEO auditing into an environment. An agent gets a page and a target query, inspects structured page signals, flags issues, submits a report, and gets scored against benchmark truth. The goal is not just to make GEO advice sound smart. The goal is to make GEO work measurable, testable, and eventually trainable.
+
+## Why This Matters
+
+Right now, a lot of GEO and AI for SEO work still gets judged in a pretty weak way. Someone runs prompts, gets suggestions back, maybe ships a few changes, and then everyone argues about whether the output was actually useful. That might be fine for brainstorming. It is not fine if you want to evaluate agents, compare approaches, or trust automation in a workflow that affects distribution, traffic, and revenue.
+
+I wanted something stricter than that.
+
+This repo is my attempt to make GEO work feel more like a proper task environment instead of a loose consulting exercise. If an agent says a page has weak metadata, poor answer structure, missing schema, or weak trust signals, it should be possible to score that claim against benchmark truth instead of just nodding along because the wording sounds confident.
+
+## What Makes This Different
+
+Most SEO or GEO tools are built to help a person audit a page.
+
+This project is built to evaluate and train agents on the workflow itself.
+
+That means a few things:
+
+- there is a structured action space instead of one vague text box
+- there is a verifier and reward logic instead of only subjective review
+- there are benchmark tasks across difficulty levels
+- there is a local API, Docker packaging, and Hugging Face deployment
+- there is a baseline policy and a training path, even if training still has room to improve
+
+I think that distinction matters. A tool that gives nice GEO suggestions is useful. An environment where agent behavior can be measured, compared, and improved is a different kind of asset.
 
 ## What This Project Does
 
@@ -23,6 +55,8 @@ webpages. An agent:
 3. flags GEO issues
 4. submits a report
 5. receives reward based on agreement with labeled ground truth
+
+In practice, I think of it less like a toy SEO checker and more like evaluation infrastructure for serious GEO workflows. If people are going to trust AI for SEO and AI search visibility work, they need something better than prompts, opinions, and screenshots. They need a task environment, a verifier, and a benchmark.
 
 The repo now contains both:
 

@@ -110,6 +110,7 @@ print(f"  flagged: {example['flagged']}")
 
 # %%
 MODEL_NAME = "unsloth/Qwen2.5-7B-Instruct"
+MAX_GENERATION_TOKENS = 80
 
 ISSUE_TYPES = GeoAuditEnvironment.ISSUE_TYPES
 POSITIVE_TYPES = GeoAuditEnvironment.POSITIVE_TYPES
@@ -128,6 +129,9 @@ Rules:
 - Only flag issues clearly supported by the page signals.
 - Do not invent issues. False positives are penalized.
 - If no issues are present, return {{"issues":[]}}.
+- Return exactly one JSON object.
+- Do not add explanation text before or after the JSON.
+- Keep the response short.
 - Return valid JSON only, no markdown fences, no prose."""
 
 
@@ -146,8 +150,8 @@ def build_prompt(page_data: Dict) -> str:
         f"Has date: {page_data.get('has_date', False)}\n"
         f"Has sources: {page_data.get('has_sources', False)}\n"
         f"Source count: {page_data.get('source_count', 0)}\n\n"
-        "Return your audit as raw JSON.\n"
-        'Example valid response: {"issues":[{"type":"no_sources","severity":"medium"}]}\n'
+        "Return your audit as raw JSON only.\n"
+        'Example valid response: {"issues":[{"type":"thin_content","severity":"medium"}]}\n'
         'If no issue is clearly supported, return {"issues":[]}.'
     )
 
@@ -164,6 +168,38 @@ def parse_completion(text: str) -> List[Dict]:
         return [i for i in issues if isinstance(i, dict) and i.get("type") in ACTIVE_ISSUE_TYPES]
     except Exception:
         return []
+
+
+def extract_json_payload(text: str) -> Dict | None:
+    try:
+        match = re.search(r"\{.*\}", text, re.DOTALL)
+        if not match:
+            return None
+        payload = json.loads(match.group())
+        return payload if isinstance(payload, dict) else None
+    except Exception:
+        return None
+
+
+def completion_diagnostics(completion: str, ground_truth_issues: List[Dict]) -> Dict:
+    payload = extract_json_payload(completion)
+    raw_issues = payload.get("issues") if isinstance(payload, dict) else None
+    parsed = parse_completion(completion)
+    truth = [issue for issue in ground_truth_issues if issue.get("type") in ACTIVE_ISSUE_TYPES]
+    flagged_types = {issue["type"] for issue in parsed if isinstance(issue, dict)}
+    truth_types = {issue["type"] for issue in truth}
+    token_estimate = len(completion.split())
+    return {
+        "score": score_completion(completion, truth),
+        "fp_rate": false_positive_rate(completion, truth),
+        "parse_ok": bool(payload is not None and isinstance(raw_issues, list)),
+        "empty_prediction": len(flagged_types) == 0,
+        "completion_tokens": token_estimate,
+        "completion_chars": len(completion),
+        "hit_length_cap": token_estimate >= max(1, MAX_GENERATION_TOKENS - 5),
+        "false_positive_count": len(flagged_types - truth_types),
+        "missed_count": len(truth_types - flagged_types),
+    }
 
 
 def format_reward(completion: str) -> float:
@@ -226,6 +262,9 @@ def false_positive_rate(completion: str, ground_truth_issues: List[Dict]) -> flo
 
 def eval_pages_metrics(pages: List[Dict], model, tokenizer) -> Dict:
     scores, fp_rates = [], []
+    parse_success, empty_predictions = [], []
+    completion_tokens, completion_chars, hit_cap = [], [], []
+    per_page_scores = []
     for page in pages:
         messages = [
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -236,24 +275,43 @@ def eval_pages_metrics(pages: List[Dict], model, tokenizer) -> Dict:
             return_tensors="pt"
         ).to(model.device)
         with torch.no_grad():
-            outputs = model.generate(inputs, max_new_tokens=256, temperature=0.0, do_sample=False)
+            outputs = model.generate(
+                inputs,
+                max_new_tokens=MAX_GENERATION_TOKENS,
+                temperature=0.0,
+                do_sample=False,
+            )
         completion = tokenizer.decode(outputs[0][inputs.shape[-1]:], skip_special_tokens=True)
         gt = page.get("issues", [])
-        scores.append(score_completion(completion, gt))
-        fp_rates.append(false_positive_rate(completion, gt))
+        diag = completion_diagnostics(completion, gt)
+        scores.append(diag["score"])
+        fp_rates.append(diag["fp_rate"])
+        parse_success.append(float(diag["parse_ok"]))
+        empty_predictions.append(float(diag["empty_prediction"]))
+        completion_tokens.append(diag["completion_tokens"])
+        completion_chars.append(diag["completion_chars"])
+        hit_cap.append(float(diag["hit_length_cap"]))
+        per_page_scores.append(diag["score"])
     return {
         "avg_reward":   round(float(np.mean(scores)),   3),
         "avg_fp_rate":  round(float(np.mean(fp_rates)), 3),
+        "parse_success_rate": round(float(np.mean(parse_success)), 3),
+        "empty_prediction_rate": round(float(np.mean(empty_predictions)), 3),
+        "avg_completion_tokens": round(float(np.mean(completion_tokens)), 1),
+        "avg_completion_chars": round(float(np.mean(completion_chars)), 1),
+        "hit_length_cap_rate": round(float(np.mean(hit_cap)), 3),
         "min_reward":   round(float(np.min(scores)),    3),
         "max_reward":   round(float(np.max(scores)),    3),
+        "per_page_scores": per_page_scores,
     }
 
 
 print(f"Model: {MODEL_NAME}")
 print(f"Training approach: GRPO via TRL + Unsloth")
 print(f"Reward: F1-like score on issue detection, -0.1 per false positive")
-print(f"Warm start: lightweight SFT on easy tasks before GRPO")
+print(f"Warm start: broadened SFT foothold before GRPO")
 print(f"Experiment mode: {EXPERIMENT_MODE}")
+print(f"Generation cap: {MAX_GENERATION_TOKENS} tokens")
 
 # %% [markdown]
 # ## Section D — Load Dataset
@@ -349,9 +407,13 @@ eval_dataset  = pages_to_dataset(eval_pages)
 print(f"Train dataset: {len(train_dataset)} rows")
 print(f"Eval dataset:  {len(eval_dataset)} rows")
 
-easy_train_pages = [p for p in train_pages if p.get("difficulty") == "easy"]
-if not easy_train_pages:
-    easy_train_pages = train_pages[: max(1, len(train_pages) // 3)]
+sft_candidate_pages = [page for page in train_pages if any(
+    issue.get("type") in ACTIVE_ISSUE_TYPES for issue in page.get("issues", [])
+)]
+if not sft_candidate_pages:
+    sft_candidate_pages = train_pages
+random.shuffle(sft_candidate_pages)
+print(f"SFT source pages: {len(sft_candidate_pages)}")
 
 # %% [markdown]
 # ## Section E — Baseline LLM Run (Before Training)
@@ -385,7 +447,12 @@ def run_llm_baseline(pages: List[Dict], model, tokenizer, n: int = None) -> List
             return_tensors="pt"
         ).to(model.device)
         with torch.no_grad():
-            outputs = model.generate(inputs, max_new_tokens=256, temperature=0.0, do_sample=False)
+            outputs = model.generate(
+                inputs,
+                max_new_tokens=MAX_GENERATION_TOKENS,
+                temperature=0.0,
+                do_sample=False,
+            )
         completion = tokenizer.decode(outputs[0][inputs.shape[-1]:], skip_special_tokens=True)
         score = score_completion(completion, page.get("issues", []))
         scores.append(score)
@@ -394,9 +461,11 @@ def run_llm_baseline(pages: List[Dict], model, tokenizer, n: int = None) -> List
 
 print("Running LLM baseline (eval split) …")
 baseline_metrics = eval_pages_metrics(eval_pages, model, tokenizer)
-baseline_scores  = [baseline_metrics["avg_reward"]]   # kept for compat
+baseline_scores  = baseline_metrics["per_page_scores"]
 print(f"LLM baseline  avg={baseline_metrics['avg_reward']:.3f}  "
-      f"fp_rate={baseline_metrics['avg_fp_rate']:.3f}")
+      f"fp_rate={baseline_metrics['avg_fp_rate']:.3f}  "
+      f"parse={baseline_metrics['parse_success_rate']:.3f}  "
+      f"hit_cap={baseline_metrics['hit_length_cap_rate']:.3f}")
 
 # record example
 example_page = eval_pages[0]
@@ -408,14 +477,25 @@ inputs = tokenizer.apply_chat_template(
     messages, tokenize=True, add_generation_prompt=True, return_tensors="pt"
 ).to(model.device)
 with torch.no_grad():
-    out = model.generate(inputs, max_new_tokens=256, temperature=0.0, do_sample=False)
+    out = model.generate(
+        inputs,
+        max_new_tokens=MAX_GENERATION_TOKENS,
+        temperature=0.0,
+        do_sample=False,
+    )
 baseline_example_output = tokenizer.decode(out[0][inputs.shape[-1]:], skip_special_tokens=True)
 baseline_example_score  = score_completion(baseline_example_output, example_page.get("issues", []))
+baseline_example_diag = completion_diagnostics(baseline_example_output, example_page.get("issues", []))
 
 print(f"\nBaseline example (page: {example_page['url'][:60]}):")
 print(f"  Ground truth issues: {[i['type'] for i in example_page.get('issues', [])]}")
 print(f"  Model output: {baseline_example_output[:300]}")
 print(f"  Score: {baseline_example_score:.3f}")
+print(
+    f"  Parse ok: {baseline_example_diag['parse_ok']}  "
+    f"tokens: {baseline_example_diag['completion_tokens']}  "
+    f"hit_cap: {baseline_example_diag['hit_length_cap']}"
+)
 
 # %% [markdown]
 # ## Section F — SFT Warm Start + GRPO Training
@@ -437,7 +517,7 @@ model = FastLanguageModel.get_peft_model(
     use_gradient_checkpointing="unsloth",
     random_state=42,
 )
-sft_dataset = pages_to_sft_dataset(easy_train_pages, tokenizer)
+sft_dataset = pages_to_sft_dataset(sft_candidate_pages, tokenizer)
 print(f"SFT warm-start dataset: {len(sft_dataset)} rows")
 
 # %%
@@ -451,11 +531,11 @@ if len(sft_dataset) > target_sft_examples:
 
 sft_args = SFTConfig(
     output_dir="outputs/round2_sft",
-    num_train_epochs=3,
-    per_device_train_batch_size=2,
-    gradient_accumulation_steps=4,
+    num_train_epochs=15,
+    per_device_train_batch_size=1,
+    gradient_accumulation_steps=1,
     learning_rate=2e-5,
-    logging_steps=2,
+    logging_steps=5,
     save_strategy="no",
     report_to="none",
     seed=42,
@@ -468,12 +548,14 @@ sft_trainer = SFTTrainer(
     processing_class=tokenizer,
 )
 
-print("Starting SFT warm start on easy tasks …")
+print("Starting SFT warm start on train-split pages …")
 sft_result = sft_trainer.train()
 print("SFT warm start complete.")
 print(f"  Train loss: {sft_result.training_loss:.4f}")
 if sft_result.training_loss > 1.5:
     print("  WARNING: SFT loss still high — warm start may not have worked")
+elif sft_result.training_loss < 0.8:
+    print("  GOOD: SFT looks strong enough for GRPO refinement")
 
 
 _reward_log: List[Dict] = []
@@ -490,6 +572,8 @@ def reward_fn(completions: List[str], ground_truth_issues: List[str], **kwargs) 
         truth_types   = {i["type"] for i in gt_issues if i.get("type") in ACTIVE_ISSUE_TYPES}
         fp_count      = len(flagged_types - truth_types)
         fp_penalty    = -0.2 * fp_count
+        token_estimate = len(completion.split())
+        parse_ok = extract_json_payload(completion) is not None
 
         total = correctness + fmt
         rewards.append(total)
@@ -498,6 +582,9 @@ def reward_fn(completions: List[str], ground_truth_issues: List[str], **kwargs) 
             "format":      round(fmt, 3),
             "fp_penalty":  round(fp_penalty, 3),
             "total":       round(total, 3),
+            "tokens":      token_estimate,
+            "parse_ok":    parse_ok,
+            "hit_cap":     token_estimate >= max(1, MAX_GENERATION_TOKENS - 5),
         })
     # print decomposed reward every 8 calls
     if len(_reward_log) % 8 == 0 and _reward_log:
@@ -507,6 +594,9 @@ def reward_fn(completions: List[str], ground_truth_issues: List[str], **kwargs) 
             f"  format={np.mean([r['format'] for r in recent]):.3f}"
             f"  fp_penalty={np.mean([r['fp_penalty'] for r in recent]):.3f}"
             f"  total={np.mean([r['total'] for r in recent]):.3f}"
+            f"  tokens={np.mean([r['tokens'] for r in recent]):.1f}"
+            f"  parse_ok={np.mean([float(r['parse_ok']) for r in recent]):.2f}"
+            f"  hit_cap={np.mean([float(r['hit_cap']) for r in recent]):.2f}"
         )
     return rewards
 
@@ -558,23 +648,36 @@ FastLanguageModel.for_inference(model)
 
 print("Running post-training evaluation on eval split …")
 trained_metrics = eval_pages_metrics(eval_pages, model, tokenizer)
-trained_scores  = [trained_metrics["avg_reward"]]   # kept for compat
+trained_scores  = trained_metrics["per_page_scores"]
 print(f"Trained model  avg={trained_metrics['avg_reward']:.3f}  "
-      f"fp_rate={trained_metrics['avg_fp_rate']:.3f}")
+      f"fp_rate={trained_metrics['avg_fp_rate']:.3f}  "
+      f"parse={trained_metrics['parse_success_rate']:.3f}  "
+      f"hit_cap={trained_metrics['hit_length_cap_rate']:.3f}")
 
 # trained example output
 inputs = tokenizer.apply_chat_template(
     messages, tokenize=True, add_generation_prompt=True, return_tensors="pt"
 ).to(model.device)
 with torch.no_grad():
-    out = model.generate(inputs, max_new_tokens=256, temperature=0.0, do_sample=False)
+    out = model.generate(
+        inputs,
+        max_new_tokens=MAX_GENERATION_TOKENS,
+        temperature=0.0,
+        do_sample=False,
+    )
 trained_example_output = tokenizer.decode(out[0][inputs.shape[-1]:], skip_special_tokens=True)
 trained_example_score  = score_completion(trained_example_output, example_page.get("issues", []))
+trained_example_diag = completion_diagnostics(trained_example_output, example_page.get("issues", []))
 
 print(f"\nTrained example (same page as baseline):")
 print(f"  Ground truth issues: {[i['type'] for i in example_page.get('issues', [])]}")
 print(f"  Model output: {trained_example_output[:300]}")
 print(f"  Score: {trained_example_score:.3f}")
+print(
+    f"  Parse ok: {trained_example_diag['parse_ok']}  "
+    f"tokens: {trained_example_diag['completion_tokens']}  "
+    f"hit_cap: {trained_example_diag['hit_length_cap']}"
+)
 
 # %% [markdown]
 # ## Section H — Save Evidence
