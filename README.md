@@ -10,6 +10,12 @@ short_description: GEO audit RL environment with FastAPI endpoints.
 
 # GEO Audit Environment
 
+**Live environment:** https://samunhashed-geo-audit-env.hf.space  
+**API docs:** https://samunhashed-geo-audit-env.hf.space/docs  
+**Full writeup:** [docs/ROUND2_WRITEUP.md](docs/ROUND2_WRITEUP.md)
+
+---
+
 I built this project out of a pretty simple frustration.
 
 Around GEO, AI search, answer engines, and AI for SEO work, I kept seeing teams spend serious money without a clean way to evaluate whether an agent was actually good at the job. I've been close to this with companies and teams around names like MoonPay, Ledger, Alto, and QuickNode, and the pattern was always similar: lots of opinions, lots of content, lots of spend, but no real environment for testing behavior end to end.
@@ -95,6 +101,12 @@ One issue. The one that is actually there. Nothing invented.
 | parse success | 1.00 | 1.00 |
 
 The reward delta on the 4-page eval split is -0.009 — noise at that scale. The behavioral change is real and consistent: the model hallucinates less and produces shorter, more precise outputs.
+
+![Reward comparison — heuristic vs LLM before and after training](artifacts/round2_comparison.png)
+*Heuristic baseline (0.964) sets the ceiling. LLM before (0.467) vs after SFT+GRPO (0.458) — delta is noise on 4 pages, behavioral improvements are real.*
+
+![Behavioral improvements after training](artifacts/round2_behavioral.png)
+*Left: false positive rate 0.333 → 0.250 (25% fewer hallucinated issues). Right: response length 96 → 56 chars (42% more concise).*
 
 **5. Safeguards**
 
