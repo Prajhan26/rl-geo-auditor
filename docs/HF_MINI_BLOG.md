@@ -21,9 +21,29 @@ The reward formula:
 reward = F1(flagged, truth) - (0.1 × false_positive_count)
 ```
 
-False positives get penalized twice. Once through precision collapsing inside the F1. Again through the explicit multiplier. Flooding every page with every known issue type is a losing strategy by design. A clean page that receives an empty report scores 1.0, which means knowing when to say nothing is part of the task.
+In plain English: the agent gets credit for finding real problems and loses credit for making things up. If it invents issues that are not there, it gets penalized twice — once for being wrong, again with an explicit deduction. Flooding the report with every possible issue type is always a losing move.
 
-Before showing this to anyone, I tried to break it. Flag nothing. Flag everything. Memorize which issue types appear most often. None of those strategies dominated cleanly. I documented exactly where the reward is soft, because pretending it is unbeatable would be dishonest.
+A clean page that receives an empty report scores 1.0. Knowing when to say nothing is part of the task.
+
+Before showing this to anyone, I tried to break it myself. Flag nothing. Flag everything. Memorize which issue types appear most often. None of those strategies dominated cleanly. I documented exactly where the reward is soft, because pretending it is unbeatable would be dishonest.
+
+## Before and after — same page, same environment
+
+This is the clearest way to see what training did. Take a page with two real issues: `thin_content` and `missing_meta_description`.
+
+**Before training**, the untrained 7B model outputs:
+```json
+{"issues":[{"type":"thin_content"},{"type":"no_direct_answer"},{"type":"missing_schema"}]}
+```
+It found one real issue. It invented two that are not there. Reward: 0.133.
+
+**After training**, the same model outputs:
+```json
+{"issues":[{"type":"thin_content"}]}
+```
+One issue. The one that is actually there. Nothing invented. Reward: 0.5.
+
+The model did not get smarter about GEO. It got more honest about what it actually knows.
 
 ## What training actually looked like
 
